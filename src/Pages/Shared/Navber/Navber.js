@@ -8,7 +8,7 @@ const Navber = () => {
         <Link
           to="/"
           title="New Products"
-          className="lg:px-20 px-12 py-4 uppercase lg:border-r border-solid border-slate-900 text-md"
+          className="lg:px-20 px-12 py-4 hover:bg-gray-900  hover:text-lime-400 lg:border-r border-solid border-slate-900 text-md transition duration-300 "
         >
           New
         </Link>
@@ -17,16 +17,16 @@ const Navber = () => {
         <Link
           to="/"
           title="New Products"
-          className="lg:px-20 px-12 py-4 uppercase lg:border-r border-solid border-slate-900 text-md"
+          className="lg:px-20 px-12 py-4 hover:bg-gray-900  hover:text-lime-400 lg:border-r border-solid border-slate-900 text-md transition duration-300 "
         >
-          WoMan
+          Woman
         </Link>
       </li>
       <li className="rounded-none">
         <Link
           to="/"
           title="New Products"
-          className="lg:px-20 px-12 py-4 hover:bg-gray-900  hover:text-lime-400 lg:border-r border-solid border-slate-900 text-md"
+          className="lg:px-20 px-12 py-4 hover:bg-gray-900  hover:text-lime-400 lg:border-r border-solid border-slate-900 text-md transition duration-300 "
         >
           Man
         </Link>
