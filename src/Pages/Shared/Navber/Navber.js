@@ -64,7 +64,7 @@ const Navber = () => {
           </div>
           <Link
             to="/"
-            className="lg:px-24 px-10 py-3 uppercase lg:border-r border-solid border-x-slate-900 font-bold text-2xl"
+            className="hover:text-lime-500 lg:px-32 px-10 py-3 uppercase lg:border-r border-solid border-x-slate-900 font-bold text-2xl"
           >
             Bliss
           </Link>
