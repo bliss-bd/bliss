@@ -36,7 +36,7 @@ const Navber = () => {
   );
   return (
     <div>
-      <div className="navbar justify-between py-3 px-0 border-b border-slate-900 border-solid bg-base-100 ">
+      <div className="navbar justify-between py-3 mx-0  px-0 my-0 border-b border-slate-900 border-solid bg-base-100 ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -64,7 +64,7 @@ const Navber = () => {
           </div>
           <Link
             to="/"
-            className="lg:px-24 px-12 py-3 uppercase lg:border-r border-solid border-x-slate-900 font-bold text-2xl"
+            className="lg:px-24 px-10 py-3 uppercase lg:border-r border-solid border-x-slate-900 font-bold text-2xl"
           >
             Bliss
           </Link>
@@ -72,7 +72,7 @@ const Navber = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className=" menu-horizontal px-1">
             {menu}
-            <li className="rounded-none lg:px-20 flex items-center">
+            <li className="rounded-none lg:px-24  flex items-center">
               <Link to="/" title="New Products" className="text-md">
                 <div className="dropdown dropdown-hover">
                   <label tabIndex={0} className="rounded-full cursor-pointer">
@@ -91,7 +91,7 @@ const Navber = () => {
                   </ul>
                 </div>
               </Link>
-              <Link to="/" title="New Products" className="px-2 text-md">
+              <Link to="/" title="New Products" className="lg:px-5 text-md">
                 Log In
               </Link>
               <Link to="/" title="New Products" className="text-md">
