@@ -1,4 +1,6 @@
 import React from "react";
+import "../../Shared/Navber/Navber.css";
+import bliss from "../../../assets/Bliss LOGO- Ontor[1].png";
 
 const BannerName = () => (
   <div>
@@ -7,12 +9,10 @@ const BannerName = () => (
         <div>
           <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400"></p>
         </div>
-        <h2 className="max-w-lg mb-6 font-sans text-3xl leading-none tracking-tight text-lime-400 sm:text-4xl md:mx-auto">
-          <span className="relative inline-block">
-            <span className="relative text-7xl font-extrabold text-black">BLISS</span>
-          </span>{" "}
-        </h2>
-        <p className="text-base md:text-lg bg-lime-500 lg:mx-32 py-1">bliss bliss bliss</p>
+        <img src={bliss} alt="Bliss logo" className="max-w-lg mx-auto"></img>
+        <p className="bliss text-base md:text-lg bg-lime-500  lg:mx-32 mx-0 py-1">
+          Bliss bliss bliss
+        </p>
       </div>
     </div>
   </div>
