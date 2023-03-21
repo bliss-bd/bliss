@@ -3,6 +3,7 @@ import men from "../../../assets/men.jpg";
 import women from "../../../assets/women.jpg";
 import bliss11 from "../../../assets/bliss11.jpg";
 import "./Banner.css";
+import { GiLobArrow } from "react-icons/gi";
 const Banner2 = () => {
   return (
     <div>
@@ -13,6 +14,7 @@ const Banner2 = () => {
               <img className="object-cover w-full height " src={men} alt="" />
               <div className="absolute inset-0 px-6 py-4 transition-opacity duration-200 from-lime-300 bg-gradient-to-t bg-opacity-75 opacity-0 hover:opacity-75">
                 <p className="mb-4 text-lg font-bold text-justify text-gray-900">SHOP MEN</p>
+                <GiLobArrow className="h-12 w-12"></GiLobArrow>
               </div>
             </div>
           </a>
@@ -25,6 +27,7 @@ const Banner2 = () => {
               <div className="absolute inset-0 px-6 py-4 transition-opacity duration-200 from-lime-300 bg-gradient-to-t bg-opacity-75 opacity-0 hover:opacity-75">
                 {" "}
                 <p className="mb-4 text-lg font-bold text-justify text-gray-900">SHOP NEW</p>
+                <GiLobArrow className="h-12 w-12"></GiLobArrow>
               </div>
             </div>
           </a>
@@ -36,6 +39,7 @@ const Banner2 = () => {
               <div className="absolute inset-0 px-6 py-4 transition-opacity duration-200 from-lime-300 bg-gradient-to-t bg-opacity-75 opacity-0 hover:opacity-75">
                 {" "}
                 <p className="mb-4 text-lg font-bold text-justify text-gray-900">SHOP WOMEN</p>
+                <GiLobArrow className="h-12 w-12"></GiLobArrow>
               </div>
             </div>
           </a>
