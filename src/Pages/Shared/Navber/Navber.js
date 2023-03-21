@@ -49,43 +49,9 @@ export default function Navber() {
               mdOptionsToggle ? "hidden" : "flex"
             }  lg:hidden py-5 px-6 items-center justify-between`}
           >
-            <div className="flex items-center space-x-3 text-gray-800">
-              <div>
-                <svg
-                  className="fill-stroke"
-                  width={20}
-                  height={20}
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M18.9984 18.9999L14.6484 14.6499"
-                    stroke="currentColor"
-                    strokeWidth="1.25"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <input
-                type="text"
-                placeholder="Search for products"
-                className="text-sm leading-none dark:text-gray-300 dark:bg-gray-900 text-gray-600 focus:outline-none"
-              />
-            </div>
+            <button>LogIn</button>
             <div className="space-x-6">
-              <button
-                aria-label="view favourites"
-                className="text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
-              >
+              <button aria-label="view favourites" className="text-gray-800  ">
                 <svg
                   className="fill-stroke"
                   width={16}
@@ -103,10 +69,7 @@ export default function Navber() {
                   />
                 </svg>
               </button>
-              <button
-                aria-label="go to cart"
-                className="text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
-              >
+              <button aria-label="go to cart" className="text-gray-800">
                 <svg
                   className="fill-stroke"
                   width={18}
@@ -142,19 +105,19 @@ export default function Navber() {
           </div>
           {/* For md screen size */}
           {/* For large screens */}
-          <div className="px-6 lg:border-b border-solid border-slate-900">
+          <div className=" lg:px-6 px-2 lg:border-b border-solid border-slate-900">
             <div className="flex items-center justify-between">
-              <h1 className="bliss  hover:text-lime-400 px-24 py-5 font-extrabold text-xl drop-shadow-2xl  text-gray-800 lg:border-r border-solid border-slate-900">
+              <Link
+                to="/"
+                className="bliss transition duration-300 cursor-pointer hover:text-lime-400 xl:px-24 lg:px-16 px-8 md:px-5 py-5 font-extrabold text-xl drop-shadow-2xl  text-gray-800 lg:border-r border-solid border-slate-900"
+              >
                 BLISS
-              </h1>
+              </Link>
               <div className="flex items-center justify-center">
                 <ul className="hidden w-8/12 md:flex items-center justify-end py-6">{menu}</ul>
                 <div className="justify-end flex items-center px-20">
                   <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
-                    <button
-                      aria-label="view favourites"
-                      className="text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
-                    >
+                    <button aria-label="view favourites" className="text-gray-800 ">
                       <svg
                         className="fill-stroke"
                         width={24}
@@ -173,10 +136,7 @@ export default function Navber() {
                       </svg>
                     </button>
                     <button>LogIn</button>
-                    <button
-                      aria-label="go to cart"
-                      className="text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
-                    >
+                    <button aria-label="go to cart" className="text-gray-800 ">
                       <svg
                         className="fill-stroke"
                         width={26}
@@ -213,7 +173,7 @@ export default function Navber() {
                     <button
                       aria-label="show options"
                       onClick={() => setMdOptionsToggle(!mdOptionsToggle)}
-                      className="text-black dark:text-white dark:hover:text-gray-300 hidden md:flex focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
+                      className="text-black  hidden md:flex rounded "
                     >
                       <svg
                         className="fill-stroke"
@@ -249,7 +209,7 @@ export default function Navber() {
                     <button
                       aria-label="open menu"
                       onClick={() => setShowMenu(true)}
-                      className="text-black dark:text-white dark:hover:text-gray-300 md:hidden focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
+                      className="text-black  md:hidden rounded "
                     >
                       <svg
                         className="fill-stroke"
@@ -292,48 +252,21 @@ export default function Navber() {
             id="mobile-menu"
             className={`${
               showMenu ? "flex" : "hidden"
-            } absolute dark:bg-gray-900 z-10 inset-0 md:hidden bg-white flex-col h-screen w-full`}
+            } absolute  z-10 inset-0 md:hidden bg-white flex-col h-screen w-full`}
           >
-            <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4 p-4">
+            <div className="flex items-center justify-between border-b dark:border-gray-700 pb-4 p-4">
               <div className="flex items-center space-x-3">
                 <div>
-                  <svg
-                    className="fill-stroke text-gray-800 dark:text-white"
-                    width={20}
-                    height={20}
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z"
-                      stroke="currentColor"
-                      strokeWidth="1.25"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M18.9984 18.9999L14.6484 14.6499"
-                      stroke="currentColor"
-                      strokeWidth="1.25"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <button>Login</button>
                 </div>
-                <input
-                  type="text"
-                  placeholder="Search for products"
-                  className="text-sm dark:bg-gray-900 text-gray-600 placeholder-gray-600 dark:placeholder-gray-300 focus:outline-none"
-                />
               </div>
               <button
                 onClick={() => setShowMenu(false)}
                 aria-label="close menu"
-                className="focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
+                className="text-gray-800 rounded "
               >
                 <svg
-                  className="fill-stroke text-gray-800 dark:text-white"
+                  className="fill-stroke text-gray-800"
                   width={16}
                   height={16}
                   viewBox="0 0 16 16"
@@ -356,112 +289,7 @@ export default function Navber() {
               </button>
             </div>
             <div className="mt-6 p-4">
-              <ul className="flex flex-col space-y-6">
-                <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  >
-                    Home
-                    <div>
-                      <svg
-                        className="fill-stroke text-black dark:text-white"
-                        width={12}
-                        height={12}
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4.5 3L7.5 6L4.5 9"
-                          stroke="currentColor"
-                          strokeWidth="0.75"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  >
-                    Furniture
-                    <div>
-                      <svg
-                        className="fill-stroke text-black dark:text-white"
-                        width={12}
-                        height={12}
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4.5 3L7.5 6L4.5 9"
-                          stroke="currentColor"
-                          strokeWidth="0.75"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  >
-                    Lookbook
-                    <div>
-                      <svg
-                        className="fill-stroke text-black dark:text-white"
-                        width={12}
-                        height={12}
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4.5 3L7.5 6L4.5 9"
-                          stroke="currentColor"
-                          strokeWidth="0.75"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  >
-                    Support
-                    <div>
-                      <svg
-                        className="fill-stroke text-black dark:text-white"
-                        width={12}
-                        height={12}
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4.5 3L7.5 6L4.5 9"
-                          stroke="currentColor"
-                          strokeWidth="0.75"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </a>
-                </li>
-              </ul>
+              <ul className="flex flex-col space-y-6">{menu}</ul>
             </div>
             <div className="h-full flex items-end">
               <ul className="flex flex-col space-y-8 bg-gray-50 w-full py-10 p-4 dark:bg-gray-800">
