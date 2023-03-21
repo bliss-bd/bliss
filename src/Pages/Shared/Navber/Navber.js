@@ -23,7 +23,7 @@ export default function Navber() {
           title="New Products"
           className="lg:px-20 px-12 py-6 hover:bg-gray-900  hover:text-lime-400 lg:border-r border-solid border-slate-900 text-md transition duration-300 "
         >
-          Woman
+          Women
         </Link>
       </li>
       <li className="rounded-none">
@@ -32,7 +32,7 @@ export default function Navber() {
           title="New Products"
           className="lg:px-20 px-12 py-6 hover:bg-gray-900  hover:text-lime-400 lg:border-r border-solid border-slate-900 text-md transition duration-300 "
         >
-          Man
+          Men
         </Link>
       </li>
     </>
