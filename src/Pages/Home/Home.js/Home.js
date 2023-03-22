@@ -2,6 +2,7 @@ import React from "react";
 import Banner from "../Banner/Banner";
 import Banner2 from "../Banner/Banner2";
 import BannerName from "../BannerName/BannerName";
+import NewDrops from "../NewDrops/NewDrops";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <div className=" lg:inline hidden md:hidden">
         <Banner2></Banner2>
       </div>
+      <NewDrops></NewDrops>
     </div>
   );
 };
