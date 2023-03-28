@@ -2,6 +2,7 @@ import React from "react";
 import Banner from "../Banner/Banner";
 import Banner2 from "../Banner/Banner2";
 import BannerName from "../BannerName/BannerName";
+import Discount from "../Discount/Discount";
 import NewDrops from "../NewDrops/NewDrops";
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
         <Banner2></Banner2>
       </div>
       <NewDrops></NewDrops>
+      <Discount></Discount>
     </div>
   );
 };
