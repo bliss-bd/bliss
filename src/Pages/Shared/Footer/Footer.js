@@ -77,12 +77,12 @@ const Footer = () => {
 
           <div class="flex items-center justify-center flex-col sm:flex-row w-full h-[100px] bg-gray-200  gap-y-[45px] lg:py-0 ">
             <ul class="flex justify-center gap-7 text-gray-black cursor-pointer w-full lg:w-2/4 bg-white py-5 md:py-9 lg:py-9">
-              <span>
+              <a target="blink" href="https://www.facebook.com/blissclothingbangladesh">
                 <TfiFacebook className="w-6 h-8"></TfiFacebook>
-              </span>
-              <span>
+              </a>
+              <a target="blink" href="https://www.instagram.com/blissclothingbd/">
                 <BsInstagram className="w-6 h-8 text-center"></BsInstagram>
-              </span>
+              </a>
               <span>
                 <ImYoutube className="w-6 h-8"></ImYoutube>
               </span>

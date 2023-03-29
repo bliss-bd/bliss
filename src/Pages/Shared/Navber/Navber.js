@@ -10,7 +10,7 @@ export default function Navber() {
     <>
       <li className="rounded-none">
         <Link
-          to="/"
+          to="/shopnew"
           title="New Products"
           className="lg:px-20 px-12 py-6 hover:bg-gray-900  hover:text-lime-400 lg:border-r border-solid border-slate-900 text-md transition duration-300 "
         >
@@ -19,8 +19,8 @@ export default function Navber() {
       </li>
       <li className="rounded-none">
         <Link
-          to="/"
-          title="New Products"
+          to="/shopwomen"
+          title="women"
           className="lg:px-20 px-12 py-6 hover:bg-gray-900  hover:text-lime-400 lg:border-r border-solid border-slate-900 text-md transition duration-300 "
         >
           Women
@@ -28,8 +28,8 @@ export default function Navber() {
       </li>
       <li className="rounded-none">
         <Link
-          to="/"
-          title="New Products"
+          to="/shopmen"
+          title="men"
           className="lg:px-20 px-12 py-6 hover:bg-gray-900  hover:text-lime-400 lg:border-r border-solid border-slate-900 text-md transition duration-300 "
         >
           Men
