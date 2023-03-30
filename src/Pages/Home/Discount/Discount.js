@@ -2,6 +2,7 @@ import React from "react";
 import RAF from "../../../assets/RAF.jpg";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import ShopPreview from "../ShopPreview/ShopPreview";
 const Discount = () => {
   return (
     <div>
@@ -18,6 +19,8 @@ const Discount = () => {
           <img alt="Violin" src={RAF} className="md:rounded-tl-[60px]" />
         </div>
       </div>
+
+      <ShopPreview></ShopPreview>
       <div className="my-12">
         <h1 className="flex lg:gap-8 mx-1 items-center justify-center text-4xl font-bold text-black underline cursor-pointer">
           <span>

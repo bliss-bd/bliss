@@ -14,7 +14,7 @@ const ShopWomen = () => {
         <div>
           <a href="#" className="block overflow-hidden group">
             <img
-              src={women}
+              src="https://drive.google.com/file/d/1tMFJMi49j4PHXN3BZYP4SLhbZ-7gt_bF/view"
               alt=""
               className="h-[350px] w-full object-cover transition duration-300 group-hover:scale-125 sm:h-[450px]"
             />

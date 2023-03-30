@@ -7,7 +7,7 @@ import { GiLobArrow } from "react-icons/gi";
 const Banner2 = () => {
   return (
     <div>
-      <div className=" grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-6 gap-2">
+      <div className=" grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4  pt-6 gap-2">
         <div className="">
           <a href="/" aria-label="View Item">
             <div className="relative ">
