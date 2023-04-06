@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { userContext } from "../../../Contexts/UserContexts/UserContexts";
 import "./Navber.css";
 
 export default function Navber() {
   const [mdOptionsToggle, setMdOptionsToggle] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
+  const { user } = useContext(userContext);
 
   const menu = (
     <>
@@ -135,7 +137,7 @@ export default function Navber() {
                         />
                       </svg>
                     </button>
-                    <button>LogIn</button>
+                    <button>{user}</button>
                     <button aria-label="go to cart" className="text-gray-800 ">
                       <svg
                         className="fill-stroke"
@@ -257,7 +259,7 @@ export default function Navber() {
             <div className="flex items-center justify-between border-b dark:border-gray-700 pb-4 p-4">
               <div className="flex items-center space-x-3">
                 <div>
-                  <button>Login</button>
+                  <button>{user}</button>
                 </div>
               </div>
               <button

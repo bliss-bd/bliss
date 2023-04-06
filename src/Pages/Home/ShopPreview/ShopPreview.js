@@ -81,7 +81,7 @@ const ShopPreview = () => {
             width="560"
             height="315"
             preload="auto"
-            autoplay
+            autoPlay
             muted
             src="insert you video url here"
             type="video"

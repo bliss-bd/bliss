@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import men from "../../../assets/men.jpg";
+import { Button } from "../../../Button/Button";
 
 const NewDrops = () => {
   return (
@@ -182,9 +183,7 @@ const NewDrops = () => {
           </div>
         </div>
       </section>
-      <button className="px-14 py-2 font-semibold text-lime-500 bg-black hover:bg-lime-400 hover:text-gray-900 border-2 border-gray-900 transition duration-300">
-        Shop More
-      </button>
+      <Button>{"Shop More"}</Button>
     </div>
   );
 };
