@@ -12,7 +12,6 @@ const Usercontexts = ({ children }) => {
   const info = {
     user,
   };
-
   return <userContext.Provider value={info}>{children}</userContext.Provider>;
 };
 
