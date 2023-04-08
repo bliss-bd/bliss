@@ -3,6 +3,7 @@ import men from "../../../assets/men.jpg";
 import { Button } from "../../../Button/Button";
 
 const NewDrops = () => {
+
   return (
     <div className="mb-8">
       <section>

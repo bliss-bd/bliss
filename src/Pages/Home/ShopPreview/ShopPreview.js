@@ -5,18 +5,18 @@ import Bliss from "../../../assets/Bliss.mov";
 const ShopPreview = () => {
   return (
     <div>
-      <section class="relative h-[380px] md:h-[640px] lg:h-[820px] flex flex-col items-center justify-center text-center text-white ">
-        <div class="video-docker absolute top-0 left-0 w-full h-full overflow-hidden">
+      <section className="relative h-[380px] md:h-[640px] lg:h-[820px] flex flex-col items-center justify-center text-center text-white ">
+        <div className="video-docker absolute top-0 left-0 w-full h-full overflow-hidden">
           <video
             src={Bliss}
-            class="min-w-full min-h-full absolute object-cover"
+            className="min-w-full min-h-full absolute object-cover"
             type="video/mov"
             autoPlay
             muted
             loop
           ></video>
         </div>
-        <div class="video-content space-y-2 w-24 lg:w-36 z-10">
+        <div className="video-content space-y-2 w-24 lg:w-36 z-10">
           <img src={bliss} />
         </div>
       </section>
