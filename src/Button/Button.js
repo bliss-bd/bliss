@@ -3,7 +3,7 @@ import "./Button.css";
 export const Button = ({ button }) => {
   return (
     <button>
-      <span>
+      <span className="button">
         <a href="#">{button}</a>
       </span>
     </button>

@@ -1,5 +1,5 @@
 
-  span{
+  .button{
     position: relative;
     display: inline-flex;
     width: 180px;
@@ -7,7 +7,7 @@
     margin: 0 15px;
     perspective: 1000px;
   }
-  span a{
+  .button a{
     font-size: 19px;
     letter-spacing: 1px;
     transform-style: preserve-3d;
@@ -16,8 +16,8 @@
     font-family: 'Montserrat', sans-serif;
     
   }
-  span a:before,
-  span a:after{
+  .button a:before,
+  .button a:after{
     position: absolute;
     content: "SHOP MORE";
     height: 55px;
@@ -29,17 +29,17 @@
     box-sizing: border-box;
     border-radius: 5px;
   }
-  span a:before{
-    color: #73ff00;
+  .button a:before{
+    color: #8af104;
     background: #000;
     transform: rotateY(0deg) translateZ(25px);
   }
-  span a:after{
+  .button a:after{
     color: #000;
-    background: #73ff00;
+    background: #8af104;
     transform: rotateX(90deg) translateZ(25px);
   }
-  span a:hover{
+  .button a:hover{
     transform: translateZ(-25px) rotateX(-90deg);
   }
   

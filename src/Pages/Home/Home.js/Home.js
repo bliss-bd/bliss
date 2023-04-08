@@ -4,6 +4,7 @@ import Banner2 from "../Banner/Banner2";
 import BannerName from "../BannerName/BannerName";
 import Discount from "../Discount/Discount";
 import NewDrops from "../NewDrops/NewDrops";
+import ShopPreview from "../ShopPreview/ShopPreview";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
         <Banner2></Banner2>
       </div>
       <NewDrops></NewDrops>
+      <ShopPreview></ShopPreview>
       <Discount></Discount>
     </div>
   );
