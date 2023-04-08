@@ -4,11 +4,12 @@ import women from "../../../assets/women.jpg";
 import bliss11 from "../../../assets/bliss11.jpg";
 import "./Banner.css";
 import { GiLobArrow } from "react-icons/gi";
+import { Link } from "react-router-dom";
 const Banner2 = () => {
   return (
     <div>
       <div className=" grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4  pt-6 gap-2">
-        <div className="">
+        <Link to="/shopmen" className="">
           <a href="/" aria-label="View Item">
             <div className="relative ">
               <img className="object-cover w-full height " src={men} alt="" />
@@ -18,8 +19,8 @@ const Banner2 = () => {
               </div>
             </div>
           </a>
-        </div>
-        <div className="  lg:col-span-2">
+        </Link>
+        <Link to="/shopnew" className="  lg:col-span-2">
           <a href="/" aria-label="View Item">
             {" "}
             <div className="relative ">
@@ -31,8 +32,8 @@ const Banner2 = () => {
               </div>
             </div>
           </a>
-        </div>
-        <div className="">
+        </Link>
+        <Link to="/shopwomen">
           <a href="/" aria-label="View Item">
             <div className="relative ">
               <img className="object-cover w-full height " src={women} alt="" />
@@ -43,7 +44,7 @@ const Banner2 = () => {
               </div>
             </div>
           </a>
-        </div>
+        </Link>
       </div>
     </div>
   );
