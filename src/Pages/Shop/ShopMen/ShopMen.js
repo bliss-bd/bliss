@@ -1,7 +1,22 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import men from "../../../assets/men.jpg";
+import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
+import NewDrop from "../../Home/NewDrop/NewDrop";
 
 const ShopMen = () => {
+  const { data: productMen, isLoading } = useQuery({
+    queryKey: ["productMen"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/productMen?category=men");
+      const data = await res.json();
+      return data;
+    },
+  });
+  if (isLoading) {
+    return <LoaderCard></LoaderCard>;
+  }
+
   return (
     <div className="mb-8">
       <header className="text-center">
@@ -11,48 +26,9 @@ const ShopMen = () => {
       </header>
 
       <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-4 lg:mx-14 mx-6 py-6 sm:px-6 sm:py-8 lg:px-8">
-        <div>
-          <a href="#" className="block overflow-hidden group">
-            <img
-              src={men}
-              alt=""
-              className="h-[350px] w-full object-cover transition duration-300 group-hover:scale-125 sm:h-[450px]"
-            />
-
-            <div className="relative pt-3 bg-white">
-              <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-                Basic Tee
-              </h3>
-
-              <p className="mt-2">
-                <span className="sr-only"> Regular Price </span>
-
-                <span className="tracking-wider text-gray-900"> £24.00 GBP </span>
-              </p>
-            </div>
-          </a>
-        </div>
-        <div>
-          <a href="#" className="block overflow-hidden group">
-            <img
-              src={men}
-              alt=""
-              className="h-[350px] w-full object-cover transition duration-300 group-hover:scale-125 sm:h-[450px]"
-            />
-
-            <div className="relative pt-3 bg-white">
-              <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-                Basic Tee
-              </h3>
-
-              <p className="mt-2">
-                <span className="sr-only"> Regular Price </span>
-
-                <span className="tracking-wider text-gray-900"> £24.00 GBP </span>
-              </p>
-            </div>
-          </a>
-        </div>
+        {productMen?.map((productMen) => (
+          <NewDrop products={productMen} key={productMen._id}></NewDrop>
+        ))}
       </div>
     </div>
   );

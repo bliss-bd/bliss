@@ -89,9 +89,9 @@ const Footer = () => {
               <span>
                 <FaPinterestP className="w-6 h-8"></FaPinterestP>
               </span>
-              <span>
+              <a href="https://www.tiktok.com/@blissbd" target="blink">
                 <BsTiktok className="w-6 h-8"></BsTiktok>
-              </span>
+              </a>
             </ul>
             <div className="text-gray-600 w-full bg-gray-200 pb-5 lg:pb-0">
               {" "}
