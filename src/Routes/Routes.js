@@ -6,6 +6,7 @@ import Product from "../Pages/Shop/Product/Product";
 import ShopMen from "../Pages/Shop/ShopMen/ShopMen";
 import ShopNew from "../Pages/Shop/ShopNew/ShopNew";
 import ShopWomen from "../Pages/Shop/ShopWomen/ShopWomen";
+import SignUp from "./SignUp/SignUp";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const Routes = () => {
         {
           path: "/shopwomen",
           element: <ShopWomen></ShopWomen>,
+        },
+        {
+          path: "/signup",
+          element: <SignUp></SignUp>,
         },
       ],
     },

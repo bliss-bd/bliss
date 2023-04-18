@@ -8,7 +8,7 @@ import { ImYoutube } from "react-icons/im";
 const Footer = () => {
   return (
     <div>
-      <div className="mt-[75px] border-t border-solid border-black">
+      <div className="border-t border-solid border-black">
         <div className="flex flex-col mx-auto  h-auto">
           <div className="flex lg:items-center lg:justify-between flex-col lg:flex-row gap-y-[45px]  lg:py-0  w-full h-auto lg:h-[380px] bg-white">
             <div className="lg:w-4/12 bg-bl bg-black h-full lg:pt-24 md:pt-16 py-12">
