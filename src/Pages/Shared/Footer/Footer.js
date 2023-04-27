@@ -24,7 +24,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex justify-center lg:gap-44 gap-16 md:gap-24 flex-wrap lg:flex-nowrap  lg:w-7/12">
+            <div className="flex justify-center lg:gap-44 gap-6 md:gap-24 flex-wrap lg:flex-nowrap  lg:w-7/12">
               <div className="text-center sm:text-left">
                 <div className="mb-[18px] text-gray-500 text-sm font-bold select-none">SHOP</div>
 
