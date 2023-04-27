@@ -24,7 +24,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex justify-center lg:gap-44 gap-6 md:gap-24 flex-wrap lg:flex-nowrap  lg:w-7/12">
+            <div className="flex justify-center lg:gap-44 gap-4 md:gap-24 flex-wrap lg:flex-nowrap  lg:w-7/12">
               <div className="text-center sm:text-left">
                 <div className="mb-[18px] text-gray-500 text-sm font-bold select-none">SHOP</div>
 
@@ -65,17 +65,17 @@ const Footer = () => {
                     <li>Store policy </li>
                   </a>
                   <a className="hover:underline" href="#">
-                    <li>Shipping & Returns</li>
+                    <li>Shipping </li>
                   </a>
                   <a className="hover:underline" href="#">
-                    <li>Payment Methods </li>
+                    <li>Payments </li>
                   </a>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center justify-center flex-col sm:flex-row w-full h-[100px] bg-gray-200  gap-y-[45px] lg:py-0 ">
+          <div className="flex items-center justify-center flex-col sm:flex-row w-full h-[100px] bg-gray-200 gap-y-[25px]  lg:gap-y-[45px] lg:py-0 ">
             <ul className="flex justify-center gap-7 text-gray-black cursor-pointer w-full lg:w-2/4 bg-white py-5 md:py-9 lg:py-9">
               <a target="blink" href="https://www.facebook.com/blissclothingbangladesh">
                 <TfiFacebook className="w-6 h-8"></TfiFacebook>

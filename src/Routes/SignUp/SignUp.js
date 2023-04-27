@@ -7,12 +7,12 @@ import wave from "../../assets/wave-haikei (4).svg";
 const SignUp = () => {
   return (
     <div>
-      <div class="relative min-h-screen flex ">
+      <div class="relative max-h-screen flex ">
         <div class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto w-full bg-white">
           <div class="md:flex md:items-center md:justify-center  md:h-full w-full lg:w-4/12 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white ">
             <div class="max-w-md w-full space-y-8">
               <div class="text-center">
-                <div class="lg:pl-20 mx-auto">
+                <div class="lg:pl-20 mx-auto ">
                   <iframe src="https://embed.lottiefiles.com/animation/28497"></iframe>
                 </div>
                 <p class="mt-2 text-sm text-gray-500">Please sign in to your account</p>
