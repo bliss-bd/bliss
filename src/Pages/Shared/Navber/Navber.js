@@ -1,79 +1,95 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navber.css";
 import { FaTiktok, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { RxCrossCircled } from "react-icons/rx";
 
 const Navber = () => {
+  const [hasStyle, setHasStyle] = useState(false);
+
+  const handleOpenMenu = () => {
+    setHasStyle(true);
+  };
+
+  const handleCloseMenu = () => {
+    setHasStyle(false);
+  };
+
   const menu = (
     <>
-      <li className="rounded-none">
-        <Link
-          to="/shopnew"
-          title="New Products"
-          className="lg:px-20 px-12 py-6 hover:bg-gray-900  hover:text-lime-400 lg:border-r border-solid border-slate-900 text-md transition duration-300 "
-        >
-          New
+      <li className="menuItems p-3 xl:p-6">
+        <Link to="/shopnew" title="new" onClick={handleCloseMenu}>
+          <span>New</span>
+          <svg viewBox="0 0 13 20">
+            <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+          </svg>
         </Link>
       </li>
-      <li className="rounded-none">
-        <Link
-          to="/shopwomen"
-          title="women"
-          className="lg:px-20 px-12 py-6 hover:bg-gray-900  hover:text-lime-400 lg:border-r border-solid border-slate-900 text-md transition duration-300 "
-        >
-          Women
+      <li className="menuItems p-3 xl:p-6">
+        <Link to="/shopwomen" title="women" onClick={handleCloseMenu}>
+          <span>Women</span>
+          <svg viewBox="0 0 13 20">
+            <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+          </svg>
         </Link>
       </li>
-      <li class="p-3 xl:p-6">
-        <a href="">
-          <span>Projects</span>
-        </a>
+      <li className="menuItems p-3 xl:p-6">
+        <Link to="/shopmen" title="men" onClick={handleCloseMenu}>
+          <span>Men</span>
+          <svg viewBox="0 0 13 20">
+            <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+          </svg>
+        </Link>
       </li>
     </>
   );
 
   return (
     <div className="">
-      <header class=" bg-white shadow-md h-20 hidden md:flex">
-        <div className="logo h-20 px-2 border-r flex items-center justify-center ">
+      <header class=" bg-white shadow-md h-20 md:flex">
+        <div className="logo h-20 lg:px-2 border-r flex items-center justify-between">
           <Link to="/">
-            <img class="w-36 my-4 px-4 mx-8" src="https://i.ibb.co/tqgmVWj/logo.png" alt="" />
+            <img
+              class="w-36 my-4 px-4 mx-2 lg:mx-8"
+              src="https://i.ibb.co/tqgmVWj/logo.png"
+              alt=""
+            />
           </Link>
+          <div class="lg:hidden mx-8 pt-2">
+            <button
+              aria-label="Open Menu"
+              title="Open Menu"
+              class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
+              onClick={handleOpenMenu}
+            >
+              <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                />
+                <path
+                  fill="currentColor"
+                  d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+                />
+                <path
+                  fill="currentColor"
+                  d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-        <nav class="header-links contents font-semibold text-base lg:text-lg">
+        <nav class="header-links hidden lg:contents font-semibold text-base lg:text-lg">
           <ul class="flex items-center ml-4 xl:ml-8 mr-auto">
             <li className="menuItems p-3 xl:p-6">
-              <Link to="/" title="men">
+              <Link to="/" title="men" onClick={handleCloseMenu}>
                 <span>Home</span>
                 <svg viewBox="0 0 13 20">
                   <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                 </svg>
               </Link>
             </li>
-            <li className="menuItems p-3 xl:p-6">
-              <Link to="/shopnew" title="new">
-                <span>New</span>
-                <svg viewBox="0 0 13 20">
-                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-                </svg>
-              </Link>
-            </li>
-            <li className="menuItems p-3 xl:p-6">
-              <Link to="/shopwomen" title="women">
-                <span>Women</span>
-                <svg viewBox="0 0 13 20">
-                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-                </svg>
-              </Link>
-            </li>
-            <li className="menuItems p-3 xl:p-6">
-              <Link to="/shopmen" title="men">
-                <span>Men</span>
-                <svg viewBox="0 0 13 20">
-                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-                </svg>
-              </Link>
-            </li>
+            {menu}
           </ul>
         </nav>
         <nav class="hidden xl:contents">
@@ -107,12 +123,68 @@ const Navber = () => {
             </li>
           </ul>
         </nav>
-        <div class="border flex items-center px-4 lg:px-6 xl:px-8">
+        <div class="border hidden lg:flex items-center px-4 lg:px-6 xl:px-8">
           <button class="bg-black hover:bg-gray-700 text-white font-bold px-4 xl:px-6 py-2 xl:py-3 rounded">
             Contact Me
           </button>
         </div>
       </header>
+      {/* <!-- mobile nav menu start --> */}
+      <div
+        className={hasStyle ? " inline fixed z-50 bg-white top-0 left-0 w-full h-screen" : "hidden"}
+      >
+        <div>
+          <ul id="menu-mobile-1" class="menu ml-0 lg:ml-2">
+            <div className=" h-20 lg:px-2 shadow-md  flex items-center justify-between">
+              <Link to="/" onClick={handleCloseMenu}>
+                <img
+                  class="w-36 my-4 px-4 mx-2 lg:mx-8"
+                  src="https://i.ibb.co/tqgmVWj/logo.png"
+                  alt=""
+                />
+              </Link>
+              <nav class="mt-2">
+                <ul class="flex items-center">
+                  <li class="">
+                    <a
+                      target="blink"
+                      href="https://www.facebook.com/blissclothingbangladesh"
+                      class="inline-block rounded-full border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                    >
+                      <FaFacebookF></FaFacebookF>
+                    </a>
+                  </li>
+                  <li class="p-1">
+                    <a
+                      target="blink"
+                      href="https://www.instagram.com/blissclothingbd/"
+                      class="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                    >
+                      <FaInstagram></FaInstagram>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a
+                      target="blink"
+                      href="https://www.tiktok.com/@blissbd"
+                      class="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                    >
+                      <FaTiktok></FaTiktok>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="lg:hidden mx-8 pt-2">
+                <button class="text-2xl mx-1 mt-1" onClick={handleCloseMenu}>
+                  <RxCrossCircled></RxCrossCircled>
+                </button>
+              </div>
+            </div>
+            {menu}
+          </ul>
+        </div>
+      </div>
+      {/* <!-- mobile nav menu end --> */}
     </div>
   );
 };
