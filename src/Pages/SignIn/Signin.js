@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import "../SignUp/Form.css";
 import { FaFacebookSquare, FaGooglePlus } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -6,8 +6,9 @@ import { userContext } from "../../Contexts/UserContexts/UserContexts";
 import { toast } from "react-hot-toast";
 
 const SignIn = () => {
+  const [email, setEmail] = useState('')
 
-  const { googleLogin, signInUser } = useContext(userContext);
+  const { googleLogin, signInUser,forgetPassword } = useContext(userContext);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -58,6 +59,28 @@ const SignIn = () => {
       .catch((error) => console.log(error));
   };
 
+
+  
+  const recoverPassword = () => {
+    forgetPassword(email)
+        .then(() => {
+          toast.success('Password reset email sent!', {
+            style: {
+                border: '1px solid #713200',
+                padding: '16px',
+                color: '#713200',
+            },
+            iconTheme: {
+                primary: '#713200',
+                secondary: '#FFFAEE',
+            },
+        });
+        })
+        .catch(error => console.log(error))
+}
+
+
+
   return (
     <div>
       <div class="relative max-h-screen flex">
@@ -83,6 +106,7 @@ const SignIn = () => {
               <div class="relative">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Email</label>
                   <input
+                    onBlur={(e) => setEmail(e.target.value)}
                     class=" w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-lime-500"
                     type="email"
                     name="email"
@@ -100,7 +124,7 @@ const SignIn = () => {
                 </div>
                 <div class="flex items-center justify-between">
                   <div class="flex items-center"></div>
-                  <div class="text-sm">
+                  <div class="text-sm" onClick={recoverPassword}>
                     <a href="#" class="text-indigo-400 hover:text-blue-500">
                       Forgot your password?
                     </a>

@@ -6,8 +6,11 @@ import Product from "../Pages/Shop/Product/Product";
 import ShopMen from "../Pages/Shop/ShopMen/ShopMen";
 import ShopNew from "../Pages/Shop/ShopNew/ShopNew";
 import ShopWomen from "../Pages/Shop/ShopWomen/ShopWomen";
-import SignIn from "./SignIn/Signin";
-import SignUp from "./SignUp/SignUp";
+import SignUp from "../Pages/SignUp/SignUp"
+import SignIn from "../Pages/SignIn/Signin"
+import Error from "../Pages/Error/Error"
+import PrivateRoute from "../Routes/PrivateRoute"
+import Dashboard from "../layouts/Dashboard/Dashboard"
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -46,6 +49,19 @@ const Routes = () => {
         },
       ],
     },
+    {
+      path: '/dashboard',
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children: [
+          // {
+          //     path: '/dashboard',
+          //     element: <DashboardFeautre></DashboardFeautre>
+          // },  
+  ]},
+    {
+      path: '*',
+      element: <Error></Error>
+  }
   ]);
   return <RouterProvider router={router} />;
 };

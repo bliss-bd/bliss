@@ -142,6 +142,7 @@ const Navber = () => {
           <ul class="flex items-center mr-4 lg:mr-6 xl:mr-8">
             <li class="p-1 mx-4 ">
               <Link
+              to="/dashboard"
                 class="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
               >
                 <CgProfile></CgProfile>
@@ -222,16 +223,9 @@ const Navber = () => {
             {menu}
             {user?.uid ?
             <>
-            <li className="menuItems p-3 xl:p-6">
-              <Link to="/shopwomen" title="women" onClick={handleCloseMenu}>
-                <span>Women</span>
-                <svg viewBox="0 0 13 20">
-                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-                </svg>
-              </Link>
-            </li>
             <li class="menuItems p-3 xl:p-6">
               <Link
+              to="/dashboard"
               >
               <span>Dashboard Profile</span>
               <svg viewBox="0 0 13 20">

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import "./Form.css";
 import { FaFacebookSquare, FaGooglePlus } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -6,7 +6,11 @@ import { userContext } from "../../Contexts/UserContexts/UserContexts";
 import { toast } from "react-hot-toast";
 
 const SignUp = () => {
+  const [error, setError] =  useState(null)
+
+  
   const { googleLogin,register, updateUserProfile } = useContext(userContext);
+
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,6 +24,17 @@ const SignUp = () => {
       const email = form.email.value;
       // const type = form.type.value;
       const password = form.password.value;
+      const confirmPassword = form.confirmPassword.value;
+      
+      if (password !== confirmPassword) {
+        setError('Your password did not match')
+        return; 
+      }
+      if (password.length < 6) {
+          setError('Your Password should be 6 characters or more')
+          return;
+      }
+
       register(email, password)
           .then(result => {
               const user = result.user;
@@ -82,6 +97,8 @@ const SignUp = () => {
       .catch((error) => console.log(error));
   };
 
+
+
   return (
     <div>
       <div class="relative max-h-screen flex ">
@@ -135,7 +152,7 @@ const SignUp = () => {
                     placeholder="Enter your password"
                   />
                 </div>
-                {/* <div class="my-8 content-center">
+                <div class="my-8 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Confirm Password
                   </label>
@@ -145,7 +162,10 @@ const SignUp = () => {
                     name="confirmPassword"
                     placeholder="Confirm password"
                   />
-                </div> */}
+                </div>
+                <div>
+                <p className='text-red-500'>{error}</p>
+                </div>
                 <div>
                   <button
                     type="submit"
