@@ -5,7 +5,7 @@ import Routes from "./Routes/Routes";
 function App() {
   return (
     <div className="App">
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster   position="top-center" reverseOrder={false} />
       <Routes></Routes>
     </div>
   );

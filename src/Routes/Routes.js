@@ -6,6 +6,7 @@ import Product from "../Pages/Shop/Product/Product";
 import ShopMen from "../Pages/Shop/ShopMen/ShopMen";
 import ShopNew from "../Pages/Shop/ShopNew/ShopNew";
 import ShopWomen from "../Pages/Shop/ShopWomen/ShopWomen";
+import SignIn from "./SignIn/Signin";
 import SignUp from "./SignUp/SignUp";
 
 const Routes = () => {
@@ -38,6 +39,10 @@ const Routes = () => {
         {
           path: "/signup",
           element: <SignUp></SignUp>,
+        },
+        {
+          path: "/signin",
+          element: <SignIn></SignIn>,
         },
       ],
     },

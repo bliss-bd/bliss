@@ -1,18 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navber.css";
 import { FaTiktok, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
+import { userContext } from "../../../Contexts/UserContexts/UserContexts";
+import { toast } from "react-hot-toast";
+import { GoSignOut } from "react-icons/go";
+import { CgProfile } from "react-icons/cg";
 
 const Navber = () => {
+  const { user, logout } = useContext(userContext);
   const [hasStyle, setHasStyle] = useState(false);
-
+  console.log(user)
   const handleOpenMenu = () => {
     setHasStyle(true);
   };
 
   const handleCloseMenu = () => {
     setHasStyle(false);
+  };
+
+  const handleSignOut = () => {
+    logout()
+      .then(() => {
+        toast.success("SuccessFully Sign out");
+      })
+      .then((error) => console.error(error));
   };
 
   const menu = (
@@ -123,10 +136,36 @@ const Navber = () => {
             </li>
           </ul>
         </nav>
-        <div class="border hidden lg:flex items-center px-4 lg:px-6 xl:px-8">
-          <button class="bg-black hover:text-lime-300 text-white font-bold px-4 xl:px-6 py-2 xl:py-3 rounded">
-            Sign in
-          </button>
+        <div class="border-l hidden lg:flex items-center px-4 lg:px-6 xl:px-8">
+          {user?.uid ?
+            <>
+          <ul class="flex items-center mr-4 lg:mr-6 xl:mr-8">
+            <li class="p-1 mx-4 ">
+              <Link
+                class="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+              >
+                <CgProfile></CgProfile>
+              </Link>
+                <p className="text-xs">Dashboard Profile</p>
+            </li>
+            <li onClick={handleSignOut} class="p-1 ">
+              <Link
+              
+                class="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+              >
+                <GoSignOut className="text-center"></GoSignOut>
+              </Link>
+                <p className="text-xs">Sign Out</p>
+            </li>
+          </ul>
+            </>
+           : 
+            <Link to="/signin">
+              <button class="bg-black hover:text-lime-300 text-white font-bold px-4 xl:px-6 py-2 xl:py-3 rounded">
+                Sign in
+              </button>
+            </Link>
+          }
         </div>
       </header>
       {/* <!-- mobile nav menu start --> */}
@@ -181,6 +220,48 @@ const Navber = () => {
               </div>
             </div>
             {menu}
+            {user?.uid ?
+            <>
+            <li className="menuItems p-3 xl:p-6">
+              <Link to="/shopwomen" title="women" onClick={handleCloseMenu}>
+                <span>Women</span>
+                <svg viewBox="0 0 13 20">
+                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                </svg>
+              </Link>
+            </li>
+            <li class="menuItems p-3 xl:p-6">
+              <Link
+              >
+              <span>Dashboard Profile</span>
+              <svg viewBox="0 0 13 20">
+                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                </svg>
+              </Link>
+            </li>
+            <li onClick={handleSignOut} class="menuItems p-3 xl:p-6">
+              <Link
+              onClick={handleCloseMenu}
+              >
+              <span> Sign Out </span>
+              <svg viewBox="0 0 13 20">
+                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                </svg>
+              </Link>
+            </li>
+            </>
+           : 
+           <li  class="menuItems p-3 xl:p-6" onClick={handleCloseMenu}>
+           <Link
+           to='/signin'
+           >
+           <span> Sign In </span>
+           <svg viewBox="0 0 13 20">
+               <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+             </svg>
+           </Link>
+         </li>
+          }
           </ul>
         </div>
       </div>
