@@ -6,8 +6,8 @@ import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 const Discount = () => {
   return (
     <div>
-      <div className="mt-12 grid lg:grid-cols-3 md:grid-cols-2">
-        <div className="lg:col-span-2 text-center sm:text-left py-14 lg:pt-64 h-full from-lime-300  bg-gradient-to-t bg-opacity-75 ">
+      <div className="mt-12 grid mx-auto lg:grid-cols-3 md:grid-cols-2">
+        <div className="lg:col-span-2 md:col-span-1 col-span-1 text-center sm:text-left py-14 lg:pt-64 h-full from-lime-300  bg-gradient-to-t bg-opacity-75 ">
           <BsLightningChargeFill className="text-center mx-auto w-20 h-16 text-black"></BsLightningChargeFill>
           <p className="hidden text-gray-700 text-center text-2xl md:mt-4 md:block">SALE IS ON!</p>
           <h2 className="text-2xl font-bold text-black text-center md:text-9xl">25% OFF</h2>
@@ -15,10 +15,15 @@ const Discount = () => {
             25% off sitewide using TEES25 at checkout
           </p>
         </div>
-        <div>
-          <img alt="Violin" src={RAF} className="md:rounded-tl-[60px]" />
+        <div className="lg:col-span-1 md:col-span-1">
+          <img
+            alt="Violin"
+            src={RAF}
+            className="md:rounded-tl-[60px] lg:rounded-tl-[60px] h-full"
+          />
         </div>
       </div>
+
       <div className="my-12">
         <h1 className="flex lg:gap-8 mx-1 items-center justify-center text-4xl font-bold text-black underline cursor-pointer">
           <span>

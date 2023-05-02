@@ -124,8 +124,8 @@ const Navber = () => {
           </ul>
         </nav>
         <div class="border hidden lg:flex items-center px-4 lg:px-6 xl:px-8">
-          <button class="bg-black hover:bg-gray-700 text-white font-bold px-4 xl:px-6 py-2 xl:py-3 rounded">
-            Contact Me
+          <button class="bg-black hover:text-lime-300 text-white font-bold px-4 xl:px-6 py-2 xl:py-3 rounded">
+            Sign in
           </button>
         </div>
       </header>
