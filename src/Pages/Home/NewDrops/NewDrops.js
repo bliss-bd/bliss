@@ -25,7 +25,7 @@ const NewDrops = () => {
             <h2 className="text-xl my-12 font-bold text-gray-900 sm:text-4xl">New Drops</h2>
           </header>
 
-          <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 lg:gap-14 grid-cols-2 lg:grid-cols-4">
             {products?.slice(0,8).map((products) => (
               <NewDrop products={products} key={products._id}></NewDrop>
             ))}
