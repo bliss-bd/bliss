@@ -22,25 +22,25 @@ const Product = () => {
   return (
     <div>
       <section>
-        <div class="relative mx-auto max-w-screen-xl px-4 py-8">
+        <div className="relative mx-auto max-w-screen-xl px-4 py-8">
           <div>
-            <h1 class="text-2xl font-bold lg:text-3xl">{name}</h1>
+            <h1 className="text-2xl font-bold lg:text-3xl">{name}</h1>
 
-            <p class="mt-1 text-sm text-gray-500">SKU: {stock}</p>
+            <p className="mt-1 text-sm text-gray-500">SKU: {stock}</p>
           </div>
 
-          <div class="grid gap-8 lg:grid-cols-4 lg:items-start">
-            <div class="lg:col-span-3">
-              <div class="relative mt-4">
+          <div className="grid gap-8 lg:grid-cols-4 lg:items-start">
+            <div className="lg:col-span-3">
+              <div className="relative mt-4">
                 <img
                   alt="Tee"
                   src={picture}
-                  class="h-96 w-full px-5 lg:px-56  rounded-xl object-cover lg:h-full"
+                  className="h-96 w-full px-5 lg:px-56  rounded-xl object-cover lg:h-full"
                 />
 
-                <div class="absolute bottom-4 left-1/2 inline-flex -translate-x-1/2 items-center rounded-full bg-black/75 px-3 py-1.5 text-white">
+                <div className="absolute bottom-4 left-1/2 inline-flex -translate-x-1/2 items-center rounded-full bg-black/75 px-3 py-1.5 text-white">
                   <svg
-                    class="h-4 w-4"
+                    className="h-4 w-4"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -54,47 +54,47 @@ const Product = () => {
                     />
                   </svg>
 
-                  <span class="ml-1.5 text-xs"> Hover to zoom </span>
+                  <span className="ml-1.5 text-xs"> Hover to zoom </span>
                 </div>
               </div>
 
-              <ul class="mt-1 flex gap-1">
+              <ul className="mt-1 flex gap-1">
                 <li>
-                  <img alt="Tee" src={picture} class="h-16 w-16 rounded-md object-cover" />
+                  <img alt="Tee" src={picture} className="h-16 w-16 rounded-md object-cover" />
                 </li>
 
                 <li>
-                  <img alt="Tee" src={picture} class="h-16 w-16 rounded-md object-cover" />
+                  <img alt="Tee" src={picture} className="h-16 w-16 rounded-md object-cover" />
                 </li>
 
                 <li>
-                  <img alt="Tee" src={picture} class="h-16 w-16 rounded-md object-cover" />
+                  <img alt="Tee" src={picture} className="h-16 w-16 rounded-md object-cover" />
                 </li>
 
                 <li>
-                  <img alt="Tee" src={picture} class="h-16 w-16 rounded-md object-cover" />
+                  <img alt="Tee" src={picture} className="h-16 w-16 rounded-md object-cover" />
                 </li>
               </ul>
             </div>
 
-            <div class="lg:sticky lg:top-0">
-              <form class="space-y-4 lg:pt-8">
+            <div className="lg:sticky lg:top-0">
+              <form className="space-y-4 lg:pt-8">
                 <fieldset>
-                  <legend class="text-lg font-bold">Color : {color}</legend>
+                  <legend className="text-lg font-bold">Color : {color}</legend>
                 </fieldset>
 
                 <fieldset>
-                  <div class="mt-2 mx-auto gap-1">
-                    <label for="material_cotton" class="cursor-pointer">
+                  <div className="mt-2 mx-auto gap-1">
+                    <label for="material_cotton" className="cursor-pointer">
                       <input
                         type="radio"
                         id="material_cotton"
                         name="material"
-                        class="peer sr-only"
+                        className="peer sr-only"
                         checked
                       />
 
-                      <span class="block rounded-full border border-gray-200 px-3 py-1 text-xs peer-checked:bg-gray-100">
+                      <span className="block rounded-full border border-gray-200 px-3 py-1 text-xs peer-checked:bg-gray-100">
                         For : {category}
                       </span>
                     </label>
@@ -102,15 +102,15 @@ const Product = () => {
                 </fieldset>
 
                 {/*  */}
-                <fieldset class="my-6">
-                  <legend class="my-3 text-lg font-bold">Size</legend>
+                <fieldset className="my-6">
+                  <legend className="my-3 text-lg font-bold">Size</legend>
 
-                  <div class="flex justify-center items-center mx-auto gap-1">
+                  <div className="flex justify-center items-center mx-auto gap-1">
                     {size?.map((size) => (
-                      <label for="size_xs" class="cursor-pointer">
-                        <input type="radio" name="size" id="size_xs" class="peer sr-only" />
+                      <label for="size_xs" className="cursor-pointer">
+                        <input type="radio" name="size" id="size_xs" className="peer sr-only" />
 
-                        <span class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white">
+                        <span className="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white">
                           {size}
                         </span>
                       </label>
@@ -120,14 +120,14 @@ const Product = () => {
                 {/*  */}
 
                 <div>
-                  <p class="text-xl font-bold  justify-center flex items-center">
+                  <p className="text-xl font-bold  justify-center flex items-center">
                     <TbCurrencyTaka></TbCurrencyTaka> {price} Taka
                   </p>
                 </div>
 
                 <button
                   type="submit"
-                  class="w-full rounded border-4 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-6 py-3 text-sm font-bold uppercase tracking-wide "
+                  className="w-full rounded border-4 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-6 py-3 text-sm font-bold uppercase tracking-wide "
                 >
                   Add to cart
                 </button>
@@ -158,8 +158,8 @@ const Product = () => {
               </div>
             </div>
 
-            <div class="lg:col-span-3">
-              <div class="prose max-w-none">
+            <div className="lg:col-span-3">
+              <div className="prose max-w-none">
                 <p className="text-start">
                   {" "}
                   <span className="text-lg font-bold"> Product Info : </span>

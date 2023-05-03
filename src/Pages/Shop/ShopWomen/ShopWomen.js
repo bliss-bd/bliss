@@ -8,7 +8,7 @@ const ShopWomen = () => {
   const { data: productWomen, isLoading } = useQuery({
     queryKey: ["productWomen"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/productWomen?category=women");
+      const res = await fetch("https://bliss-server-9w8y.vercel.app/productWomen?category=women");
       const data = await res.json();
       return data;
     },

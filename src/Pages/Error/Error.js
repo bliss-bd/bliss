@@ -17,7 +17,7 @@ const Error = () => {
                     <p className="my-4 text-gray-500">We can't find that page.</p>
                     <Link
                     to='/'
-                    class="w-full flex justify-center bg-black border-2 border-lime-500 hover:border-black hover:bg-lime-500 text-lime-500 hover:text-black p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-300"
+                    className="w-full flex justify-center bg-black border-2 border-lime-500 hover:border-black hover:bg-lime-500 text-lime-500 hover:text-black p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-300"
                   >
                     Back to home
                   </Link>
