@@ -10,7 +10,7 @@ const NewDrop = ({ products }) => {
         <img
           src={picture}
           alt=""
-          className="h-[220px] w-full object-cover transition duration-300 group-hover:scale-125 md:h-[400px] lg:h-[450px]"
+          className="h-[210px] w-full object-cover transition duration-300 group-hover:scale-125 md:h-[420px] lg:h-[450px]"
         />
 
         <div className="relative pt-3 bg-white">

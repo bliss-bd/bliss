@@ -25,7 +25,7 @@ const ShopWomen = () => {
         </h2>
       </header>
 
-      <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-4 lg:mx-14 mx-6 py-6 sm:px-6 sm:py-8 lg:px-8">
+      <div className="grid gap-4 lg:gap-14 grid-cols-2 lg:grid-cols-4 lg:mx-14 mx-6 py-6 sm:px-6 sm:py-8 lg:px-8">
         {productWomen?.map((productWomen) => (
           <NewDrop products={productWomen} key={productWomen._id}></NewDrop>
         ))}
