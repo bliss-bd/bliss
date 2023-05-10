@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -7,23 +6,18 @@ const DashboardNav = () => {
     const menu= (
         <>
         <li>
-            <Link  to='/dashboard' className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2   hover:underline">
-                Users
+            <Link to='/dashboard' className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2   hover:underline">
+                Add Product
             </Link>
         </li>
         <li>
-            <Link  to='/dashboard/dashboardwallat' className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2   hover:underline">
-                Wallat
+            <Link  to='/dashboard/allproducts' className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2   hover:underline">
+                All Products
             </Link>
         </li>
         <li>
-            <Link href="javascript:void(0)" className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2   hover:underline">
-                Account
-            </Link>
-        </li>
-        <li>
-            <Link href="javascript:void(0)" className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2   hover:underline">
-                Wishlists
+            <Link  to='/dashboard/dashboarduser' className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2   hover:underline">
+                All Users
             </Link>
         </li>
 

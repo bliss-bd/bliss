@@ -7,11 +7,10 @@ import { userContext } from "../../../Contexts/UserContexts/UserContexts";
 import { toast } from "react-hot-toast";
 import { GoSignOut } from "react-icons/go";
 import { CgProfile } from "react-icons/cg";
-
+import logo1 from "../../../assets/Bliss LOGO- Ontor[1].png";
 const Navber = () => {
   const { user, logout } = useContext(userContext);
   const [hasStyle, setHasStyle] = useState(false);
-  console.log(user)
   const handleOpenMenu = () => {
     setHasStyle(true);
   };
@@ -62,11 +61,7 @@ const Navber = () => {
       <header className=" bg-white shadow-md h-20 md:flex">
         <div className="logo h-20 lg:px-2 border-r flex items-center justify-between">
           <Link to="/">
-            <img
-              className="w-36 my-4 px-4 mx-2 lg:mx-8"
-              src="https://i.ibb.co/tqgmVWj/logo.png"
-              alt=""
-            />
+            <img className="w-36 my-1 px-4 mx-0 lg:mx-8" src={logo1} alt="" />
           </Link>
           <div className="lg:hidden mx-8 pt-2">
             <button
@@ -137,36 +132,33 @@ const Navber = () => {
           </ul>
         </nav>
         <div className="border-l hidden lg:flex items-center px-4 lg:px-6 xl:px-8">
-          {user?.uid ?
+          {user?.uid ? (
             <>
-          <ul className="flex items-center mr-4 lg:mr-6 xl:mr-8">
-            <li className="p-1 mx-4 ">
-              <Link
-              to="/dashboard"
-                className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
-              >
-                <CgProfile></CgProfile>
-              </Link>
-                <p className="text-xs">Dashboard Profile</p>
-            </li>
-            <li onClick={handleSignOut} className="p-1 ">
-              <Link
-              
-                className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
-              >
-                <GoSignOut className="text-center"></GoSignOut>
-              </Link>
-                <p className="text-xs">Sign Out</p>
-            </li>
-          </ul>
+              <ul className="flex items-center mr-4 lg:mr-6 xl:mr-8">
+                <li className="p-1 mx-4 ">
+                  <Link
+                    to="/dashboard"
+                    className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                  >
+                    <CgProfile></CgProfile>
+                  </Link>
+                  <p className="text-xs">Dashboard Profile</p>
+                </li>
+                <li onClick={handleSignOut} className="p-1 ">
+                  <Link className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 ">
+                    <GoSignOut className="text-center"></GoSignOut>
+                  </Link>
+                  <p className="text-xs">Sign Out</p>
+                </li>
+              </ul>
             </>
-           : 
+          ) : (
             <Link to="/signin">
               <button className="bg-black hover:text-lime-300 text-white font-bold px-4 xl:px-6 py-2 xl:py-3 rounded">
                 Sign in
               </button>
             </Link>
-          }
+          )}
         </div>
       </header>
       {/* <!-- mobile nav menu start --> */}
@@ -177,11 +169,7 @@ const Navber = () => {
           <ul id="menu-mobile-1" className="menu ml-0 lg:ml-2">
             <div className=" h-20 lg:px-2 shadow-md  flex items-center justify-between">
               <Link to="/" onClick={handleCloseMenu}>
-                <img
-                  className="w-36 my-4 px-4 mx-2 lg:mx-8"
-                  src="https://i.ibb.co/tqgmVWj/logo.png"
-                  alt=""
-                />
+                <img className="w-36 my-1 px-4 mx-0 lg:mx-8" src={logo1} alt="" />
               </Link>
               <nav className="mt-2">
                 <ul className="flex items-center">
@@ -221,41 +209,35 @@ const Navber = () => {
               </div>
             </div>
             {menu}
-            {user?.uid ?
-            <>
-            <li className="menuItems p-3 xl:p-6">
-              <Link
-              to="/dashboard"
-              >
-              <span>Dashboard Profile</span>
-              <svg viewBox="0 0 13 20">
-                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-                </svg>
-              </Link>
-            </li>
-            <li onClick={handleSignOut} className="menuItems p-3 xl:p-6">
-              <Link
-              onClick={handleCloseMenu}
-              >
-              <span> Sign Out </span>
-              <svg viewBox="0 0 13 20">
-                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-                </svg>
-              </Link>
-            </li>
-            </>
-           : 
-           <li  className="menuItems p-3 xl:p-6" onClick={handleCloseMenu}>
-           <Link
-           to='/signin'
-           >
-           <span> Sign In </span>
-           <svg viewBox="0 0 13 20">
-               <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-             </svg>
-           </Link>
-         </li>
-          }
+            {user?.uid ? (
+              <>
+                <li className="menuItems p-3 xl:p-6">
+                  <Link to="/dashboard">
+                    <span>Dashboard Profile</span>
+                    <svg viewBox="0 0 13 20">
+                      <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                    </svg>
+                  </Link>
+                </li>
+                <li onClick={handleSignOut} className="menuItems p-3 xl:p-6">
+                  <Link onClick={handleCloseMenu}>
+                    <span> Sign Out </span>
+                    <svg viewBox="0 0 13 20">
+                      <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                    </svg>
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <li className="menuItems p-3 xl:p-6" onClick={handleCloseMenu}>
+                <Link to="/signin">
+                  <span> Sign In </span>
+                  <svg viewBox="0 0 13 20">
+                    <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                  </svg>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

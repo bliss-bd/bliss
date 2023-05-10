@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Form.css";
 import { FaFacebookSquare, FaGooglePlus } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -6,83 +6,80 @@ import { userContext } from "../../Contexts/UserContexts/UserContexts";
 import { toast } from "react-hot-toast";
 
 const SignUp = () => {
-  const [error, setError] =  useState(null)
+  const [error, setError] = useState(null);
 
-  
-  const { googleLogin,register, updateUserProfile } = useContext(userContext);
-
+  const { googleLogin, register, updateUserProfile } = useContext(userContext);
 
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
-
   const handleSingUp = (event) => {
-      event.preventDefault()
-      const form = event.target;
-      const name = form.name.value;
-      const email = form.email.value;
-      // const type = form.type.value;
-      const password = form.password.value;
-      const confirmPassword = form.confirmPassword.value;
-      
-      if (password !== confirmPassword) {
-        setError('Your password did not match')
-        return; 
-      }
-      if (password.length < 6) {
-          setError('Your Password should be 6 characters or more')
-          return;
-      }
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    // const type = form.type.value;
+    const password = form.password.value;
+    const confirmPassword = form.confirmPassword.value;
 
-      register(email, password)
-          .then(result => {
-              const user = result.user;
-              if (user?.uid) {
-                  handleupdateUser(name)
-                  // saveUser(name, email, type)
-                  toast.success('Account Created Successfully!', {
-                      style: {
-                          border: '1px solid #713200',
-                          padding: '16px',
-                          color: '#713200',
-                      },
-                      iconTheme: {
-                          primary: '#713200',
-                          secondary: '#FFFAEE',
-                      },
-                  });
-                  form.reset()
-                  navigate(from, { replace: true });
-              }
-          })
-          .then(error => console.error(error))
-  }
+    if (password !== confirmPassword) {
+      setError("Your password did not match");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Your Password should be 6 characters or more");
+      return;
+    }
+
+    register(email, password)
+      .then((result) => {
+        const user = result.user;
+        if (user?.uid) {
+          handleupdateUser(name);
+
+          saveUser(name, email, user?.photoURL);
+          toast.success("Account Created Successfully!", {
+            style: {
+              border: "1px solid #713200",
+              padding: "16px",
+              color: "#713200",
+            },
+            iconTheme: {
+              primary: "#713200",
+              secondary: "#FFFAEE",
+            },
+          });
+          form.reset();
+          navigate(from, { replace: true });
+        }
+      })
+      .then((error) => console.error(error));
+  };
 
   const handleupdateUser = (name) => {
-      const profile = {
-          displayName: name,
-      }
-      updateUserProfile(profile)
-          .then(() => { })
-          .catch(error => console.log(error))
+    const profile = {
+      displayName: name,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
 
-  }
-
-  // const saveUser = (name, email, type = 'Buyer') => {
-  //     const user = { name, email, role: type };
-  //     fetch('https://xtocky-cycle-server.vercel.app/users', {
-  //         method: "POST",
-  //         headers: {
-  //             'content-type': 'application/json'
-  //         },
-  //         body: JSON.stringify(user)
-  //     })
-  //         .then(res => res.json())
-  //         .then(data => {
-  //             console.log(data)
-  //         })
-  // }
+  const saveUser = (name, email, photoURL) => {
+    const user = { name, email, photoURL };
+    fetch("http://localhost:5000/users ", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   const handleGoogleLogin = () => {
     googleLogin()
@@ -92,12 +89,10 @@ const SignUp = () => {
           toast.success("SignIn Successful");
           navigate(from, { replace: true });
         }
-        // saveUser(user.displayName, user.email, user?.photoURL)
+        saveUser(user.displayName, user.email, user?.photoURL);
       })
       .catch((error) => console.log(error));
   };
-
-
 
   return (
     <div>
@@ -107,7 +102,10 @@ const SignUp = () => {
             <div className="max-w-md w-full space-y-8">
               <div className="text-center">
                 <div className="px-auto mx-auto ">
-                  <iframe className="px-auto mx-auto" src="https://embed.lottiefiles.com/animation/28497"></iframe>
+                  <iframe
+                    className="px-auto mx-auto"
+                    src="https://embed.lottiefiles.com/animation/28497"
+                  ></iframe>
                 </div>
                 <p className="mt-2 text-sm text-gray-500">Please sign up</p>
               </div>
@@ -123,8 +121,7 @@ const SignUp = () => {
                 <span className="text-gray-300 font-normal">or continue with</span>
                 <span className="h-px w-16 bg-gray-200"></span>
               </div>
-              <form onSubmit={handleSingUp} 
-              className="mt-8 space-y-6">
+              <form onSubmit={handleSingUp} className="mt-8 space-y-6">
                 <div className="relative">
                   <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">Name</label>
                   <input
@@ -135,7 +132,9 @@ const SignUp = () => {
                   />
                 </div>
                 <div className="relative">
-                  <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">Email</label>
+                  <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">
+                    Email
+                  </label>
                   <input
                     className=" w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-lime-500"
                     type="email"
@@ -144,7 +143,9 @@ const SignUp = () => {
                   />
                 </div>
                 <div className="mt-8 content-center">
-                  <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">Password</label>
+                  <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">
+                    Password
+                  </label>
                   <input
                     className="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-lime-500"
                     type="password"
@@ -164,7 +165,7 @@ const SignUp = () => {
                   />
                 </div>
                 <div>
-                <p className='text-red-500'>{error}</p>
+                  <p className="text-red-500">{error}</p>
                 </div>
                 <div>
                   <button

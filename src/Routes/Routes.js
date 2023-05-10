@@ -6,13 +6,14 @@ import Product from "../Pages/Shop/Product/Product";
 import ShopMen from "../Pages/Shop/ShopMen/ShopMen";
 import ShopNew from "../Pages/Shop/ShopNew/ShopNew";
 import ShopWomen from "../Pages/Shop/ShopWomen/ShopWomen";
-import SignUp from "../Pages/SignUp/SignUp"
-import SignIn from "../Pages/SignIn/Signin"
-import Error from "../Pages/Error/Error"
-import PrivateRoute from "../Routes/PrivateRoute"
-import Dashboard from "../layouts/Dashboard/Dashboard"
+import SignUp from "../Pages/SignUp/SignUp";
+import SignIn from "../Pages/SignIn/Signin";
+import Error from "../Pages/Error/Error";
+import PrivateRoute from "../Routes/PrivateRoute";
+import Dashboard from "../layouts/Dashboard/Dashboard";
 import DashboardUser from "../DashboardPages/DashboardUser/DashboardUser";
-import DashboardWallat from "../DashboardPages/DashboardWallat/DashboardWallat";
+import AddProduct from "../DashboardPages/AddProduct/AddProduct";
+import AllProducts from "../DashboardPages/AllProducts/AllProducts";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -27,7 +28,7 @@ const Routes = () => {
         {
           path: "/product/:id",
           element: <Product></Product>,
-          loader: ({ params }) => fetch(`https://bliss-server-9w8y.vercel.app/product/${params.id}`),
+          loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
         },
         {
           path: "/shopnew",
@@ -52,22 +53,31 @@ const Routes = () => {
       ],
     },
     {
-      path: '/dashboard',
-      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      path: "/dashboard",
+      element: (
+        <PrivateRoute>
+          <Dashboard></Dashboard>
+        </PrivateRoute>
+      ),
       children: [
-          {
-              path: '/dashboard',
-              element: <DashboardUser></DashboardUser>
-          },  
-          {
-              path: '/dashboard/dashboardwallat',
-              element: <DashboardWallat></DashboardWallat>
-          },  
-  ]},
+        {
+          path: "/dashboard",
+          element: <AddProduct></AddProduct>,
+        },
+        {
+          path: "/dashboard/dashboarduser",
+          element: <DashboardUser></DashboardUser>,
+        },
+        {
+          path: "/dashboard/allproducts",
+          element: <AllProducts></AllProducts>,
+        },
+      ],
+    },
     {
-      path: '*',
-      element: <Error></Error>
-  }
+      path: "*",
+      element: <Error></Error>,
+    },
   ]);
   return <RouterProvider router={router} />;
 };

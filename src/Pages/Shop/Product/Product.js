@@ -109,7 +109,6 @@ const Product = () => {
                     {size?.map((size) => (
                       <label for="size_xs" className="cursor-pointer">
                         <input type="radio" name="size" id="size_xs" className="peer sr-only" />
-
                         <span className="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white">
                           {size}
                         </span>
