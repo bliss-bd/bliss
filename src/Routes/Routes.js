@@ -28,7 +28,8 @@ const Routes = () => {
         {
           path: "/product/:id",
           element: <Product></Product>,
-          loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
+          loader: ({ params }) =>
+            fetch(`https://bliss-server-y2j1.vercel.app/product/${params.id}`),
         },
         {
           path: "/shopnew",
