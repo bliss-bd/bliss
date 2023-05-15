@@ -115,7 +115,7 @@ const DashboardUser = () => {
                           handleUpdateUser(user._id);
                         }}
                       >
-                        Verify user
+                        {user?.isVerifyed ? "Verifyed" : "Verify Seller"}
                       </button>
                     </td>
                     <td className="px-4 py-3 text-sm border">

@@ -4,6 +4,7 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 import men from "../../../assets/men.jpg";
 import women from "../../../assets/women.jpg";
 import bliss11 from "../../../assets/bliss11.jpg";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -46,231 +47,50 @@ const Banner = () => {
               <Slider>
                 <Slide index={0}>
                   <div className="gallery-cell lg:mr-7 mr-6 lg:w-1/2 sm:w-96 w-full h-full">
-                    <div className="relative w-full h-full lg:block hidden">
+                    <Link to="/shopmen" className="relative w-full h-full lg:hidden">
                       <img
                         src={men}
                         alt="sitting area"
                         className="object-center object-cover w-full h-full"
                       />
                       <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
+                        <p className="mb-4 text-lg font-bold text-justify text-gray-900">
+                          SHOP MEN
+                        </p>
                       </div>
-                    </div>
-                    <div className="relative w-full h-full lg:hidden">
-                      <img
-                        src={men}
-                        alt="sitting area"
-                        className="object-center object-cover w-full h-full"
-                      />
-                      <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
-                      </div>
-                    </div>
+                    </Link>
                   </div>
                 </Slide>
                 <Slide index={1}>
                   <div className="gallery-cell lg:mr-7 mr-6 lg:w-1/2 sm:w-96 w-full h-full">
-                    <div className="relative w-full h-full lg:block hidden">
+                    <Link to="/shopnew" className="relative w-full h-full lg:hidden">
                       <img
                         src={bliss11}
                         alt="chairs"
                         className="object-center object-cover w-full h-full"
                       />
-                      <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
+                      <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0 ">
+                        <p className="mb-4 text-lg font-bold text-justify text-gray-900">
+                          SHOP NEW
+                        </p>
                       </div>
-                    </div>
-                    <div className="relative w-full h-full lg:hidden">
-                      <img
-                        src={bliss11}
-                        alt="chairs"
-                        className="object-center object-cover w-full h-full"
-                      />
-                      <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
-                      </div>
-                    </div>
+                    </Link>
                   </div>
                 </Slide>
                 <Slide index={2}>
                   <div className="gallery-cell lg:mr-7 mr-6 lg:w-1/2 sm:w-96 w-full h-full">
-                    <div className="relative w-full h-full lg:block hidden">
+                    <Link to="/shopwomen" className="relative w-full h-full lg:hidden">
                       <img
                         src={women}
                         alt="chair"
                         className="object-center object-cover w-full h-full"
                       />
                       <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
+                        <p className="mb-4 mx-auto text-lg font-bold text-justify text-gray-900">
+                          SHOP WOMEN
+                        </p>
                       </div>
-                    </div>
-                    <div className="relative w-full h-full lg:hidden">
-                      <img
-                        src={women}
-                        alt="chair"
-                        className="object-center object-cover w-full h-full"
-                      />
-                      <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </Slide>
-              </Slider>
-              <ButtonNext
-                role="button"
-                aria-label="slide forward"
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full flex justify-center items-center bg-white border border-gray-300 hover:bg-gray-400 absolute z-30 right-0 mr-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
-                id="next"
-              >
-                <svg
-                  width={8}
-                  height={14}
-                  viewBox="0 0 8 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 1L7 7L1 13"
-                    stroke="black"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </ButtonNext>
-            </div>
-          </CarouselProvider>
-
-          {/* Carousel for Medium and Large-Sized Screen */}
-          <CarouselProvider
-            className="relative hidden sm:block"
-            naturalSlideWidth={100}
-            isIntrinsicHeight={true}
-            totalSlides={3}
-            visibleSlides={1}
-            step={1}
-            infinite={true}
-            currentSlide={1}
-          >
-            <div className="js-flickity flex justify-center items-center">
-              <ButtonBack
-                role="button"
-                aria-label="slide backward"
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full flex justify-center items-center bg-white border border-gray-300 hover:bg-gray-400 absolute z-30 left-0 ml-8 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
-                id="prev"
-              >
-                <svg
-                  width={8}
-                  height={14}
-                  viewBox="0 0 8 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 1L1 7L7 13"
-                    stroke="black"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </ButtonBack>
-              <Slider className="carousel__sliderLarge">
-                <Slide className="carousel__inner-slideLarge" index={0}>
-                  <div className="gallery-cell w-full h-full">
-                    <div className="relative w-full h-full lg:block hidden">
-                      <img
-                        src={men}
-                        alt="sitting area"
-                        className="object-center object-cover w-full h-full"
-                      />
-                      <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
-                      </div>
-                    </div>
-                    <div className="relative w-full h-full lg:hidden">
-                      <img
-                        src={men}
-                        alt="sitting area"
-                        className="object-center object-cover w-full h-full"
-                      />
-                      <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </Slide>
-                <Slide className="carousel__inner-slideLarge" index={1}>
-                  <div className="gallery-cell w-full h-full">
-                    <div className="relative w-full h-full lg:block hidden">
-                      <img
-                        src={bliss11}
-                        alt="chairs"
-                        className="object-center object-cover w-full h-full"
-                      />
-                      <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
-                      </div>
-                    </div>
-                    <div className="relative w-full h-full lg:hidden">
-                      <img
-                        src={bliss11}
-                        alt="chairs"
-                        className="object-center object-cover w-full h-full"
-                      />
-                      <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </Slide>
-                <Slide className="carousel__inner-slideLarge" index={2}>
-                  <div className="gallery-cell w-full h-full">
-                    <div className="relative w-full h-full lg:block hidden">
-                      <img
-                        src={women}
-                        alt="chair"
-                        className="object-center object-cover w-full h-full"
-                      />
-                      <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
-                      </div>
-                    </div>
-                    <div className="relative w-full h-full lg:hidden">
-                      <img
-                        src={women}
-                        alt="chair"
-                        className="object-center object-cover w-full h-full"
-                      />
-                      <div className="pl-6 pb-6 lg:pl-8 lg:pb-8 absolute left-0 bottom-0">
-                        <h1 className="text-xl leading-5 lg:text-2xl lg:leading-normal font-medium text-white">
-                          Lounge Interior
-                        </h1>
-                      </div>
-                    </div>
+                    </Link>
                   </div>
                 </Slide>
               </Slider>

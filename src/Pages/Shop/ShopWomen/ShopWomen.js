@@ -19,7 +19,7 @@ const ShopWomen = () => {
   return (
     <div className="mb-8">
       <header className="text-center">
-        <h2 className="text-4xl lg:text-7xl my-8 lg:my-12 font-bold text-gray-900 py-20 from-lime-300 bg-gradient-to-t bg-opacity-75">
+        <h2 className="text-4xl lg:text-7xl font-bold lg:my-4 my-0 text-gray-900 py-8 lg:py-16 from-lime-300 bg-gradient-to-t bg-opacity-75">
           Shop Women
         </h2>
       </header>

@@ -1,0 +1,20 @@
+.txt{
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+    background: url(../../../assets/logo2.png);
+    -webkit-background-clip: text;
+    background-position: 0  0;
+    animation: back 40s linear infinite;
+}
+
+:hover.txt{
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+    background: none;
+}
+
+@keyframes back{
+    100% {
+        background-position: 2000px 0;
+    }
+}

@@ -18,11 +18,13 @@ const NewDrops = () => {
     return <LoaderCard></LoaderCard>;
   }
   return (
-    <div className="mb-8">
+    <div className="mb-8 bg-[url('/src/assets/Bliss LOGO- Ontor[1].png')]">
       <section>
-        <div className=" lg:mx-14 mx-6 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div className=" lg:mx-14 mx-6 pb-8 sm:px-6 sm:pb-12 lg:px-8">
           <header className="text-center">
-            <h2 className="text-xl my-12 font-bold text-gray-900 sm:text-4xl">New Drops</h2>
+            <h2 className="text-xl lg:my-20 my-8  font-bold text-gray-900 sm:text-4xl">
+              New Drops
+            </h2>
           </header>
 
           <div className="grid gap-4 lg:gap-14 grid-cols-2 lg:grid-cols-4">
