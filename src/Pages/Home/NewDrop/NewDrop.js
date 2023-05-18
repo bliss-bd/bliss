@@ -2,13 +2,13 @@ import React from "react";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { Link } from "react-router-dom";
 const NewDrop = ({ products }) => {
-  const { name, picture, price, _id } = products;
+  const { name, picture1, price, _id } = products;
 
   return (
     <div>
       <Link to={`/product/${_id}`} className="block overflow-hidden group">
         <img
-          src={picture}
+          src={picture1}
           alt=""
           className="h-[210px] w-full object-cover transition duration-300 group-hover:scale-125 md:h-[420px] lg:h-[340px] xl:h-[450px]"
         />

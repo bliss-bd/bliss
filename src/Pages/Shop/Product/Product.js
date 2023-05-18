@@ -6,19 +6,7 @@ import { useLoaderData } from "react-router-dom";
 const Product = () => {
   const data = useLoaderData();
   console.log(data);
-  const {
-    color,
-    delivery_info,
-    name,
-    picture,
-    price,
-    printing_techniques,
-    product_info,
-    refund_policy,
-    stock,
-    size,
-    category,
-  } = data;
+  const { name, price, stock, size } = data;
 
   return (
     <div>
@@ -27,7 +15,7 @@ const Product = () => {
           <div>
             <h1 className="text-2xl font-bold lg:text-3xl">{name}</h1>
 
-            <p className="mt-1 text-sm text-gray-500">SKU: {stock}</p>
+            <p className="mt-1 text-sm font-semibold ">SKU: {stock}</p>
           </div>
           <div className="grid gap-8 lg:grid-cols-4 lg:items-start">
             <PhotoProvider
@@ -39,12 +27,12 @@ const Product = () => {
               }
             >
               <div className="lg:col-span-3">
-                <PhotoView src={picture}>
+                <PhotoView src={data?.picture1}>
                   <div className="relative mt-4">
                     <img
                       alt="Tee"
-                      src={picture}
-                      className="h-96 w-full px-5 lg:px-56  rounded-xl object-cover lg:h-full cursor-pointer"
+                      src={data?.picture1}
+                      className="h-96 w-full px-5 lg:px-56 bg-gray-100 rounded-xl object-cover lg:h-full cursor-pointer"
                     />
 
                     <div className="absolute bottom-4 left-1/2 inline-flex -translate-x-1/2 items-center rounded-full bg-black/75 px-3 py-1.5 text-white">
@@ -69,40 +57,80 @@ const Product = () => {
                 </PhotoView>
                 <ul className="mt-4 flex gap-1  lg:px-0 px-4">
                   <li>
-                    <PhotoView src={picture}>
+                    <PhotoView
+                      src={
+                        data?.picture2
+                          ? data?.picture2
+                          : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
+                      }
+                    >
                       <img
                         alt="Tee"
-                        src={picture}
+                        src={
+                          data?.picture2
+                            ? data?.picture2
+                            : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
+                        }
                         className="h-16 w-16 rounded-md object-cover cursor-pointer"
                       />
                     </PhotoView>
                   </li>
 
                   <li>
-                    <PhotoView src={picture}>
+                    <PhotoView
+                      src={
+                        data?.picture3
+                          ? data?.picture3
+                          : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
+                      }
+                    >
                       <img
                         alt="Tee"
-                        src={picture}
+                        src={
+                          data?.picture3
+                            ? data?.picture3
+                            : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
+                        }
                         className="h-16 w-16 rounded-md object-cover cursor-pointer"
                       />
                     </PhotoView>
                   </li>
 
                   <li>
-                    <PhotoView src={picture}>
+                    <PhotoView
+                      src={
+                        data?.picture4
+                          ? data?.picture4
+                          : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
+                      }
+                    >
                       <img
                         alt="Tee"
-                        src={picture}
+                        src={
+                          data?.picture5
+                            ? data?.picture5
+                            : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
+                        }
                         className="h-16 w-16 rounded-md object-cover cursor-pointer"
                       />
                     </PhotoView>
                   </li>
 
                   <li>
-                    <PhotoView src={picture}>
+                    <PhotoView
+                      src={
+                        data?.picture5
+                          ? data?.picture5
+                          : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
+                      }
+                    >
                       <img
                         alt="Tee"
-                        src={picture}
+                        src={
+                          data?.picture5
+                            ? data?.picture5
+                            : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
+                        }
                         className="h-16 w-16 rounded-md object-cover cursor-pointer"
                       />
                     </PhotoView>
@@ -121,29 +149,6 @@ const Product = () => {
                 </div>
               </div>
               <form className="space-y-4 lg:pt-8">
-                <fieldset>
-                  <legend className="text-lg font-bold">Color : {color}</legend>
-                </fieldset>
-
-                <fieldset>
-                  <div className="mt-2 mx-auto gap-1">
-                    <label for="material_cotton" className="cursor-pointer">
-                      <input
-                        type="radio"
-                        id="material_cotton"
-                        name="material"
-                        className="peer sr-only"
-                        checked
-                      />
-
-                      <span className="block rounded-full border border-gray-200 px-3 py-1 text-xs peer-checked:bg-gray-100">
-                        For : {category}
-                      </span>
-                    </label>
-                  </div>
-                </fieldset>
-
-                {/*  */}
                 <fieldset className="my-6">
                   <legend className="my-3 text-lg font-bold">Size</legend>
 
@@ -158,12 +163,18 @@ const Product = () => {
                     ))}
                   </div>
                 </fieldset>
-                {/*  */}
-
                 <div>
                   <p className="text-xl font-bold  justify-center flex items-center">
                     <TbCurrencyTaka></TbCurrencyTaka> {price} Taka
                   </p>
+                </div>
+                <div class="mt-4">
+                  <button
+                    type="submit"
+                    className="w-full rounded border-4 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-6 py-3 text-sm font-bold uppercase tracking-wide "
+                  >
+                    Add to cart
+                  </button>
                 </div>
               </form>
               <div tabIndex={0} className="mt-6 collapse collapse-plus border-b bg-base-100">
@@ -216,8 +227,19 @@ const Product = () => {
               <div className="prose max-w-none">
                 <p className="text-justify font-semibold">
                   {" "}
-                  <span className="text-lg font-bold"> Product Info : </span> <br />
-                  {product_info}
+                  <span className="text-4xl font-bold"> Product Info </span> <br />
+                </p>
+              </div>
+            </div>
+            <div className="lg:col-span-3  lg:px-0 px-3">
+              <div className="prose max-w-none">
+                <p className="text-justify font-semibold">
+                  {" "}
+                  <span className="text-lg font-bold">Size in inch For T-shirts: </span> <br />
+                  M: Chest 38 - Length 27
+                  <br /> L: Chest 40- Length 28 <br />
+                  XL: Chest 42 - Length 29
+                  <br /> XXL: Chest 44 - Length 30
                 </p>
               </div>
             </div>

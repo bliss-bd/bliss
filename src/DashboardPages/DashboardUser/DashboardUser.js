@@ -11,14 +11,14 @@ const DashboardUser = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("https://bliss-server-y2j1.vercel.app/users");
+      const res = await fetch("http://localhost:5000/users");
       const data = await res.json();
       return data;
     },
   });
 
   const handleUpdateUser = (id) => {
-    fetch(`https://bliss-server-y2j1.vercel.app/verifyuser/${id}`, {
+    fetch(`http://localhost:5000/verifyuser/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -38,7 +38,7 @@ const DashboardUser = () => {
   const handleDeleteItem = (id) => {
     const confirm = window.confirm("Are you sure, you want to delete this Item??");
     if (confirm) {
-      fetch(`https://bliss-server-y2j1.vercel.app/allusers/${id}`, {
+      fetch(`http://localhost:5000/allusers/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

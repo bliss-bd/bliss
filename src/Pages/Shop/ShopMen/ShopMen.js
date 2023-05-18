@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import men from "../../../assets/men.jpg";
 import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
 import NewDrop from "../../Home/NewDrop/NewDrop";
 
@@ -8,7 +7,7 @@ const ShopMen = () => {
   const { data: productMen, isLoading } = useQuery({
     queryKey: ["productMen"],
     queryFn: async () => {
-      const res = await fetch("https://bliss-server-y2j1.vercel.app/productMen?category=men");
+      const res = await fetch("http://localhost:5000/productMen?category=men");
       const data = await res.json();
       return data;
     },
