@@ -14,6 +14,8 @@ import Dashboard from "../layouts/Dashboard/Dashboard";
 import DashboardUser from "../DashboardPages/DashboardUser/DashboardUser";
 import AddProduct from "../DashboardPages/AddProduct/AddProduct";
 import AllProducts from "../DashboardPages/AllProducts/AllProducts";
+import AdminRoute from "./AdminRoute/AdminRoute";
+import Cart from "../DashboardPages/Cart/Cart";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -62,15 +64,31 @@ const Routes = () => {
       children: [
         {
           path: "/dashboard",
-          element: <AddProduct></AddProduct>,
+          element: (
+            <AdminRoute>
+              <AddProduct></AddProduct>
+            </AdminRoute>
+          ),
         },
         {
           path: "/dashboard/dashboarduser",
-          element: <DashboardUser></DashboardUser>,
+          element: (
+            <AdminRoute>
+              <DashboardUser></DashboardUser>
+            </AdminRoute>
+          ),
         },
         {
           path: "/dashboard/allproducts",
-          element: <AllProducts></AllProducts>,
+          element: (
+            <AdminRoute>
+              <AllProducts></AllProducts>
+            </AdminRoute>
+          ),
+        },
+        {
+          path: "/dashboard/cart",
+          element: <Cart></Cart>,
         },
       ],
     },

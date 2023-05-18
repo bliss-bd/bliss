@@ -116,7 +116,7 @@ const SignUp = () => {
                   className="w-10 h-10 text-red-700 cursor-pointer"
                 ></FaGooglePlus>
               </div>
-              <div className="flex items-center justify-center space-x-2">
+              <div className="flex items-center  justify-center space-x-2">
                 <span className="h-px w-16 bg-gray-200"></span>
                 <span className="text-gray-300 font-normal">or continue with</span>
                 <span className="h-px w-16 bg-gray-200"></span>
