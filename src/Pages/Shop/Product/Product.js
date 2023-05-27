@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
 
 const Product = () => {
   const data = useLoaderData();
-  console.log(data);
   const { name, price, stock, size } = data;
+
+  const [quantity, setQuantity] = useState(1);
+
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
 
   return (
     <div>
@@ -168,10 +179,33 @@ const Product = () => {
                     <TbCurrencyTaka></TbCurrencyTaka> {price} Taka
                   </p>
                 </div>
-                <div class="mt-4">
+                <div class="mt-4 flex justify-center items-center">
+                <div className="">
+                  <div class="flex items-center border-2 border-gray-200 rounded">
+                    <button
+                      type="button"
+                      onClick={decreaseQuantity}
+                      disabled={quantity === 1}
+                      className={`${quantity === 1 ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'} w-8 h-11 leading-10 text-gray-600 transition hover:opacity-75`}
+                    >-
+                    </button>
+                    <input
+                      type="number"
+                      id="Quantity"
+                      value={quantity}
+                      class=" w-8 h-11 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                    />
+                    <button
+                      type="button"
+                      onClick={increaseQuantity}
+                      class="w-8 h-11 leading-10 text-gray-600 transition hover:opacity-75"
+                    >+
+                    </button>
+                  </div>
+                </div>
                   <button
                     type="submit"
-                    className="w-full rounded border-4 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-6 py-3 text-sm font-bold uppercase tracking-wide "
+                    className="w-full rounded border-2 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-4 mx-2 py-3 text-sm font-bold uppercase tracking-wide "
                   >
                     Add to cart
                   </button>
@@ -196,8 +230,8 @@ const Product = () => {
                   </p>
                   <p>
                     {" "}
-                    <br /> Delivery within chittagong city is{" "}
-                    <span className="font-bold">60 taka </span>
+                    <br /> Delivery Outside chittagong city is{" "}
+                    <span className="font-bold">100 taka </span>
                   </p>
                 </div>
               </div>

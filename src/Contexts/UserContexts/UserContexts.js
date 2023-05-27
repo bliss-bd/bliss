@@ -15,7 +15,6 @@ import app from "../../Firebase/Firebase.config";
 export const userContext = createContext();
 const auth = getAuth(app);
 
-console.log(auth);
 
 const Usercontexts = ({ children }) => {
   const [user, setUser] = useState("");

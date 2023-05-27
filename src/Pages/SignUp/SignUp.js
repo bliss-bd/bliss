@@ -68,7 +68,7 @@ const SignUp = () => {
 
   const saveUser = (name, email, photoURL) => {
     const user = { name, email, photoURL };
-    fetch("http://localhost:5000/users ", {
+    fetch("https://bliss-server-y2j1.vercel.app/users ", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -76,8 +76,7 @@ const SignUp = () => {
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then((data) => {;
       });
   };
 

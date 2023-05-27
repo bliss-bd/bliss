@@ -31,21 +31,19 @@ const SignIn = () => {
           .then(error => console.error(error))
   }
 
-  // const saveUser = (name, email, type = 'Buyer') => {
-  //     const user = { name, email, role: type };
-  //     fetch('https://xtocky-cycle-server.vercel.app/users', {
-  //         method: "POST",
-  //         headers: {
-  //             'content-type': 'application/json'
-  //         },
-  //         body: JSON.stringify(user)
-  //     })
-  //         .then(res => res.json())
-  //         .then(data => {
-  //             console.log(data)
-  //         })
-  // }
-
+  // const saveUser = (name, email, photoURL) => {
+  //   const user = { name, email, photoURL };
+  //   fetch("https://bliss-server-y2j1.vercel.app/users ", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(user),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //     });
+  // };
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
@@ -54,7 +52,7 @@ const SignIn = () => {
           toast.success("Login Successful");
           navigate(from, { replace: true });
         }
-        // saveUser(user.displayName, user.email, user?.photoURL)
+        // saveUser(user.displayName, user.email, user?.photoURL);
       })
       .catch((error) => console.log(error));
   };

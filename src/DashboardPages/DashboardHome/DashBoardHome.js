@@ -7,15 +7,15 @@ const DashBoardHome = () => {
 
   const [currentUser, setCurrentUser] = useState([]);
 
-  console.log( currentUser);
+  console.log( currentUser, currentUser?.role);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCurrentUser(data);
-      });
-  }, [user?.email]);
+    fetch(`https://bliss-server-y2j1.vercel.app/users/${user.email}`)
+        .then(res => res.json())
+        .then(data => {
+            setCurrentUser(data)
+        })
+}, [user.email])
 
   return (
     <div className="my-2 lg:max-w-[1440px] relative inset-0 md:max-w-[744px] max-w-[465px] mx-auto  lg:px-20 md:px-6 px-4 lg:py-8 md:py-6 py-4">
@@ -60,12 +60,12 @@ const DashBoardHome = () => {
             <h1 className="md:w-2/12 cursor-pointer text-gray-800 dark:text-white"></h1>
             <ul className="w-8/12 flex items-center justify-center space-x-8">
 
-              {currentUser.role === "Admin" && 
+              {currentUser?.role === "Admin" && 
                 <>
                   <li>
                     <Link
                       to="/dashboard"
-                      className="dark:text-white text-base focus:outline-none focus:ring-2   hover:underline"
+                      className="dark:text-white text-base focus:outline-none focus:ring-2 hover:underline"
                     >
                       Add Product
                     </Link>
@@ -73,7 +73,7 @@ const DashBoardHome = () => {
                   <li>
                     <Link
                       to="/dashboard/allproducts"
-                      className="dark:text-white text-base focus:outline-none focus:ring-2   hover:underline"
+                      className="dark:text-white text-base focus:outline-none focus:ring-2 hover:underline"
                     >
                       All Products
                     </Link>
@@ -81,7 +81,7 @@ const DashBoardHome = () => {
                   <li>
                     <Link
                       to="/dashboard/dashboarduser"
-                      className="dark:text-white text-base focus:outline-none focus:ring-2   hover:underline"
+                      className="dark:text-white text-base focus:outline-none focus:ring-2 hover:underline"
                     >
                       All Users
                     </Link>
@@ -93,7 +93,7 @@ const DashBoardHome = () => {
                   <li>
                     <Link
                       to="/dashboard/cart"
-                      className="dark:text-white text-base  focus:outline-none focus:ring-2   hover:underline"
+                      className="dark:text-white text-base  focus:outline-none focus:ring-2 hover:underline"
                     >
                       Cart
                     </Link>

@@ -8,12 +8,11 @@ import { DayPicker } from "react-day-picker";
 const AddProduct = () => {
   const navigate = useNavigate();
   const [checkedValues, setCheckedValues] = useState([]);
-  console.log(checkedValues);
+
   let showdate = new Date();
   let dispalayDate =
     showdate.getHours() + ":" + showdate.getMinutes() + ":" + showdate.getSeconds();
 
-  console.log(dispalayDate);
   const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;
 
@@ -65,7 +64,7 @@ const AddProduct = () => {
       size: checkedValues,
       time: dispalayDate,
     };
-    fetch("http://localhost:5000/allproducts", {
+    fetch("https://bliss-server-y2j1.vercel.app/allproducts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,7 +72,6 @@ const AddProduct = () => {
       body: JSON.stringify(product),
     })
       .then((data) => {
-        console.log(data);
         toast.success("Your Post Added", {
           style: {
             border: "1px solid #713200",
