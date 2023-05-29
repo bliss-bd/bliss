@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
+import { userContext } from "../../../Contexts/UserContexts/UserContexts";
 
 const Product = () => {
   const data = useLoaderData();
-  const { name, price, stock, size } = data;
+  const { _id, name, price, stock, size } = data;
+const {setCart} = useContext(userContext)
+  const [selectedSize, setSelectedSize] = useState(null);
 
+  const handleSelectSize = (size) => {
+    setSelectedSize(size);
+  };
+  // console.log(selectedSize)
+  
   const [quantity, setQuantity] = useState(1);
 
   const decreaseQuantity = () => {
@@ -18,6 +26,15 @@ const Product = () => {
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
   };
+
+
+  const product = {
+    _id,name,price,size:selectedSize,quantity, picture:data?.picture1
+  }
+
+  const handleAddToCart=()=>{
+    setCart(product)
+  }
 
   return (
     <div>
@@ -159,18 +176,17 @@ const Product = () => {
                   </p>
                 </div>
               </div>
-              <form className="space-y-4 lg:pt-8">
+              <div className="space-y-4 lg:pt-8">
                 <fieldset className="my-6">
                   <legend className="my-3 text-lg font-bold">Size</legend>
 
                   <div className="flex justify-center items-center mx-auto gap-1">
-                    {size?.map((size) => (
-                      <label for="size_xs" className="cursor-pointer mx-1">
-                        <input type="radio" name="size" id="size_xs" className="peer sr-only" />
-                        <span className="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium ">
+                    {size?.map((size, index) => (
+                        <p key={index} className={`cursor-pointer group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium ${
+                          selectedSize === size ? 'bg-black text-white' : 'bg-transparent text-black'
+                        }`} onClick={() => handleSelectSize(size)}>
                           {size}
-                        </span>
-                      </label>
+                        </p>
                     ))}
                   </div>
                 </fieldset>
@@ -204,13 +220,13 @@ const Product = () => {
                   </div>
                 </div>
                   <button
-                    type="submit"
+                    onClick={handleAddToCart}
                     className="w-full rounded border-2 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-4 mx-2 py-3 text-sm font-bold uppercase tracking-wide "
                   >
                     Add to cart
                   </button>
                 </div>
-              </form>
+              </div>
               <div tabIndex={0} className="mt-6 collapse collapse-plus border-b bg-base-100">
                 <div className="collapse-title text-xl font-medium">Delivery Info</div>
                 <div tabIndex={1} className="collapse-content text-justify">

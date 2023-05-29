@@ -19,6 +19,7 @@ const auth = getAuth(app);
 const Usercontexts = ({ children }) => {
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useState([]);
 
   const googleSingIn = new GoogleAuthProvider();
 
@@ -63,13 +64,15 @@ const Usercontexts = ({ children }) => {
 
   const info = {
     user,
+    loading,
+    cart,
+    setCart,
     register,
     updateUserProfile,
     googleLogin,
     signInUser,
     logout,
     forgetPassword,
-    loading,
   };
   return <userContext.Provider value={info}>{children}</userContext.Provider>;
 };

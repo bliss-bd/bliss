@@ -52,13 +52,19 @@ const Routes = () => {
           path: "/signin",
           element: <SignIn></SignIn>,
         },
+        {
+          path:'/cart',
+          element: <Cart></Cart>,
+        },
       ],
     },
     {
       path: "/dashboard",
       element: (
         <PrivateRoute>
+          <AdminRoute>
           <Dashboard></Dashboard>
+          </AdminRoute>
         </PrivateRoute>
       ),
       children: [
@@ -85,11 +91,7 @@ const Routes = () => {
               <AllProducts></AllProducts>
             </AdminRoute>
           ),
-        },
-        {
-          path: "/dashboard/cart",
-          element: <Cart></Cart>,
-        },
+        }
       ],
     },
     {

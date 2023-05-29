@@ -7,7 +7,7 @@ const DashBoardHome = () => {
 
   const [currentUser, setCurrentUser] = useState([]);
 
-  console.log( currentUser, currentUser?.role);
+  // console.log( currentUser, currentUser?.role);
 
   useEffect(() => {
     fetch(`https://bliss-server-y2j1.vercel.app/users/${user.email}`)

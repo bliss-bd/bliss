@@ -1,7 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navber.css";
 import { FaTiktok, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { CiShoppingCart } from "react-icons/ci";
 import { RxCrossCircled } from "react-icons/rx";
 import { userContext } from "../../../Contexts/UserContexts/UserContexts";
 import { toast } from "react-hot-toast";
@@ -26,6 +27,20 @@ const Navber = () => {
       })
       .then((error) => console.error(error));
   };
+
+
+  const [currentUser, setCurrentUser] = useState([]);
+
+  // console.log( currentUser, currentUser?.role);
+
+  useEffect(() => {
+    fetch(`https://bliss-server-y2j1.vercel.app/users/${user?.email}`)
+        .then(res => res.json())
+        .then(data => {
+            setCurrentUser(data)
+        })
+}, [user?.email])
+
 
   const menu = (
     <>
@@ -135,7 +150,9 @@ const Navber = () => {
           {user?.uid ? (
             <>
               <ul className="flex items-center mr-4 lg:mr-6 xl:mr-8">
-                <li className="p-1 mx-4 ">
+              {currentUser?.role === "Admin" 
+              ?                
+                 <li className="p-1 mx-4 ">
                   <Link
                     to="/dashboard"
                     className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
@@ -144,6 +161,18 @@ const Navber = () => {
                   </Link>
                   <p className="text-xs">Dashboard Profile</p>
                 </li>
+                :                 
+                <li className="p-1 mx-4 ">
+                  <Link
+                    to="/cart"
+                    className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                  >
+                    <CiShoppingCart></CiShoppingCart>
+                  </Link>
+                  <p className="text-xs">Cart</p>
+                  </li>
+                  }
+
                 <li onClick={handleSignOut} className="p-1 ">
                   <Link className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 ">
                     <GoSignOut className="text-center"></GoSignOut>
@@ -211,14 +240,25 @@ const Navber = () => {
             {menu}
             {user?.uid ? (
               <>
+              {currentUser?.role === "Admin" 
+              ?                 
+              <li className="menuItems p-3 xl:p-6">
+                <Link to="/dashboard" onClick={handleCloseMenu}>
+                  <span>Dashboard Profile</span>
+                  <svg viewBox="0 0 13 20">
+                    <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                  </svg>
+                </Link>
+              </li>  
+            :                 
                 <li className="menuItems p-3 xl:p-6">
-                  <Link to="/dashboard">
-                    <span>Dashboard Profile</span>
+                  <Link to="/cart" onClick={handleCloseMenu}>
+                    <span>Cart</span>
                     <svg viewBox="0 0 13 20">
                       <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                     </svg>
                   </Link>
-                </li>
+                </li> }
                 <li onClick={handleSignOut} className="menuItems p-3 xl:p-6">
                   <Link onClick={handleCloseMenu}>
                     <span> Sign Out </span>

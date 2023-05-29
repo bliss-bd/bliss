@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
 const Banner2 = () => {
   return (
     <div>
-      <div className=" grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4  pt-6 gap-2">
+      <div className="-z-50 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-6 gap-2">
         <Link to="/shopmen" className="">
           <a href="/" aria-label="View Item">
-            <div className="relative ">
+            <div className="relative z-0">
               <img className="object-cover w-full height " src={men} alt="" />
               <div className="absolute inset-0 px-6 py-4 transition-opacity duration-200 from-lime-300 bg-gradient-to-t bg-opacity-75 opacity-0 hover:opacity-75">
                 <p className="mb-4 text-lg font-bold text-justify text-gray-900">SHOP MEN</p>
