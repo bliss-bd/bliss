@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
@@ -7,7 +8,7 @@ import { userContext } from "../../../Contexts/UserContexts/UserContexts";
 const Product = () => {
   const data = useLoaderData();
   const { _id, name, price, stock, size } = data;
-const {setCart} = useContext(userContext)
+const {addItemToCart} = useContext(userContext)
   const [selectedSize, setSelectedSize] = useState(null);
 
   const handleSelectSize = (size) => {
@@ -32,9 +33,20 @@ const {setCart} = useContext(userContext)
     _id,name,price,size:selectedSize,quantity, picture:data?.picture1
   }
 
-  const handleAddToCart=()=>{
-    setCart(product)
-  }
+  const handleAddToCart = (item) => {
+    addItemToCart(item);
+    toast.success("ADDED TO CART SUCCESSFULLY!", {
+      style: {
+        border: "1px solid #8af104",
+        padding: "16px",
+        color: "#713200",
+      },
+      iconTheme: {
+        primary: "#713200",
+        secondary: "#FFFAEE",
+      },
+    });
+  };
 
   return (
     <div>
@@ -196,7 +208,7 @@ const {setCart} = useContext(userContext)
                   </p>
                 </div>
                 <div class="mt-4 flex justify-center items-center">
-                <div className="">
+
                   <div class="flex items-center border-2 border-gray-200 rounded">
                     <button
                       type="button"
@@ -217,10 +229,9 @@ const {setCart} = useContext(userContext)
                       class="w-8 h-11 leading-10 text-gray-600 transition hover:opacity-75"
                     >+
                     </button>
-                  </div>
                 </div>
                   <button
-                    onClick={handleAddToCart}
+                    onClick={() => handleAddToCart(product)}
                     className="w-full rounded border-2 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-4 mx-2 py-3 text-sm font-bold uppercase tracking-wide "
                   >
                     Add to cart

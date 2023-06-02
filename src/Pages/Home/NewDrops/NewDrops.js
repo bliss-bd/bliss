@@ -27,8 +27,8 @@ const NewDrops = () => {
             </h2>
           </header>
 
-          <div className="grid gap-4 lg:gap-14 grid-cols-2 lg:grid-cols-4">
-            {products?.slice(0, 8).map((products) => (
+          <div className="grid gap-4 lg:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {products?.slice(0, 10).map((products) => (
               <NewDrop products={products} key={products._id}></NewDrop>
             ))}
           </div>

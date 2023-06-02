@@ -19,7 +19,41 @@ const auth = getAuth(app);
 const Usercontexts = ({ children }) => {
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+
+
+
+  // Function to add an item to the cart
+  const addItemToCart = (item) => {
+    setCartItems((prevCartItems) => [...prevCartItems, item]);
+  };
+
+  // Function to update an item's size in the cart
+  const updateItemSize = (itemId, newSize) => {
+    setCartItems((prevCartItems) =>
+      prevCartItems.map((item) =>
+        item._id === itemId ? { ...item, size: newSize } : item
+      )
+    );
+  };
+
+  // Function to update an item's quantity in the cart
+  const updateItemQuantity = (itemId, newQuantity) => {
+    setCartItems((prevCartItems) =>
+      prevCartItems.map((item) =>
+        item._id === itemId ? { ...item, quantity: newQuantity } : item
+      )
+    );
+  };
+
+  // Function to remove an item from the cart
+  const removeItemFromCart = (itemId) => {
+    setCartItems((prevCartItems) =>
+      prevCartItems.filter((item) => item._id !== itemId)
+    );
+  };
+
+
 
   const googleSingIn = new GoogleAuthProvider();
 
@@ -65,14 +99,18 @@ const Usercontexts = ({ children }) => {
   const info = {
     user,
     loading,
-    cart,
-    setCart,
     register,
     updateUserProfile,
     googleLogin,
     signInUser,
     logout,
     forgetPassword,
+    cartItems,
+    addItemToCart,
+    updateItemSize,
+    updateItemQuantity,
+    removeItemFromCart,
+
   };
   return <userContext.Provider value={info}>{children}</userContext.Provider>;
 };

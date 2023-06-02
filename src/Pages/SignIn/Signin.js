@@ -86,9 +86,6 @@ const SignIn = () => {
           <div className="md:flex md:items-center md:justify-center  md:h-full w-full lg:w-4/12 p-8 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white ">
             <div className="max-w-md w-full space-y-8">
               <div>
-                <div className="px-auto mx-auto">
-                  <iframe className="px-auto mx-auto" src="https://embed.lottiefiles.com/animation/28497"></iframe>
-                </div>
                 <p className="mt-2 text-center text-sm text-gray-500">Please sign in to your account</p>
               </div>
               <div className="flex flex-row justify-center items-center space-x-3">
