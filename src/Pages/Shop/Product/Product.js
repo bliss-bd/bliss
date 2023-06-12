@@ -8,14 +8,14 @@ import { userContext } from "../../../Contexts/UserContexts/UserContexts";
 const Product = () => {
   const data = useLoaderData();
   const { _id, name, price, stock, size } = data;
-const {addItemToCart} = useContext(userContext)
+  const { addToCart } = useContext(userContext)
   const [selectedSize, setSelectedSize] = useState(null);
 
   const handleSelectSize = (size) => {
     setSelectedSize(size);
   };
   // console.log(selectedSize)
-  
+
   const [quantity, setQuantity] = useState(1);
 
   const decreaseQuantity = () => {
@@ -30,11 +30,11 @@ const {addItemToCart} = useContext(userContext)
 
 
   const product = {
-    _id,name,price,size:selectedSize,quantity, picture:data?.picture1
+    _id, name, price, size: selectedSize, quantity, picture: data?.picture1
   }
 
   const handleAddToCart = (item) => {
-    addItemToCart(item);
+    addToCart(item);
     toast.success("ADDED TO CART SUCCESSFULLY!", {
       style: {
         border: "1px solid #8af104",
@@ -194,11 +194,10 @@ const {addItemToCart} = useContext(userContext)
 
                   <div className="flex justify-center items-center mx-auto gap-1">
                     {size?.map((size, index) => (
-                        <p key={index} className={`cursor-pointer group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium ${
-                          selectedSize === size ? 'bg-black text-white' : 'bg-transparent text-black'
+                      <p required key={index} className={`cursor-pointer group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium ${selectedSize === size ? 'bg-black text-white' : 'bg-transparent text-black'
                         }`} onClick={() => handleSelectSize(size)}>
-                          {size}
-                        </p>
+                        {size}
+                      </p>
                     ))}
                   </div>
                 </fieldset>
@@ -229,7 +228,7 @@ const {addItemToCart} = useContext(userContext)
                       class="w-8 h-11 leading-10 text-gray-600 transition hover:opacity-75"
                     >+
                     </button>
-                </div>
+                  </div>
                   <button
                     onClick={() => handleAddToCart(product)}
                     className="w-full rounded border-2 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-4 mx-2 py-3 text-sm font-bold uppercase tracking-wide "

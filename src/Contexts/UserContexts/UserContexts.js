@@ -19,38 +19,44 @@ const auth = getAuth(app);
 const Usercontexts = ({ children }) => {
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
+
+
   const [cartItems, setCartItems] = useState([]);
 
+  const addToCart = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem._id === item._id);
 
+    if (existingItem) {
+      // If item already exists in the cart, update size and quantity
+      const updatedItem = {
+        ...existingItem,
+        size: item.size,
+        quantity: existingItem.quantity = item.quantity,
+      };
 
-  // Function to add an item to the cart
-  const addItemToCart = (item) => {
-    setCartItems((prevCartItems) => [...prevCartItems, item]);
+      const updatedCartItems = cartItems.map((cartItem) =>
+        cartItem._id === item._id ? updatedItem : cartItem
+      );
+
+      setCartItems(updatedCartItems);
+    } else {
+      // Add item to the cart
+      setCartItems([...cartItems, item]);
+    }
   };
 
-  // Function to update an item's size in the cart
-  const updateItemSize = (itemId, newSize) => {
-    setCartItems((prevCartItems) =>
-      prevCartItems.map((item) =>
-        item._id === itemId ? { ...item, size: newSize } : item
-      )
-    );
+  const removeFromCart = (itemId) => {
+    const updatedCartItems = cartItems.filter((item) => item._id !== itemId);
+    setCartItems(updatedCartItems);
   };
 
-  // Function to update an item's quantity in the cart
-  const updateItemQuantity = (itemId, newQuantity) => {
-    setCartItems((prevCartItems) =>
-      prevCartItems.map((item) =>
-        item._id === itemId ? { ...item, quantity: newQuantity } : item
-      )
-    );
+  const getSubtotal = (itemId) => {
+    const item = cartItems.find((item) => item._id === itemId);
+    return item ? item.quantity * item.price : 0;
   };
 
-  // Function to remove an item from the cart
-  const removeItemFromCart = (itemId) => {
-    setCartItems((prevCartItems) =>
-      prevCartItems.filter((item) => item._id !== itemId)
-    );
+  const getTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + getSubtotal(item._id), 0);
   };
 
 
@@ -81,10 +87,10 @@ const Usercontexts = ({ children }) => {
     return signOut(auth);
   };
 
-      /* Password recovr With Email*/
-      const forgetPassword = (email) => {
-        return sendPasswordResetEmail(auth, email)
-    }
+  /* Password recovr With Email*/
+  const forgetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email)
+  }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -106,10 +112,10 @@ const Usercontexts = ({ children }) => {
     logout,
     forgetPassword,
     cartItems,
-    addItemToCart,
-    updateItemSize,
-    updateItemQuantity,
-    removeItemFromCart,
+    addToCart,
+    removeFromCart,
+    getTotalPrice,
+    getSubtotal
 
   };
   return <userContext.Provider value={info}>{children}</userContext.Provider>;
