@@ -91,16 +91,16 @@ const AddProduct = () => {
 
   return (
     <div>
-      <section class="">
-        <div class="mx-auto  max-w-screen-xl px-4 py-16 sm:px-6 lg:pt-8">
-          <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
-            <div class="lg:col-span-2 lg:py-12">
-              <p class="max-w-xl text-lg lg:text-3xl font-bold ">ADD A PRODUCT</p>
+      <section className="">
+        <div className="mx-auto  max-w-screen-xl px-4 py-16 sm:px-6 lg:pt-8">
+          <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+            <div className="lg:col-span-2 lg:py-12">
+              <p className="max-w-xl text-lg lg:text-3xl font-bold ">ADD A PRODUCT</p>
 
-              <div class="mt-10 not-italic text-lg lg:text-5xl font-bold text-[#8af104]">
+              <div className="mt-10 not-italic text-lg lg:text-5xl font-bold text-[#8af104]">
                 Deal Online With <br /> Confidence
               </div>
-              <div class="mt-10 ml-6 lg:ml-16">
+              <div className="mt-10 ml-6 lg:ml-16">
                 <DayPicker
                   mode="single"
                   required
@@ -111,15 +111,15 @@ const AddProduct = () => {
               </div>
             </div>
 
-            <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-              <form onSubmit={handleAddproduct} class="space-y-4">
+            <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+              <form onSubmit={handleAddproduct} className="space-y-4">
                 <div>
                   <p className="text-start mx-1 my-2 text-lg font-semibold">Details</p>
-                  <label class="sr-only" for="name">
+                  <label className="sr-only" for="name">
                     Product Name
                   </label>
                   <input
-                    class="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                     placeholder="Product Name"
                     type="text"
                     required
@@ -127,11 +127,11 @@ const AddProduct = () => {
                   />
                 </div>
                 <div>
-                  <label class="sr-only " required for="name">
+                  <label className="sr-only " required for="name">
                     Category
                   </label>
                   <select
-                    class="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                     name="category"
                   >
                     <option value="women">Women</option>
@@ -139,10 +139,10 @@ const AddProduct = () => {
                   </select>
                 </div>
 
-                <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
                   <div>
                     <input
-                      class="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       name="collection_type"
                       value="New"
                       placeholder="New"
@@ -150,7 +150,7 @@ const AddProduct = () => {
                   </div>
                   <div>
                     <input
-                      class="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Price"
                       type="tel"
                       required
@@ -158,10 +158,10 @@ const AddProduct = () => {
                     />
                   </div>
                 </div>
-                <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
                   <div>
                     <input
-                      class="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 1"
                       type="tel"
                       required
@@ -170,7 +170,7 @@ const AddProduct = () => {
                   </div>
                   <div>
                     <input
-                      class="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 2"
                       type="tel"
                       required
@@ -178,10 +178,10 @@ const AddProduct = () => {
                     />
                   </div>
                 </div>
-                <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
+                <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
                   <div>
                     <input
-                      class="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 3"
                       type="tel"
                       required
@@ -190,7 +190,7 @@ const AddProduct = () => {
                   </div>
                   <div>
                     <input
-                      class="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 4"
                       type="tel"
                       required
@@ -199,7 +199,7 @@ const AddProduct = () => {
                   </div>
                   <div>
                     <input
-                      class="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 5"
                       type="tel"
                       required
@@ -255,10 +255,10 @@ const AddProduct = () => {
                     <span className="label-text">XXL</span>
                   </label>
                 </div>
-                <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
                   <div>
                     <input
-                      class="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Stock"
                       type="tel"
                       required
@@ -266,11 +266,11 @@ const AddProduct = () => {
                     />
                   </div>
                   <div>
-                    <label class="sr-only" for="phone">
+                    <label className="sr-only" for="phone">
                       date
                     </label>
                     <input
-                      class="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="date"
                       type="text"
                       required
@@ -281,7 +281,7 @@ const AddProduct = () => {
                     />
                   </div>
                 </div>
-                <div class="mt-4">
+                <div className="mt-4">
                   <button
                     type="submit"
                     className="w-full rounded border-4 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-6 py-3 text-sm font-bold uppercase tracking-wide "

@@ -21,29 +21,25 @@ const Usercontexts = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
 
+
+
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
-    const existingItem = cartItems.find((cartItem) => cartItem._id === item._id);
+    const existingItemIndex = cartItems.findIndex(
+      (cartItem) => cartItem._id === item._id && cartItem.size === item.size
+    );
 
-    if (existingItem) {
-      // If item already exists in the cart, update size and quantity
-      const updatedItem = {
-        ...existingItem,
-        size: item.size,
-        quantity: existingItem.quantity = item.quantity,
-      };
-
-      const updatedCartItems = cartItems.map((cartItem) =>
-        cartItem._id === item._id ? updatedItem : cartItem
-      );
-
+    if (existingItemIndex !== -1) {
+      const updatedCartItems = [...cartItems];
+      const existingItem = updatedCartItems[existingItemIndex];
+      existingItem.quantity = item.quantity;
       setCartItems(updatedCartItems);
     } else {
-      // Add item to the cart
-      setCartItems([...cartItems, item]);
+      setCartItems((prevCartItems) => [...prevCartItems, item]);
     }
   };
+
 
   const removeFromCart = (itemId) => {
     const updatedCartItems = cartItems.filter((item) => item._id !== itemId);
@@ -122,3 +118,4 @@ const Usercontexts = ({ children }) => {
 };
 
 export default Usercontexts;
+
