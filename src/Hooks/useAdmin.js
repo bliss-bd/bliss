@@ -5,7 +5,7 @@ const useAdmin = (email) => {
     const [isAdminLoading, setIsAdminLoading] = useState(true)
     useEffect(() => {
         if (email) {
-            fetch(`https://bliss-server-y2j1.vercel.app/admin/allusres/${email}`)
+            fetch(`http://localhost:5000/admin/allusres/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     setIsAdmin(data.role)

@@ -1,9 +1,13 @@
 import React, { useContext, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { TbCurrencyTaka } from 'react-icons/tb';
 import Modal from 'react-modal';
+import { useNavigate } from 'react-router-dom';
 import { userContext } from '../../Contexts/UserContexts/UserContexts';
 
 const customStyles = {
+
+
   content: {
     top: '50%',
     left: '50%',
@@ -16,6 +20,7 @@ const customStyles = {
   },
 };
 const Cart = () => {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const { cartItems, removeFromCart, getTotalPrice, getSubtotal, user } = useContext(userContext)
 
@@ -49,8 +54,32 @@ const Cart = () => {
       address,
       note,
       cartItems,
-      TotalPrice: getTotalPrice(),
+      totalPrice: getTotalPrice(),
+      userPhoto: user?.photoURL
     };
+    fetch("http://localhost:5000/order", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(billingDetail),
+    })
+      .then((data) => {
+        toast.success("Your Post Added", {
+          style: {
+            border: "1px solid #713200",
+            padding: "16px",
+            color: "#713200",
+          },
+          iconTheme: {
+            primary: "#713200",
+            secondary: "#FFFAEE",
+          },
+        });
+        // navigate("/dashboard/allproducts");
+        form.reset();
+      })
+      .catch((error) => console.error(error));
     console.log(billingDetail);
     form.reset();
     // Close the modal
@@ -107,8 +136,8 @@ const Cart = () => {
                 <input name='name' className="w-full h-12 bg-gray-100 rounded px-4" required ></input>
               </div>
               <div className="px-4 text-start">
-                <p className='my-2'>Email</p>
-                <input name='email' className="w-full h-12 bg-gray-100 rounded px-4" type='email'></input>
+                <p className='my-2'>Email*</p>
+                <input name='email' className="w-full h-12 bg-gray-100 rounded px-4" required type='email'></input>
               </div>
               <div className="px-4 text-start">
                 <p className='my-2'>Phone*</p>

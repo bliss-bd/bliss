@@ -8,7 +8,7 @@ const NewDrops = () => {
   const { data: products, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await fetch("https://bliss-server-y2j1.vercel.app/products");
+      const res = await fetch("http://localhost:5000/products");
       const data = await res.json();
       return data;
     },
@@ -23,7 +23,7 @@ const NewDrops = () => {
         <div className=" lg:mx-14 mx-6 pb-8 sm:px-6 sm:pb-12 lg:px-8">
           <header className="text-center">
             <h2 className="text-xl lg:my-20 my-8  font-bold text-gray-900 sm:text-4xl">
-              New Drops
+
             </h2>
           </header>
 

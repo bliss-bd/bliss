@@ -16,6 +16,8 @@ import AddProduct from "../DashboardPages/AddProduct/AddProduct";
 import AllProducts from "../DashboardPages/AllProducts/AllProducts";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import Cart from "../DashboardPages/Cart/Cart";
+import Orders from "../DashboardPages/Orders/Orders";
+import ReviewOrder from "../DashboardPages/ReviewOrder/ReviewOrder";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -30,7 +32,7 @@ const Routes = () => {
         {
           path: "/product/:id",
           element: <Product></Product>,
-          loader: ({ params }) => fetch(`https://bliss-server-y2j1.vercel.app/product/${params.id}`),
+          loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
         },
         {
           path: "/shopnew",
@@ -53,7 +55,7 @@ const Routes = () => {
           element: <SignIn></SignIn>,
         },
         {
-          path:'/cart',
+          path: '/cart',
           element: <Cart></Cart>,
         },
       ],
@@ -63,13 +65,26 @@ const Routes = () => {
       element: (
         <PrivateRoute>
           <AdminRoute>
-          <Dashboard></Dashboard>
+            <Dashboard></Dashboard>
           </AdminRoute>
         </PrivateRoute>
       ),
       children: [
         {
           path: "/dashboard",
+          element: (
+            <AdminRoute>
+              <Orders></Orders>
+            </AdminRoute>
+          ),
+        },
+        {
+          path: "/dashboard/orders/:id",
+          element: <ReviewOrder></ReviewOrder>,
+          loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`)
+        },
+        {
+          path: "/dashboard/addproducts",
           element: (
             <AdminRoute>
               <AddProduct></AddProduct>

@@ -34,7 +34,7 @@ const Navber = () => {
   // console.log( currentUser, currentUser?.role);
 
   useEffect(() => {
-    fetch(`https://bliss-server-y2j1.vercel.app/users/${user?.email}`)
+    fetch(`http://localhost:5000/users/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setCurrentUser(data)
@@ -74,10 +74,41 @@ const Navber = () => {
   return (
     <div className="">
       <header className=" bg-white shadow-md h-20 md:flex">
-        <div className="logo h-20 lg:px-2 border-r flex items-center justify-between">
+        <div className=" h-20 lg:px-2 border-r flex items-center justify-between">
           <Link to="/">
-            <img className="w-36 my-1 px-4 mx-0 lg:mx-8" src={logo1} alt="" />
+            <img className="lg:w-36 w-32 lg:my-1 my-4 px-4 mx-0 lg:mx-8" src={logo1} alt="" />
           </Link>
+          <nav className="mt-3 md:hidden inline-block">
+            <ul className="flex items-center">
+              <li className="">
+                <a
+                  target="blink"
+                  href="https://www.facebook.com/blissclothingbangladesh"
+                  className="inline-block rounded-full border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                >
+                  <FaFacebookF></FaFacebookF>
+                </a>
+              </li>
+              <li className="p-1">
+                <a
+                  target="blink"
+                  href="https://www.instagram.com/blissclothingbd/"
+                  className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                >
+                  <FaInstagram></FaInstagram>
+                </a>
+              </li>
+              <li className="">
+                <a
+                  target="blink"
+                  href="https://www.tiktok.com/@blissbd"
+                  className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                >
+                  <FaTiktok></FaTiktok>
+                </a>
+              </li>
+            </ul>
+          </nav>
           <div className="lg:hidden mx-8 pt-2">
             <button
               aria-label="Open Menu"
@@ -209,7 +240,7 @@ const Navber = () => {
           <ul id="menu-mobile-1" className="menu ml-0 lg:ml-2">
             <div className=" h-20 lg:px-2 shadow-md  flex items-center justify-between">
               <Link to="/" onClick={handleCloseMenu}>
-                <img className="w-36 my-1 px-4 mx-0 lg:mx-8" src={logo1} alt="" />
+                <img className="w-32 my-4 px-4 mx-0 lg:mx-8" src={logo1} alt="" />
               </Link>
               <nav className="mt-2">
                 <ul className="flex items-center">

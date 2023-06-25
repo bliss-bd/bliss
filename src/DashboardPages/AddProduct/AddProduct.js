@@ -64,7 +64,7 @@ const AddProduct = () => {
       size: checkedValues,
       time: dispalayDate,
     };
-    fetch("https://bliss-server-y2j1.vercel.app/allproducts", {
+    fetch("http://localhost:5000/allproducts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -284,7 +284,7 @@ const AddProduct = () => {
                 <div className="mt-4">
                   <button
                     type="submit"
-                    className="w-full rounded border-4 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-6 py-3 text-sm font-bold uppercase tracking-wide "
+                    className="w-full rounded border-2 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-6 py-3 text-sm font-bold uppercase tracking-wide "
                   >
                     Add to cart
                   </button>

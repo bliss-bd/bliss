@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import "../SignUp/Form.css";
 import { FaFacebookSquare, FaGooglePlus } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -8,32 +8,32 @@ import { toast } from "react-hot-toast";
 const SignIn = () => {
   const [email, setEmail] = useState('')
 
-  const { googleLogin, signInUser,forgetPassword } = useContext(userContext);
+  const { googleLogin, signInUser, forgetPassword } = useContext(userContext);
 
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
   const handleSigninUser = (event) => {
-      event.preventDefault()
-      const form = event.target;
-      const email = form.email.value;
-      const password = form.password.value;
-      signInUser(email, password)
-          .then(result => {
-              const user = result.user
-              if (user.uid) {
-                  toast.success('Successfully Sign In')
-                  form.reset()
-                  navigate(from, { replace: true });
-              }
-          })
-          .then(error => console.error(error))
+    event.preventDefault()
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signInUser(email, password)
+      .then(result => {
+        const user = result.user
+        if (user.uid) {
+          toast.success('Successfully Sign In')
+          form.reset()
+          navigate(from, { replace: true });
+        }
+      })
+      .then(error => console.error(error))
   }
 
   // const saveUser = (name, email, photoURL) => {
   //   const user = { name, email, photoURL };
-  //   fetch("https://bliss-server-y2j1.vercel.app/users ", {
+  //   fetch("http://localhost:5000/users ", {
   //     method: "POST",
   //     headers: {
   //       "content-type": "application/json",
@@ -58,24 +58,24 @@ const SignIn = () => {
   };
 
 
-  
+
   const recoverPassword = () => {
     forgetPassword(email)
-        .then(() => {
-          toast.success('Password reset email sent!', {
-            style: {
-                border: '1px solid #713200',
-                padding: '16px',
-                color: '#713200',
-            },
-            iconTheme: {
-                primary: '#713200',
-                secondary: '#FFFAEE',
-            },
+      .then(() => {
+        toast.success('Password reset email sent!', {
+          style: {
+            border: '1px solid #713200',
+            padding: '16px',
+            color: '#713200',
+          },
+          iconTheme: {
+            primary: '#713200',
+            secondary: '#FFFAEE',
+          },
         });
-        })
-        .catch(error => console.log(error))
-}
+      })
+      .catch(error => console.log(error))
+  }
 
 
 
@@ -98,7 +98,7 @@ const SignIn = () => {
                 <span className="h-px w-16 bg-gray-200"></span>
               </div>
               <form onSubmit={handleSigninUser} className="mt-8 space-y-6" action="#" method="POST">
-              <div className="relative">
+                <div className="relative">
                   <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">Email</label>
                   <input
                     onBlur={(e) => setEmail(e.target.value)}

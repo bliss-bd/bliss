@@ -62,13 +62,13 @@ const SignUp = () => {
       displayName: name,
     };
     updateUserProfile(profile)
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
 
   const saveUser = (name, email, photoURL) => {
     const user = { name, email, photoURL };
-    fetch("https://bliss-server-y2j1.vercel.app/users ", {
+    fetch("http://localhost:5000/users ", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -76,7 +76,8 @@ const SignUp = () => {
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((data) => {;
+      .then((data) => {
+        ;
       });
   };
 
