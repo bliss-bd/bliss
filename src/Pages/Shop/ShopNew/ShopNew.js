@@ -18,7 +18,7 @@ const ShopNew = () => {
   return (
     <div className="mb-8">
       <header className="text-center">
-        <h2 className="text-4xl lg:text-7xl font-bold lg:my-4 my-0 text-gray-900 py-8 lg:py-16 from-lime-300 bg-gradient-to-t bg-opacity-75">
+        <h2 className="text-4xl lg:text-7xl font-bold lg:mb-4 my-0 text-gray-900 py-8 lg:py-16 from-[#98EECC] bg-gradient-to-b bg-opacity-75">
           Shop New
         </h2>
       </header>

@@ -10,7 +10,7 @@ const NewDrop = ({ products }) => {
         <img
           src={picture1}
           alt=""
-          className="h-[160px] w-full object-cover transition duration-300 group-hover:scale-125 md:h-[300px] lg:h-[340px] xl:h-[340px]"
+          className="h-[160px] w-full object-cover transition rounded-md duration-300 group-hover:scale-125 md:h-[300px] lg:h-[340px] xl:h-[340px]"
         />
 
         <div className="relative pt-3 bg-white">
@@ -22,7 +22,7 @@ const NewDrop = ({ products }) => {
             <span className="sr-only"> Regular Price </span>
 
             <span className="tracking-wider text-gray-900 justify-center flex items-center">
-              <TbCurrencyTaka></TbCurrencyTaka> {price} TAKA
+              <TbCurrencyTaka></TbCurrencyTaka> {price}
             </span>
           </p>
         </div>

@@ -37,7 +37,7 @@ const Product = () => {
     addToCart(item);
     toast.success("ADDED TO CART SUCCESSFULLY!", {
       style: {
-        border: "1px solid #8af104",
+        border: "1px solid #98EECC",
         padding: "16px",
         color: "#713200",
       },
@@ -231,7 +231,7 @@ const Product = () => {
                   </div>
                   <button
                     onClick={() => handleAddToCart(product)}
-                    className="w-full rounded border-2 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-4 mx-2 py-3 text-sm font-bold uppercase tracking-wide "
+                    className="w-full rounded border-2 bg-[#98EECC] hover:bg-black hover:text-[#98EECC] border-black px-4 mx-2 py-3 text-sm font-bold uppercase tracking-wide "
                   >
                     Add to cart
                   </button>

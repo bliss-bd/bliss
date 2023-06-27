@@ -62,7 +62,7 @@ body {
 
     50% {
         transform: scaleY(1);
-        background: yellowgreen;
+        background: #98EECC;
     }
 
     100% {

@@ -80,7 +80,10 @@ const Routes = () => {
         },
         {
           path: "/dashboard/orders/:id",
-          element: <ReviewOrder></ReviewOrder>,
+          element:
+            <AdminRoute>
+              <ReviewOrder></ReviewOrder>
+            </AdminRoute>,
           loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`)
         },
         {

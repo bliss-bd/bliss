@@ -10,8 +10,15 @@ const AddProduct = () => {
   const [checkedValues, setCheckedValues] = useState([]);
 
   let showdate = new Date();
-  let dispalayDate =
-    showdate.getHours() + ":" + showdate.getMinutes() + ":" + showdate.getSeconds();
+
+  let year = showdate.getFullYear();
+  let month = showdate.getMonth() + 1; // Adding 1 because getMonth() returns zero-based values (0 for January)
+  let date = showdate.getDate();
+  let hours = showdate.getHours();
+  let minutes = showdate.getMinutes();
+  let seconds = showdate.getSeconds();
+
+  let combinedValue = Number(`${year}${month}${date}${hours}${minutes}${seconds}`);
 
   const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;
@@ -48,7 +55,6 @@ const AddProduct = () => {
     const category = form.category.value;
     const collection_type = form.collection_type.value;
     const stock = form.stock.value;
-    const date = form.date.value;
     const product = {
       picture1,
       picture2,
@@ -60,9 +66,8 @@ const AddProduct = () => {
       collection_type,
       price,
       stock,
-      date,
       size: checkedValues,
-      time: dispalayDate,
+      time: combinedValue,
     };
     fetch("http://localhost:5000/allproducts", {
       method: "POST",
@@ -97,7 +102,7 @@ const AddProduct = () => {
             <div className="lg:col-span-2 lg:py-12">
               <p className="max-w-xl text-lg lg:text-3xl font-bold ">ADD A PRODUCT</p>
 
-              <div className="mt-10 not-italic text-lg lg:text-5xl font-bold text-[#8af104]">
+              <div className="mt-10 not-italic text-lg lg:text-5xl font-bold text-[#98EECC]">
                 Deal Online With <br /> Confidence
               </div>
               <div className="mt-10 ml-6 lg:ml-16">
@@ -136,13 +141,14 @@ const AddProduct = () => {
                   >
                     <option value="women">Women</option>
                     <option value="men">Men</option>
+                    <option value="both">Both</option>
                   </select>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
+                <div className="grid gap-4 text-center sm:grid-cols-1">
                   <div>
                     <input
-                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm hidden"
                       name="collection_type"
                       value="New"
                       placeholder="New"
@@ -173,7 +179,6 @@ const AddProduct = () => {
                       className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 2"
                       type="tel"
-                      required
                       name="picture2"
                     />
                   </div>
@@ -184,7 +189,6 @@ const AddProduct = () => {
                       className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 3"
                       type="tel"
-                      required
                       name="picture3"
                     />
                   </div>
@@ -193,7 +197,6 @@ const AddProduct = () => {
                       className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 4"
                       type="tel"
-                      required
                       name="picture4"
                     />
                   </div>
@@ -202,7 +205,6 @@ const AddProduct = () => {
                       className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 5"
                       type="tel"
-                      required
                       name="picture5"
                     />
                   </div>
@@ -284,9 +286,9 @@ const AddProduct = () => {
                 <div className="mt-4">
                   <button
                     type="submit"
-                    className="w-full rounded border-2 bg-[#8af104] hover:bg-black hover:text-[#8af104] border-black px-6 py-3 text-sm font-bold uppercase tracking-wide "
+                    className="w-full rounded border-2 bg-[#98EECC] hover:bg-black hover:text-[#98EECC] border-black px-6 py-3 text-sm font-bold uppercase tracking-wide "
                   >
-                    Add to cart
+                    Add Product
                   </button>
                 </div>
               </form>

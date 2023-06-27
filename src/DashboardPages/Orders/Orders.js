@@ -39,8 +39,8 @@ const Orders = () => {
                                 </tr>
                             </thead>
                             <tbody className="bg-white">
-                                {orders?.map((order) => (
-                                    <tr className="text-gray-700">
+                                {orders?.map((order, index) => (
+                                    <tr className="text-gray-700" key={index}>
                                         <td className="px-4 py-3 border">
                                             <div className="flex items-center text-sm">
                                                 <div className="relative w-8 h-8 mr-3 rounded-full md:block">
@@ -61,7 +61,7 @@ const Orders = () => {
                                             </div>
                                         </td>
                                         <td className="px-4 py-3 text-xs border">
-                                            <span className="px-2 py-1 font-semibold leading-tight justify-center flex items-center text-green-500 bg-green-100 rounded-sm">
+                                            <span className="px-2 py-1 font-semibold leading-tight justify-center flex items-center text-black bg-[#98EECC] rounded-sm">
                                                 <TbCurrencyTaka></TbCurrencyTaka> {order?.totalPrice}
                                             </span>
                                         </td>

@@ -13,7 +13,7 @@ const Banner = () => {
     {
       city: 'NEW DROPS',
       img: 'https://i.ibb.co/S6vbbxc/pc-1.jpg',
-      img2: 'https://i.ibb.co/S6vbbxc/pc-1.jpg',
+      img2: 'https://i.ibb.co/3pnzPsz/pc-1-2.jpg',
       to: '/shopnew'
     },
     {

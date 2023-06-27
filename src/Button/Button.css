@@ -32,14 +32,14 @@
 }
 
 .button a:before {
-  color: #8af104;
+  color: #98EECC;
   background: #000;
   transform: rotateY(0deg) translateZ(25px);
 }
 
 .button a:after {
   color: #000;
-  background: #8af104;
+  background: #98EECC;
   transform: rotateX(90deg) translateZ(25px);
 }
 
