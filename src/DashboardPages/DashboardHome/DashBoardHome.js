@@ -10,7 +10,7 @@ const DashBoardHome = () => {
   // console.log( currentUser, currentUser?.role);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://bliss-server-y2j1.vercel.app/users/${user.email}`)
       .then(res => res.json())
       .then(data => {
         setCurrentUser(data)

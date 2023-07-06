@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import { TbCurrencyTaka } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 import Loader from '../../Components/Loader/Loader';
+import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const Orders = () => {
 
@@ -13,11 +15,39 @@ const Orders = () => {
     } = useQuery({
         queryKey: ["orders"],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/orders");
+            const res = await fetch("https://bliss-server-y2j1.vercel.app/orders");
             const data = await res.json();
             return data;
         },
     });
+    console.log(orders)
+
+    const handleDeleteItem = (id) => {
+        const confirm = window.confirm("Are you sure, you want to delete this Order??");
+        if (confirm) {
+            fetch(`https://bliss-server-y2j1.vercel.app/allorders/${id}`, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.deletedCount > 0) {
+                        toast.success("Deleted Successfully", {
+                            style: {
+                                border: "1px solid #98EECC",
+                                padding: "16px",
+                                color: "#98EECC",
+                            },
+                            iconTheme: {
+                                primary: "#98EECC",
+                                secondary: "#FFFAEE",
+                            },
+                        });
+                        refetch();
+                    }
+                });
+        }
+    };
+
 
     if (isLoading) {
         return <Loader></Loader>;
@@ -31,11 +61,12 @@ const Orders = () => {
                         <table className="w-full">
                             <thead>
                                 <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                                    <th className="px-4 py-3">Name</th>
-                                    <th className="px-4 py-3">Total Price</th>
-                                    <th className="px-4 py-3">Contact Number</th>
-                                    <th className="px-4 py-3">Address</th>
-                                    <th className="px-4 py-3">order</th>
+                                    <th className="px-3 py-3">Name</th>
+                                    <th className="px-3 py-3">Total Price</th>
+                                    <th className="px-3 py-3">Contact Number</th>
+                                    <th className="px-3 py-3">Address</th>
+                                    <th className="px-3 py-3">Order</th>
+                                    <th className="px-2 py-3">Delete order</th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white">
@@ -43,18 +74,6 @@ const Orders = () => {
                                     <tr className="text-gray-700" key={index}>
                                         <td className="px-4 py-3 border">
                                             <div className="flex items-center text-sm">
-                                                <div className="relative w-8 h-8 mr-3 rounded-full md:block">
-                                                    <img
-                                                        className="object-cover w-full h-full rounded-full"
-                                                        src={order?.picture1}
-                                                        alt=""
-                                                        loading="lazy"
-                                                    />
-                                                    <div
-                                                        className="absolute inset-0 rounded-full shadow-inner"
-                                                        aria-hidden="true"
-                                                    ></div>
-                                                </div>
                                                 <div>
                                                     <p className="font-semibold text-black">{order?.name.length < 10 ? order.name : order.name.slice(0, 15) + "...."}</p>
                                                 </div>
@@ -69,11 +88,19 @@ const Orders = () => {
                                         <td className=" py-3 text-sm border">{order?.address.length < 25 ? order.address : order.address.slice(0, 25) + "...."}</td>
                                         <td className="px-4 py-3 text-sm border">
                                             <Link
-                                                className="hover:text-green-500"
+                                                className="hover:text-green-500 flex items-center gap-2"
                                                 to={`/dashboard/orders/${order._id}`}
                                             >
-                                                Review Order
+                                                {order?.tnxId ? <>Review Order <AiOutlineCheckCircle className='text-green-500'></AiOutlineCheckCircle> </> : 'Review Order'}
                                             </Link>
+                                        </td>
+                                        <td className="px-2 py-3 text-sm border">
+                                            <button
+                                                className="hover:text-red-500"
+                                                onClick={() => handleDeleteItem(order._id)}
+                                            >
+                                                Delete order
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}

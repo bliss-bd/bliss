@@ -69,7 +69,7 @@ const AddProduct = () => {
       size: checkedValues,
       time: combinedValue,
     };
-    fetch("http://localhost:5000/allproducts", {
+    fetch("https://bliss-server-y2j1.vercel.app/allproducts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -79,12 +79,12 @@ const AddProduct = () => {
       .then((data) => {
         toast.success("Your Post Added", {
           style: {
-            border: "1px solid #713200",
+            border: "1px solid #98EECC",
             padding: "16px",
-            color: "#713200",
+            color: "#98EECC",
           },
           iconTheme: {
-            primary: "#713200",
+            primary: "#98EECC",
             secondary: "#FFFAEE",
           },
         });

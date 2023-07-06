@@ -12,7 +12,7 @@ const AllProducts = () => {
   } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/products");
+      const res = await fetch("https://bliss-server-y2j1.vercel.app/products");
       const data = await res.json();
       return data;
     },
@@ -25,7 +25,7 @@ const AllProducts = () => {
   const handleDeleteItem = (id) => {
     const confirm = window.confirm("Are you sure, you want to delete this Item??");
     if (confirm) {
-      fetch(`http://localhost:5000/allproduct/${id}`, {
+      fetch(`https://bliss-server-y2j1.vercel.app/allproduct/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -33,12 +33,12 @@ const AllProducts = () => {
           if (data.deletedCount > 0) {
             toast.success("Deleted Successfully", {
               style: {
-                border: "1px solid #713200",
+                border: "1px solid #98EECC",
                 padding: "16px",
-                color: "#713200",
+                color: "#98EECC",
               },
               iconTheme: {
-                primary: "#713200",
+                primary: "#98EECC",
                 secondary: "#FFFAEE",
               },
             });

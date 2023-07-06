@@ -1,12 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
 import { TbCurrencyTaka } from 'react-icons/tb';
+import { toast } from 'react-hot-toast';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 const ReviewOrder = () => {
+
+    const [tnx, setTnx] = useState('')
+    const handleTnxSet = (event) => {
+        setTnx(event.target.value);
+    };
     const data = useLoaderData();
-    const { _id, name, email, phone, district, address, note, cartItems, totalPrice } = data;
-    console.log(cartItems.length)
+    const { _id, name, email, phone, district, address, note, cartItems, subTotal, deliveryCharge, totalPrice } = data;
+
+    const placeholder = data.tnxId ? 'TNX ID : ' + data?.tnxId : 'TNX ID';
+    const handleUpdateOrder = (id) => {
+        const confirm = window.confirm("Confirm As delivered order??");
+        if (confirm) {
+            fetch(`https://bliss-server-y2j1.vercel.app/delivered/${id}`, {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify({ status: true, tnx: tnx }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.modifiedCount > 0) {
+                        toast.success("Mark as delivered successfully");
+                    }
+                });
+        }
+    };
+
     return (
         <div className="pb-14 px-4 md:px-6 lg:px-32 2xl:container 2xl:mx-auto">
             <div className="mb-10 flex flex-col xl:flex-row jusitfy-center items-stretch  w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
@@ -18,8 +45,15 @@ const ReviewOrder = () => {
                         {cartItems?.map((cartItem) => (
                             <div key={cartItem._id} className="mt-4 md:mt-6 flex  flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full ">
                                 <div className="pb-4 md:pb-8  w-full md:w-40">
-                                    <img className="w-full hidden h-[140px] md:block" src={cartItem?.picture} alt="dress" />
-                                    <img className="w-full  h-[260px]  md:hidden" src={cartItem?.picture} alt="dress" />
+                                    <div>
+                                        <div className="block overflow-hidden group">
+                                            <img
+                                                src={cartItem.picture}
+                                                alt=""
+                                                className="h-[270px] w-full object-cover transition rounded-md duration-300  md:h-[130px] lg:h-[125px] xl:h-[125px]"
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full  pb-8 space-y-4 md:space-y-0">
                                     <div className="w-full flex flex-col justify-start items-start space-y-8">
@@ -35,25 +69,49 @@ const ReviewOrder = () => {
                                     <div className="flex justify-between space-x-8 items-start w-full">
                                         <p className="text-base xl:text-lg leading-6 text-gray-800">Quantity : {cartItem?.quantity}</p>
                                         <p className="text-base xl:text-lg leading-6 flex items-center">
-                                            <TbCurrencyTaka></TbCurrencyTaka> {cartItem?.price}
-                                            {/* <span className="text-red-300 line-through"> $45.00</span> */}
+                                            {cartItem?.price} <TbCurrencyTaka></TbCurrencyTaka>
                                         </p>
-                                        {/* <p className="text-base xl:text-lg font-semibold leading-6 text-gray-800">$36.00</p> */}
                                     </div>
                                 </div>
                             </div>
 
                         ))}
 
-
+                        <div className="flex justify-between space-x-8 items-start w-full">
+                            <div className="lg:px-4  mx-2 text-lg lg:text-xl font-bold text-center text-gray-800">
+                                Subtotal
+                            </div>
+                            <p className="text-base xl:text-lg leading-6 flex items-center">
+                                {subTotal}<TbCurrencyTaka></TbCurrencyTaka>
+                            </p>
+                        </div>
+                        <div class="flex justify-between space-x-8 items-start w-full pt-4 border-b">
+                            <div class="lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800">
+                                Delivery Charge
+                            </div>
+                            <p className="text-base xl:text-lg leading-6 flex items-center">
+                                {deliveryCharge} <TbCurrencyTaka></TbCurrencyTaka>
+                            </p>
+                        </div>
 
 
                     </div>
                     <div className="flex justify-center md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
                         <div className="flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 space-y-6   ">
                             <h3 className="text-xl font-semibold leading-5 text-gray-800">Shipping</h3>
-                            <div className="flex justify-between items-start w-full">
-                                <div className="flex justify-center items-center space-x-4">
+                            <div>
+                                <input
+                                    value={tnx}
+                                    onChange={handleTnxSet}
+                                    className="w-full rounded-lg border border-[#98EECC] p-3 text-sm"
+                                    placeholder={placeholder}
+                                    disabled={data?.tnxId}
+                                    required
+                                    name="tnx"
+                                />
+                            </div>
+                            <div className="md:flex justify-between items-start w-full">
+                                <div className="flex md:justify-center items-center space-x-4">
                                     <div class="w-8 h-8">
                                         <img class="w-full h-full" alt="logo" src="https://i.ibb.co/L8KSdNQ/image-3.png" />
                                     </div>
@@ -65,10 +123,16 @@ const ReviewOrder = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <p className="text-lg font-semibold leading-6 flex items-center text-gray-800">Total price : {totalPrice}  <TbCurrencyTaka></TbCurrencyTaka></p>
+                                <p className="text-lg font-semibold leading-6 mt-6 flex items-center justify-between text-gray-800">Total price :  <span className='flex items-center px-2'> {totalPrice}  <TbCurrencyTaka></TbCurrencyTaka></span> </p>
                             </div>
                             <div className="w-full flex justify-center items-center">
-                                <button className="w-full rounded border-2 bg-[#98EECC] hover:bg-black hover:text-[#98EECC] border-black px-6 py-3 text-sm font-bold uppercase tracking-wide ">Deliver Product</button>
+                                <button
+                                    onClick={() => handleUpdateOrder(_id)}
+                                    disabled={data?.tnxId}
+                                    className="w-full rounded border-2 flex gap-2 items-center justify-center bg-[#98EECC] hover:bg-black hover:text-[#98EECC] border-black px-6 py-3 text-sm font-bold uppercase tracking-wide ">
+
+                                    {data?.tnxId ? <>Delivered <AiOutlineCheckCircle></AiOutlineCheckCircle> </> : 'Deliver Product'}
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -79,7 +143,7 @@ const ReviewOrder = () => {
                     <div className="flex  flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0 ">
                         <div className="flex flex-col justify-start items-start flex-shrink-0">
                             <div className="flex justify-center  w-full  md:justify-start items-center space-x-4 py-8 border-b border-gray-200">
-                                <img src={data?.userPhoto} alt={name} />
+                                <img src={data?.userPhoto} alt='' />
                                 <div className=" flex justify-start items-start flex-col space-y-2">
                                     <p className="text-base font-semibold leading-4 text-left text-gray-800">{name}</p>
                                 </div>

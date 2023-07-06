@@ -20,13 +20,38 @@ const customStyles = {
   },
 };
 const Cart = () => {
-  const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
   const { cartItems, removeFromCart, getTotalPrice, getSubtotal, user } = useContext(userContext)
+  const [showModal, setShowModal] = useState(false);
+  const [district, setDistrict] = useState('');
+  const [deliveryCharge, setDeliveryCharge] = useState(null);
+  const navigate = useNavigate();
+
+  let showdate = new Date();
+
+  let year = showdate.getFullYear();
+  let month = showdate.getMonth() + 1; // Adding 1 because getMonth() returns zero-based values (0 for January)
+  let date = showdate.getDate();
+  let hours = showdate.getHours();
+  let minutes = showdate.getMinutes();
+  let seconds = showdate.getSeconds();
+
+  let combinedValue = Number(`${year}${month}${date}${hours}${minutes}${seconds}`);
 
   const handleRemoveFromCart = (itemId) => {
     removeFromCart(itemId);
   };
+
+  const handleDistrictChange = (event) => {
+    const selectedDistrict = event.target.value;
+    setDistrict(selectedDistrict);
+
+    if (selectedDistrict === 'Chattogram') {
+      setDeliveryCharge(60);
+    } else {
+      setDeliveryCharge(100);
+    }
+  };
+
 
 
 
@@ -54,10 +79,13 @@ const Cart = () => {
       address,
       note,
       cartItems,
-      totalPrice: getTotalPrice(),
-      userPhoto: user?.photoURL
+      subTotal: getTotalPrice(),
+      deliveryCharge,
+      totalPrice: getTotalPrice() + deliveryCharge,
+      userPhoto: user?.photoURL,
+      time: combinedValue,
     };
-    fetch("http://localhost:5000/order", {
+    fetch("https://bliss-server-y2j1.vercel.app/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -65,17 +93,40 @@ const Cart = () => {
       body: JSON.stringify(billingDetail),
     })
       .then((data) => {
-        toast.success("Your Post Added", {
-          style: {
-            border: "1px solid #713200",
-            padding: "16px",
-            color: "#713200",
-          },
-          iconTheme: {
-            primary: "#713200",
-            secondary: "#FFFAEE",
-          },
-        });
+        toast.custom((t) => (
+          <div
+            className={`${t.visible ? 'animate-enter' : 'animate-leave'
+              } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+          >
+            <div className="flex-1 w-0 p-4">
+              <div className="flex items-start">
+                <div className="flex-shrink-0 pt-0.5">
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src={billingDetail?.userPhoto}
+                    alt=""
+                  />
+                </div>
+                <div className="ml-3 flex-1">
+                  <p className="text-sm font-medium text-gray-900">
+                    {name}
+                  </p>
+                  <p className="mt-1 text-md text-gray-500">
+                    Thank you for your order! We've received it successfully. Please check your email inbox or spam folder for order details.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="flex border-l border-gray-200">
+              <button
+                onClick={() => toast.dismiss(t.id)}
+                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-[#98EECC] hover:text-[#98EECC] focus:outline-none focus:ring-2 focus:ring-[#98EECC]"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        ))
         // navigate("/dashboard/allproducts");
         form.reset();
       })
@@ -145,7 +196,7 @@ const Cart = () => {
               </div>
               <div className="px-4 text-start">
                 <p className='my-2'>Choose District*</p>
-                <select name='district' className="w-full h-12 bg-gray-100 rounded px-4" type='text' required>
+                <select value={district} onChange={handleDistrictChange} name='district' className="w-full h-12 bg-gray-100 rounded px-4" type='text' required>
                   <option value="">Select District</option>
                   <option value="Dhaka">Dhaka</option>
                   <option value="Barguna">Barguna</option>
@@ -231,16 +282,32 @@ const Cart = () => {
               </div>
               <div className="p-4">
                 {/* <p className="mb-6 italic">Shipping and additionnal costs</p> */}
-                <div className="flex justify-between border-b">
-                  <div className="lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800">
-                    Total
+                <div className="flex justify-between">
+                  <div className="lg:px-4  mx-2 text-lg lg:text-xl font-bold text-center text-gray-800">
+                    Subtotal
                   </div>
-                  <div className="lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">
-                    {getTotalPrice()}
+                  <div className="lg:px-4 flex items-center  mx-2 lg:text-lg font-bold text-center text-gray-900">
+                    {getTotalPrice()}<TbCurrencyTaka></TbCurrencyTaka>
                   </div>
                 </div>
-                <button type='submit' className="flex justify-center w-full px-10 py-3 mt-6 font-medium  uppercase rounded-full shadow item-center  bg-[#98EECC] hover:bg-black hover:text-[#98EECC] border-black border-2 focus:shadow-outline focus:outline-none">
-                  {/* <svg aria-hidden="true" data-prefix="far" data-icon="credit-card" className="w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M527.9 32H48.1C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48.1 48h479.8c26.6 0 48.1-21.5 48.1-48V80c0-26.5-21.5-48-48.1-48zM54.1 80h467.8c3.3 0 6 2.7 6 6v42H48.1V86c0-3.3 2.7-6 6-6zm467.8 352H54.1c-3.3 0-6-2.7-6-6V256h479.8v170c0 3.3-2.7 6-6 6zM192 332v40c0 6.6-5.4 12-12 12h-72c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12zm192 0v40c0 6.6-5.4 12-12 12H236c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12z" /></svg> */}
+                <div class="flex justify-between pt-4 border-b">
+                  <div class="lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800">
+                    Delivery Charge
+                  </div>
+                  <div class="lg:px-4 flex items-center  lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">
+                    {deliveryCharge} <TbCurrencyTaka></TbCurrencyTaka>
+                  </div>
+                </div>
+                <div class="flex justify-between pt-4 border-b">
+                  <div class="lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800">
+                    Total
+                  </div>
+                  <div class="lg:px-4 flex items-center lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">
+                    {getTotalPrice() + deliveryCharge} <TbCurrencyTaka></TbCurrencyTaka>
+                  </div>
+                </div>
+                <button type='submit' className="flex justify-center w-full px-10 py-3 mt-6 font-medium  uppercase rounded-md shadow item-center  bg-[#98EECC] hover:bg-black hover:text-[#98EECC] border-black border-2 focus:shadow-outline focus:outline-none">
+                  <svg aria-hidden="true" data-prefix="far" data-icon="credit-card" className="w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M527.9 32H48.1C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48.1 48h479.8c26.6 0 48.1-21.5 48.1-48V80c0-26.5-21.5-48-48.1-48zM54.1 80h467.8c3.3 0 6 2.7 6 6v42H48.1V86c0-3.3 2.7-6 6-6zm467.8 352H54.1c-3.3 0-6-2.7-6-6V256h479.8v170c0 3.3-2.7 6-6 6zM192 332v40c0 6.6-5.4 12-12 12h-72c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12zm192 0v40c0 6.6-5.4 12-12 12H236c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12z" /></svg>
                   <span className="ml-2 mt-5px">Place Order</span>
                 </button>
               </div>

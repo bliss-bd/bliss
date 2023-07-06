@@ -33,7 +33,7 @@ const SignIn = () => {
 
   // const saveUser = (name, email, photoURL) => {
   //   const user = { name, email, photoURL };
-  //   fetch("http://localhost:5000/users ", {
+  //   fetch("https://bliss-server-y2j1.vercel.app/users ", {
   //     method: "POST",
   //     headers: {
   //       "content-type": "application/json",
@@ -64,12 +64,12 @@ const SignIn = () => {
       .then(() => {
         toast.success('Password reset email sent!', {
           style: {
-            border: '1px solid #713200',
+            border: '1px solid #98EECC',
             padding: '16px',
-            color: '#713200',
+            color: '#98EECC',
           },
           iconTheme: {
-            primary: '#713200',
+            primary: '#98EECC',
             secondary: '#FFFAEE',
           },
         });
@@ -102,7 +102,7 @@ const SignIn = () => {
                   <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">Email</label>
                   <input
                     onBlur={(e) => setEmail(e.target.value)}
-                    className=" w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-lime-500"
+                    className=" w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-[#98EECC]"
                     type="email"
                     name="email"
                     placeholder="Email@gmail.com"
@@ -111,7 +111,7 @@ const SignIn = () => {
                 <div className="mt-8 content-center">
                   <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">Password</label>
                   <input
-                    className="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-lime-500"
+                    className="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-[#98EECC]"
                     type="password"
                     name="password"
                     placeholder="Enter your password"
@@ -128,7 +128,7 @@ const SignIn = () => {
                 <div>
                   <button
                     type="submit"
-                    className="w-full flex justify-center bg-black border-2 border-lime-500 hover:border-black hover:bg-lime-500 text-lime-500 hover:text-black p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-300"
+                    className="w-full flex justify-center bg-black border-2 border-[#98EECC] hover:border-black hover:bg-[#98EECC] text-[#98EECC] hover:text-black p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-300"
                   >
                     Sign In
                   </button>
@@ -146,17 +146,14 @@ const SignIn = () => {
             </div>
           </div>
           <div className="w-full  lg:w-7/12  h-full hidden md:flex flex-auto items-center justify-start p-10 overflow-hidden bg-gray-900 text-white bg-no-repeat bg-cover relative">
-            <div className="absolute bg-gradient-to-b to-black  from-lime-300 opacity-75 inset-0 z-0"></div>
+            <div className="absolute bg-gradient-to-b to-black  from-[#98EECC] opacity-75 inset-0 z-0"></div>
             <div className="w-full mx-auto max-w-md z-10">
               <div className="sm:text-4xl xl:text-5xl font-bold leading-tight mb-6">
-                Reference site about Lorem Ipsum..
+                Login to Your Account
               </div>
               <div className="sm:text-sm xl:text-md text-gray-200 font-normal">
                 {" "}
-                What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry Lorem Ipsum has been the industry's standard dummy text ever since the
-                1500s when an unknown printer took a galley of type and scrambled it to make a type
-                specimen book it has?
+                Stay Connected with Bliss: Connect with us by logging into your account. Stay updated on the latest t-shirt releases, receive style inspiration, and be part of our vibrant t-shirt-loving community.
               </div>
             </div>
             {/* <!---remove custom style--> */}

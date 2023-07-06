@@ -39,10 +39,10 @@ const Product = () => {
       style: {
         border: "1px solid #98EECC",
         padding: "16px",
-        color: "#713200",
+        color: "#98EECC",
       },
       iconTheme: {
-        primary: "#713200",
+        primary: "#98EECC",
         secondary: "#FFFAEE",
       },
     });

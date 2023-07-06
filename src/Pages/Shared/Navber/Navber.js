@@ -34,7 +34,7 @@ const Navber = () => {
   // console.log( currentUser, currentUser?.role);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://bliss-server-y2j1.vercel.app/users/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setCurrentUser(data)
@@ -224,7 +224,7 @@ const Navber = () => {
                 {/* <p className="text-xs">Cart</p> */}
               </li>
               <Link to="/signin">
-                <button className="bg-black hover:text-lime-300 text-white font-bold px-4 xl:px-6 py-2 xl:py-3 rounded">
+                <button className="bg-black hover:text-[#98EECC] text-white font-bold px-4 xl:px-6 py-2 xl:py-3 rounded">
                   Sign in
                 </button>
               </Link>
