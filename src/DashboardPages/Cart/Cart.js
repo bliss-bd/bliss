@@ -4,6 +4,7 @@ import { TbCurrencyTaka } from 'react-icons/tb';
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
 import { userContext } from '../../Contexts/UserContexts/UserContexts';
+// import sgMail from '@sendgrid/mail';
 
 const customStyles = {
 
@@ -63,6 +64,9 @@ const Cart = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
+
+
   const handleConfirmOrder = () => {
     const form = document.getElementById('billingForm');
     const name = form.name.value;
@@ -126,7 +130,7 @@ const Cart = () => {
               </button>
             </div>
           </div>
-        ))
+        ));
         // navigate("/dashboard/allproducts");
         form.reset();
       })
@@ -136,6 +140,105 @@ const Cart = () => {
     // Close the modal
     setShowModal(false);
   };
+
+
+
+  // sgMail.setApiKey('YOUR_SENDGRID_API_KEY');
+
+  // const handleConfirmOrder = async () => {
+  //   const form = document.getElementById('billingForm');
+  //   const name = form.name.value;
+  //   const email = form.email.value;
+  //   const phone = form.phone.value;
+  //   const district = form.district.value;
+  //   const address = form.address.value;
+  //   const note = form.note.value;
+  //   const billingDetail = {
+  //     name,
+  //     email,
+  //     phone,
+  //     district,
+  //     address,
+  //     note,
+  //     cartItems,
+  //     subTotal: getTotalPrice(),
+  //     deliveryCharge,
+  //     totalPrice: getTotalPrice() + deliveryCharge,
+  //     userPhoto: user?.photoURL,
+  //     time: combinedValue,
+  //   };
+
+  //   try {
+  //     // Send email to client
+  //     const clientEmailMsg = {
+  //       to: email,
+  //       from: 'faforhad450@gmail.com',
+  //       subject: 'Order Confirmation',
+  //       text: 'Thank you for your order! We have received it successfully.',
+  //       html: '<p>Thank you for your order! We have received it successfully.</p>',
+  //     };
+  //     await sgMail.send(clientEmailMsg);
+
+  //     // Send email to your email address
+  //     const yourEmailMsg = {
+  //       to: 'faforhad450@gmail.com',
+  //       from: 'faforhad450@gmail.com',
+  //       subject: 'New Order',
+  //       text: 'You have received a new order.',
+  //       html: '<p>You have received a new order.</p>',
+  //     };
+  //     await sgMail.send(yourEmailMsg);
+
+  //     // Save the order data to the backend
+  //     await fetch('https://bliss-server-y2j1.vercel.app/order', {
+  //       method: 'POST',
+  //       headers: {
+  //         'content-type': 'application/json',
+  //       },
+  //       body: JSON.stringify(billingDetail),
+  //     });
+
+  //     toast.custom((t) => (
+  //           <div
+  //             className={`${t.visible ? 'animate-enter' : 'animate-leave'
+  //               } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+  //           >
+  //             <div className="flex-1 w-0 p-4">
+  //               <div className="flex items-start">
+  //                 <div className="flex-shrink-0 pt-0.5">
+  //                   <img
+  //                     className="h-10 w-10 rounded-full"
+  //                     src={billingDetail?.userPhoto}
+  //                     alt=""
+  //                   />
+  //                 </div>
+  //                 <div className="ml-3 flex-1">
+  //                   <p className="text-sm font-medium text-gray-900">
+  //                     {name}
+  //                   </p>
+  //                   <p className="mt-1 text-md text-gray-500">
+  //                     Thank you for your order! We've received it successfully. Please check your email inbox or spam folder for order details.
+  //                   </p>
+  //                 </div>
+  //               </div>
+  //             </div>
+  //             <div className="flex border-l border-gray-200">
+  //               <button
+  //                 onClick={() => toast.dismiss(t.id)}
+  //                 className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-[#98EECC] hover:text-[#98EECC] focus:outline-none focus:ring-2 focus:ring-[#98EECC]"
+  //               >
+  //                 Close
+  //               </button>
+  //             </div>
+  //           </div>
+  //     ));
+
+  //     form.reset();
+  //     setShowModal(false);
+  //   } catch (error) {
+  //     console.error('Error sending email or saving order', error);
+  //   }
+  // };
 
 
   return (
