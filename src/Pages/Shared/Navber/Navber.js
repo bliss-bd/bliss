@@ -53,14 +53,6 @@ const Navber = () => {
         </Link>
       </li>
       <li className="menuItems p-3 xl:p-6">
-        <Link to="/shopwomen" title="women" onClick={handleCloseMenu}>
-          <span>Women</span>
-          <svg viewBox="0 0 13 20">
-            <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-          </svg>
-        </Link>
-      </li>
-      <li className="menuItems p-3 xl:p-6">
         <Link to="/shopmen" title="men" onClick={handleCloseMenu}>
           <span>Men</span>
           <svg viewBox="0 0 13 20">
@@ -68,6 +60,15 @@ const Navber = () => {
           </svg>
         </Link>
       </li>
+      <li className="menuItems p-3 xl:p-6">
+        <Link to="/shopwomen" title="women" onClick={handleCloseMenu}>
+          <span>Women</span>
+          <svg viewBox="0 0 13 20">
+            <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+          </svg>
+        </Link>
+      </li>
+
     </>
   );
 
