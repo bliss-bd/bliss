@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import LoaderCard from '../../../Components/LoaderCard/LoaderCard';
 import NewDrop from '../NewDrop/NewDrop';
 
-const ShowMenProducts = () => {
+const AdvertiseProducts = () => {
 
     const { data: productMen, isLoading } = useQuery({
         queryKey: ["productMen"],
@@ -24,7 +24,7 @@ const ShowMenProducts = () => {
     return (
         <div className='border-none' >
             <div className=' px-6 mx-0 py-5 lg:px-8 lg:mx-14 lg:pt-24' >
-                <h1 className='text-start font-bold text-xl uppercase' >Discover <br /> <span className='lg:text-6xl text-5xl text-[#98EECC] uppercase'> men essentials</span> </h1>
+                <h1 className='text-start font-bold text-xl uppercase' >Our <br /> <span className='lg:text-6xl text-5xl text-[#98EECC] uppercase'> Top Sales</span> </h1>
                 <Swiper
                     slidesPerView={2}
                     spaceBetween={10}
@@ -68,4 +68,4 @@ const ShowMenProducts = () => {
     );
 };
 
-export default ShowMenProducts;
+export default AdvertiseProducts;

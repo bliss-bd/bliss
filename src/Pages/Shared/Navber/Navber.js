@@ -75,11 +75,11 @@ const Navber = () => {
   return (
     <div className="">
       <header className=" bg-white shadow-md h-20 md:flex">
-        <div className=" h-20 lg:px-2 border-r flex items-center justify-between">
+        <div className=" h-20 lg:px-2 border-r flex w-full md:w-full lg:w-36 items-center justify-between">
           <Link to="/">
-            <img className="lg:w-36 w-32 lg:my-1 my-4 px-4 mx-0 lg:mx-8" src={logo1} alt="" />
+            <img className="lg:w-36 w-32 lg:my-1 my-4 px-4 mx-0 lg:mx-0" src={logo1} alt="" />
           </Link>
-          <nav className="mt-3 md:hidden inline-block">
+          <nav className="mt-3 lg:hidden inline-block ">
             <ul className="flex items-center">
               <li className="">
                 <a
@@ -147,7 +147,7 @@ const Navber = () => {
             {menu}
           </ul>
         </nav>
-        <nav className="hidden xl:contents">
+        <nav className="hidden lg:contents">
           <ul className="flex items-center mr-4 lg:mr-6 xl:mr-8">
             <li className="p-1 logo">
               <a

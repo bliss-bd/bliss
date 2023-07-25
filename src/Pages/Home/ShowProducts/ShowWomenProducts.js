@@ -57,9 +57,9 @@ const ShowWomenProducts = () => {
                         className="parallax-bg "
                         data-swiper-parallax="-15%"
                     ></div> */}
-                    {productWomen?.map((productWomen) => (
+                    {productWomen?.map((productWomen, index) => (
                         <SwiperSlide>
-                            <NewDrop products={productWomen} key={productWomen._id}></NewDrop>
+                            <NewDrop products={productWomen} key={index}></NewDrop>
                         </SwiperSlide>
                     ))}
                 </Swiper>

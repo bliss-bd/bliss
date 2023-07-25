@@ -28,8 +28,8 @@ const NewDrops = () => {
           </header>
 
           <div className="grid gap-4 lg:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-            {products?.slice(0, 10).map((products) => (
-              <NewDrop products={products} key={products._id}></NewDrop>
+            {products?.slice(0, 10).map((products,index) => (
+              <NewDrop products={products} key={index}></NewDrop>
             ))}
           </div>
         </div>

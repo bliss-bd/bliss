@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import Loader from "../../Components/Loader/Loader";
 import { TbCurrencyTaka } from "react-icons/tb";
+import { RiAdvertisementFill } from "react-icons/ri";
+import { AiOutlineToTop, AiFillDelete } from "react-icons/ai";
 import { toast } from "react-hot-toast";
 
 const AllProducts = () => {
@@ -59,7 +61,9 @@ const AllProducts = () => {
                   <th className="px-4 py-3">Name</th>
                   <th className="px-4 py-3">Price</th>
                   <th className="px-4 py-3">Stock</th>
-                  <th className="px-4 py-3">Delete</th>
+                  <th className="py-3">Top Sell</th>
+                  <th className="py-3">Advertise item</th>
+                  <th className="px-1 py-3">Delete</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
@@ -90,12 +94,34 @@ const AllProducts = () => {
                       </span>
                     </td>
                     <td className=" py-3 text-sm border">{product?.stock}</td>
+                    <td className="px-4 py-3 text-sm border ">
+                      <button
+                        className="hover:text-green-500 text-gray-700 text-center"
+                        onClick={() => handleDeleteItem(product._id)}
+                      >
+                        <div className="flex justify-center items-center">
+                          Top sell
+                          <AiOutlineToTop className="text-lg mx-1"></AiOutlineToTop>
+                        </div>
+                      </button>
+                    </td>
+                    <td className="px-4 py-3 text-sm border ">
+                      <button
+                        className="hover:text-green-500 text-gray-500 text-center"
+                        onClick={() => handleDeleteItem(product._id)}
+                      >
+                        <div className="flex justify-center items-center">
+                          Advertise
+                          <RiAdvertisementFill className="text-2xl mx-1"></RiAdvertisementFill>
+                        </div>
+                      </button>
+                    </td>
                     <td className="px-4 py-3 text-sm border">
                       <button
                         className="hover:text-red-500"
                         onClick={() => handleDeleteItem(product._id)}
                       >
-                        Delete Product
+                        <AiFillDelete className="text-xl mx-1"></AiFillDelete>
                       </button>
                     </td>
                   </tr>

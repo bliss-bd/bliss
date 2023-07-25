@@ -5,6 +5,8 @@ import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
 import { userContext } from '../../Contexts/UserContexts/UserContexts';
 // import sgMail from '@sendgrid/mail';
+import axios from 'axios';
+
 
 const customStyles = {
 
@@ -67,7 +69,7 @@ const Cart = () => {
 
 
 
-  const handleConfirmOrder = () => {
+  const handleConfirmOrder = async () => {
     const form = document.getElementById('billingForm');
     const name = form.name.value;
     const email = form.email.value;
@@ -89,56 +91,6 @@ const Cart = () => {
       userPhoto: user?.photoURL,
       time: combinedValue,
     };
-    fetch("https://bliss-server-y2j1.vercel.app/order", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(billingDetail),
-    })
-      .then((data) => {
-        toast.custom((t) => (
-          <div
-            className={`${t.visible ? 'animate-enter' : 'animate-leave'
-              } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-          >
-            <div className="flex-1 w-0 p-4">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 pt-0.5">
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src={billingDetail?.userPhoto}
-                    alt=""
-                  />
-                </div>
-                <div className="ml-3 flex-1">
-                  <p className="text-sm font-medium text-gray-900">
-                    {name}
-                  </p>
-                  <p className="mt-1 text-md text-gray-500">
-                    Thank you for your order! We've received it successfully. Please check your email inbox or spam folder for order details.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="flex border-l border-gray-200">
-              <button
-                onClick={() => toast.dismiss(t.id)}
-                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-[#98EECC] hover:text-[#98EECC] focus:outline-none focus:ring-2 focus:ring-[#98EECC]"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        ));
-        // navigate("/dashboard/allproducts");
-        form.reset();
-      })
-      .catch((error) => console.error(error));
-    console.log(billingDetail);
-    form.reset();
-    // Close the modal
-    setShowModal(false);
   };
 
 

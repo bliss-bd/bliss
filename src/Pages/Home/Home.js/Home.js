@@ -4,6 +4,7 @@ import BlissQuote from "../BlissQuote/BlissQuote";
 import Discount from "../Discount/Discount";
 import NewDrops from "../NewDrops/NewDrops";
 import ShopPreview from "../ShopPreview/ShopPreview";
+import AdvertiseProducts from "../ShowProducts/AdvertiseProducts";
 import ShowMenProducts from "../ShowProducts/ShowMenProducts";
 import ShowWomenProducts from "../ShowProducts/ShowWomenProducts";
 
@@ -11,6 +12,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
+      <AdvertiseProducts></AdvertiseProducts>
       <NewDrops></NewDrops>
       <ShopPreview></ShopPreview>
       <ShowMenProducts></ShowMenProducts>

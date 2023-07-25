@@ -56,7 +56,7 @@ class CitiesSlider extends Component {
                     {this.props.slides.map((slide, index) => (
                         <div
                             className={classNames('slider__slide', { 's--active': activeSlide === index, 's--prev': prevSlide === index })}
-                            key={slide.city}
+                            key={index}
                         >
                             <div className="slider__slide-content">
                                 {/* <h3 className="slider__slide-subheading">{slide.country || slide.city}</h3> */}
