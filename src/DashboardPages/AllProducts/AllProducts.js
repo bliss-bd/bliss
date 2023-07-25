@@ -69,6 +69,25 @@ const AllProducts = () => {
         });
     }
   };
+  const handleRemoveAdvertiseProduct = (id) => {
+    const confirm = window.confirm("Are you sure, you want Remove this item from Advertise??");
+    if (confirm) {
+      fetch(`https://bliss-server-y2j1.vercel.app/removeAdvertiseProduct/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ status: false }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount > 0) {
+            toast.success("Successfully Remove this item from Advertise");
+            refetch();
+          }
+        });
+    }
+  };
 
 
   const handleAddToTopSell = (id) => {
@@ -142,21 +161,36 @@ const AllProducts = () => {
                         onClick={() => handleAddToTopSell(product._id)}
                       >
                         <div className="flex justify-center items-center">
-                          Top sell
-                          <AiOutlineToTop className="text-lg mx-1"></AiOutlineToTop>
+                          {product?.isTopSell ? "Top sell" : <>
+                            Add to Top sell
+                            <AiOutlineToTop className="text-lg mx-1"></AiOutlineToTop>
+                          </>}
+
                         </div>
                       </button>
                     </td>
                     <td className="px-4 py-3 text-sm border ">
-                      <button
-                        className="hover:text-green-500 text-gray-500 text-center"
-                        onClick={() => handleAdvertiseProduct(product._id)}
-                      >
-                        <div className="flex justify-center items-center">
-                          Advertise
-                          <RiAdvertisementFill className="text-2xl mx-1"></RiAdvertisementFill>
-                        </div>
-                      </button>
+                      {product?.isAdvertised === true ?
+                        <button
+                          className="hover:text-red-500 text-gray-500 text-center"
+                          onClick={() => handleRemoveAdvertiseProduct(product._id)}
+                        >
+                          <div className="flex justify-center items-center">
+                            Remove Advertise
+                            <RiAdvertisementFill className="text-2xl mx-1"></RiAdvertisementFill>
+                          </div>
+                        </button>
+                        :
+                        <button
+                          className="hover:text-green-500 text-gray-500 text-center"
+                          onClick={() => handleAdvertiseProduct(product._id)}
+                        >
+                          <div className="flex justify-center items-center">
+                            Add Advertise
+                            <RiAdvertisementFill className="text-2xl mx-1"></RiAdvertisementFill>
+                          </div>
+                        </button>
+                      }
                     </td>
                     <td className="px-4 py-3 text-sm border">
                       <button
