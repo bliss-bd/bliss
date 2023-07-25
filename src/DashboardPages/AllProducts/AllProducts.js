@@ -50,6 +50,48 @@ const AllProducts = () => {
     }
   };
 
+  // const handleAdvertiseProduct = (id) => {
+  //   const confirm = window.confirm("Are you sure, you want add this item to Advertise??");
+  //   if (confirm) {
+  //     fetch(`https://bliss-server-y2j1.vercel.app/advertiseProduct/${id}`, {
+  //       method: "PUT",
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //       body: JSON.stringify({ status: true }),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         if (data.modifiedCount > 0) {
+  //           toast.success("Successfully added to Advertise product");
+  //           refetch();
+  //         }
+  //       });
+  //   }
+  // };
+
+
+  const handleAddToTopSell = (id) => {
+    const confirm = window.confirm("Are you sure, you want add this item to Top sell??");
+    if (confirm) {
+      fetch(`https://bliss-server-y2j1.vercel.app/topSell/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ status: true }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount > 0) {
+            toast.success("Successfully added to Top sell");
+            refetch();
+          }
+        });
+    }
+  };
+
+
   return (
     <div>
       <section className="container mx-auto px-4 lg:px-32">
@@ -97,7 +139,7 @@ const AllProducts = () => {
                     <td className="px-4 py-3 text-sm border ">
                       <button
                         className="hover:text-green-500 text-gray-700 text-center"
-                        onClick={() => handleDeleteItem(product._id)}
+                        onClick={() => handleAddToTopSell(product._id)}
                       >
                         <div className="flex justify-center items-center">
                           Top sell
@@ -108,7 +150,7 @@ const AllProducts = () => {
                     <td className="px-4 py-3 text-sm border ">
                       <button
                         className="hover:text-green-500 text-gray-500 text-center"
-                        onClick={() => handleDeleteItem(product._id)}
+                      // onClick={() => handleAdvertiseProduct(product._id)}
                       >
                         <div className="flex justify-center items-center">
                           Advertise
