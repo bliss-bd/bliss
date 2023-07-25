@@ -50,25 +50,25 @@ const AllProducts = () => {
     }
   };
 
-  // const handleAdvertiseProduct = (id) => {
-  //   const confirm = window.confirm("Are you sure, you want add this item to Advertise??");
-  //   if (confirm) {
-  //     fetch(`https://bliss-server-y2j1.vercel.app/advertiseProduct/${id}`, {
-  //       method: "PUT",
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //       body: JSON.stringify({ status: true }),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         if (data.modifiedCount > 0) {
-  //           toast.success("Successfully added to Advertise product");
-  //           refetch();
-  //         }
-  //       });
-  //   }
-  // };
+  const handleAdvertiseProduct = (id) => {
+    const confirm = window.confirm("Are you sure, you want add this item to Advertise??");
+    if (confirm) {
+      fetch(`https://bliss-server-y2j1.vercel.app/advertiseProduct/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ status: true }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount > 0) {
+            toast.success("Successfully added to Advertise product");
+            refetch();
+          }
+        });
+    }
+  };
 
 
   const handleAddToTopSell = (id) => {
@@ -150,7 +150,7 @@ const AllProducts = () => {
                     <td className="px-4 py-3 text-sm border ">
                       <button
                         className="hover:text-green-500 text-gray-500 text-center"
-                      // onClick={() => handleAdvertiseProduct(product._id)}
+                        onClick={() => handleAdvertiseProduct(product._id)}
                       >
                         <div className="flex justify-center items-center">
                           Advertise

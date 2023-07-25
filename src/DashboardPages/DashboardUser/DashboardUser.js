@@ -18,20 +18,23 @@ const DashboardUser = () => {
   });
 
   const handleUpdateUser = (id) => {
-    fetch(`https://bliss-server-y2j1.vercel.app/verifyuser/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ status: true }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount > 0) {
-          toast.success("Verifyed successfully");
-          refetch();
-        }
-      });
+    const confirm = window.confirm("Are you sure, you want to verify this user??");
+    if (confirm) {
+      fetch(`https://bliss-server-y2j1.vercel.app/verifyuser/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ status: true }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount > 0) {
+            toast.success("Verifyed successfully");
+            refetch();
+          }
+        });
+    }
   };
 
   const handleDeleteItem = (id) => {
