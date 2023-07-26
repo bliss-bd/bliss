@@ -51,7 +51,7 @@ const AllProducts = () => {
   };
 
   const handleAdvertiseProduct = (id) => {
-    const confirm = window.confirm("Are you sure, you want add this item to Advertise??");
+    const confirm = window.confirm("Are you sure, you want add this item to advertise??");
     if (confirm) {
       fetch(`https://bliss-server-y2j1.vercel.app/advertiseProduct/${id}`, {
         method: "PUT",
@@ -63,14 +63,14 @@ const AllProducts = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.modifiedCount > 0) {
-            toast.success("Successfully added to Advertise product");
+            toast.success("Successfully added to advertise product");
             refetch();
           }
         });
     }
   };
   const handleRemoveAdvertiseProduct = (id) => {
-    const confirm = window.confirm("Are you sure, you want Remove this item from Advertise??");
+    const confirm = window.confirm("Are you sure, you want aemove this item from advertise??");
     if (confirm) {
       fetch(`https://bliss-server-y2j1.vercel.app/removeAdvertiseProduct/${id}`, {
         method: "PUT",
@@ -82,7 +82,7 @@ const AllProducts = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.modifiedCount > 0) {
-            toast.success("Successfully Remove this item from Advertise");
+            toast.success("Successfully remove this item from rdvertise");
             refetch();
           }
         });
@@ -91,7 +91,7 @@ const AllProducts = () => {
 
 
   const handleAddToTopSell = (id) => {
-    const confirm = window.confirm("Are you sure, you want add this item to Top sell??");
+    const confirm = window.confirm("Are you sure, you want add this item to top sell??");
     if (confirm) {
       fetch(`https://bliss-server-y2j1.vercel.app/topSell/${id}`, {
         method: "PUT",
@@ -103,7 +103,27 @@ const AllProducts = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.modifiedCount > 0) {
-            toast.success("Successfully added to Top sell");
+            toast.success("Successfully added to top sell");
+            refetch();
+          }
+        });
+    }
+  };
+
+  const handleRemoveFromTopSell = (id) => {
+    const confirm = window.confirm("Are you sure, you want aemove this item from top sell??");
+    if (confirm) {
+      fetch(`https://bliss-server-y2j1.vercel.app/removeTopSell/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ status: false }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount > 0) {
+            toast.success("Successfully remove from top sell");
             refetch();
           }
         });
@@ -156,18 +176,26 @@ const AllProducts = () => {
                     </td>
                     <td className=" py-3 text-sm border">{product?.stock}</td>
                     <td className="px-4 py-3 text-sm border ">
-                      <button
-                        className="hover:text-green-500 text-gray-700 text-center"
-                        onClick={() => handleAddToTopSell(product._id)}
+                      {product?.isTopSell === true ? <button
+                        className="hover:text-red-500 text-gray-700 text-center"
+                        onClick={() => handleRemoveFromTopSell(product._id)}
                       >
                         <div className="flex justify-center items-center">
-                          {product?.isTopSell ? "Top sell" : <>
+                          Remove From Top sell
+                        </div>
+                      </button> :
+                        <button
+                          className="hover:text-green-500 text-gray-700 text-center"
+                          onClick={() => handleAddToTopSell(product._id)}
+                        >
+                          <div className="flex justify-center items-center">
                             Add to Top sell
                             <AiOutlineToTop className="text-lg mx-1"></AiOutlineToTop>
-                          </>}
 
-                        </div>
-                      </button>
+                          </div>
+                        </button>}
+
+
                     </td>
                     <td className="px-4 py-3 text-sm border ">
                       {product?.isAdvertised === true ?
@@ -177,7 +205,6 @@ const AllProducts = () => {
                         >
                           <div className="flex justify-center items-center">
                             Remove Advertise
-                            <RiAdvertisementFill className="text-2xl mx-1"></RiAdvertisementFill>
                           </div>
                         </button>
                         :

@@ -7,12 +7,14 @@ import ShopPreview from "../ShopPreview/ShopPreview";
 import AdvertiseProducts from "../ShowProducts/AdvertiseProducts";
 import ShowMenProducts from "../ShowProducts/ShowMenProducts";
 import ShowWomenProducts from "../ShowProducts/ShowWomenProducts";
+import TopsellProducts from "../ShowProducts/TopsellProducts";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
       <AdvertiseProducts></AdvertiseProducts>
+      <TopsellProducts></TopsellProducts>
       <NewDrops></NewDrops>
       <ShopPreview></ShopPreview>
       <ShowMenProducts></ShowMenProducts>

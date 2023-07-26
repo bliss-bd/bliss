@@ -6,13 +6,12 @@ import { useQuery } from '@tanstack/react-query';
 import LoaderCard from '../../../Components/LoaderCard/LoaderCard';
 import NewDrop from '../NewDrop/NewDrop';
 
+const TopsellProducts = () => {
 
-
-const ShowWomenProducts = () => {
-    const { data: productWomen, isLoading } = useQuery({
-        queryKey: ["productWomen"],
+    const { data: productMen, isLoading } = useQuery({
+        queryKey: ["productMen"],
         queryFn: async () => {
-            const res = await fetch("https://bliss-server-y2j1.vercel.app/productWomen?category=women&category=both");
+            const res = await fetch("http://localhost:5000/topSell?isTopSell=1");
             const data = await res.json();
             return data;
         },
@@ -20,11 +19,11 @@ const ShowWomenProducts = () => {
     if (isLoading) {
         return <LoaderCard></LoaderCard>;
     }
-    return (
 
-        <div className='border-none'>
-            <div className=' px-6 mx-0 py-4 lg:px-8 lg:mx-14 lg:pt-12 lg:pb-0' >
-                <h1 className='text-start font-bold text-xl uppercase' >Discover <br /> <span className='lg:text-6xl text-5xl text-[#98EECC] uppercase'> Women essentials</span> </h1>
+    return (
+        <div className='border-none' >
+            <div className='  px-6 mx-0 py-4 lg:px-8 lg:mx-14 lg:pt-12 lg:pb-0' >
+                <h1 className='text-start font-bold text-xl uppercase' >Our<br /> <span className='lg:text-6xl text-5xl text-[#98EECC] uppercase'> Top Sells</span> </h1>
                 <Swiper
                     slidesPerView={2}
                     spaceBetween={10}
@@ -53,13 +52,13 @@ const ShowWomenProducts = () => {
                     className="mySwiper"
                 >
                     {/* <div
-                        slot="container-start"
-                        className="parallax-bg "
-                        data-swiper-parallax="-15%"
-                    ></div> */}
-                    {productWomen?.map((productWomen, index) => (
+                                slot="container-start"
+                                className="parallax-bg "
+                                data-swiper-parallax="-15%"
+                            ></div> */}
+                    {productMen?.map((productMen, index) => (
                         <SwiperSlide>
-                            <NewDrop products={productWomen} key={index}></NewDrop>
+                            <NewDrop products={productMen} key={index} className=' my-44'></NewDrop>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -68,4 +67,4 @@ const ShowWomenProducts = () => {
     );
 };
 
-export default ShowWomenProducts;
+export default TopsellProducts;

@@ -8,10 +8,10 @@ import NewDrop from '../NewDrop/NewDrop';
 
 const AdvertiseProducts = () => {
 
-    const { data: productMen, isLoading } = useQuery({
-        queryKey: ["productMen"],
+    const { data: advertiseProducts, isLoading } = useQuery({
+        queryKey: ["advertiseProducts"],
         queryFn: async () => {
-            const res = await fetch("https://bliss-server-y2j1.vercel.app/productMen?category=men&category=both");
+            const res = await fetch("http://localhost:5000/advertiseProducts?isAdvertised=1");
             const data = await res.json();
             return data;
         },
@@ -23,8 +23,8 @@ const AdvertiseProducts = () => {
 
     return (
         <div className='border-none' >
-            <div className=' px-6 mx-0 py-5 lg:px-8 lg:mx-14 lg:pt-24' >
-                <h1 className='text-start font-bold text-xl uppercase' >Our <br /> <span className='lg:text-6xl text-5xl text-[#98EECC] uppercase'> Top Sales</span> </h1>
+            <div className=' px-6 mx-0 py-4 lg:px-8 lg:mx-14 lg:pt-12 lg:pb-0' >
+                <h1 className='text-start font-bold text-xl uppercase' >Just<br /> <span className='lg:text-6xl text-5xl text-[#98EECC] uppercase'>  For You</span> </h1>
                 <Swiper
                     slidesPerView={2}
                     spaceBetween={10}
@@ -57,9 +57,9 @@ const AdvertiseProducts = () => {
                         className="parallax-bg "
                         data-swiper-parallax="-15%"
                     ></div> */}
-                    {productMen?.map((productMen, index) => (
+                    {advertiseProducts?.map((advertiseItem, index) => (
                         <SwiperSlide>
-                            <NewDrop products={productMen} key={index} className=' my-44'></NewDrop>
+                            <NewDrop products={advertiseItem} key={index} className=' my-44'></NewDrop>
                         </SwiperSlide>
                     ))}
                 </Swiper>
