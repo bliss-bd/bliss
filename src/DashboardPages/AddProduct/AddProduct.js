@@ -116,7 +116,7 @@ const AddProduct = () => {
       size: availableSize,
       time: combinedValue,
     };
-    fetch("https://bliss-server-y2j1.vercel.app/allproducts", {
+    fetch("https://bliss-bd.vercel.app/allproducts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -173,7 +173,7 @@ const AddProduct = () => {
               </div>
             </div>
 
-            <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+            <div className="rounded-lg bg-white p-4 shadow-lg lg:col-span-3 lg:p-12">
               <form onSubmit={handleAddproduct} className="space-y-4">
                 <div>
                   <p className="text-start mx-1 my-2 text-lg font-semibold">Details</p>
@@ -189,7 +189,7 @@ const AddProduct = () => {
                   />
                 </div>
                 <div className="flex items-center">
-                  <div className="form-control w-32">
+                  <div className="form-control w-36">
                     <p className="text-start mx-1 text-lg font-semibold">Category</p>
                     <label className="cursor-pointer justify-start gap-4 mt-2 label">
                       <input
@@ -218,7 +218,16 @@ const AddProduct = () => {
                   </div>
                 </div>
                 <div className="flex items-baseline">
-                  <div className="form-control w-32">
+                  <div className="form-control w-36">
+                    <label className="cursor-pointer justify-start gap-4 label">
+                      <input
+                        type="checkbox"
+                        value="Drop-shoulder"
+                        className="checkbox checkbox-success"
+                        onChange={handleMenSubCategory}
+                      />
+                      <span className="label-text">Drop shoulder</span>
+                    </label>
                     <label className="cursor-pointer justify-start gap-4 label">
                       <input
                         type="checkbox"
@@ -266,7 +275,16 @@ const AddProduct = () => {
                       <span className="label-text">Pants</span>
                     </label>
                   </div>
-                  <div className="form-control w-32  ml-12 lg:ml-24 ">
+                  <div className="form-control w-36  ml-12 lg:ml-24 ">
+                    <label className="cursor-pointer justify-start gap-4  label">
+                      <input
+                        type="checkbox"
+                        value="Drop-shoulder"
+                        className="checkbox checkbox-success"
+                        onChange={handleWomenSubCategory}
+                      />
+                      <span className="label-text">Drop shoulder</span>
+                    </label>
                     <label className="cursor-pointer justify-start gap-4  label">
                       <input
                         type="checkbox"

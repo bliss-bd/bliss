@@ -14,7 +14,6 @@ const Product = () => {
   const handleSelectSize = (size) => {
     setSelectedSize(size);
   };
-  // console.log(selectedSize)
 
   const [quantity, setQuantity] = useState(1);
 

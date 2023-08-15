@@ -18,7 +18,7 @@ const ReviewOrder = () => {
     const handleUpdateOrder = (id) => {
         const confirm = window.confirm("Confirm As delivered order??");
         if (confirm) {
-            fetch(`https://bliss-server-y2j1.vercel.app/delivered/${id}`, {
+            fetch(`https://bliss-bd.vercel.app/delivered/${id}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json",
@@ -85,8 +85,8 @@ const ReviewOrder = () => {
                                 {subTotal}<TbCurrencyTaka></TbCurrencyTaka>
                             </p>
                         </div>
-                        <div class="flex justify-between space-x-8 items-start w-full pt-4 border-b">
-                            <div class="lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800">
+                        <div className="flex justify-between space-x-8 items-start w-full pt-4 border-b">
+                            <div className="lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800">
                                 Delivery Charge
                             </div>
                             <p className="text-base xl:text-lg leading-6 flex items-center">
@@ -112,8 +112,8 @@ const ReviewOrder = () => {
                             </div>
                             <div className="md:flex justify-between items-start w-full">
                                 <div className="flex md:justify-center items-center space-x-4">
-                                    <div class="w-8 h-8">
-                                        <img class="w-full h-full" alt="logo" src="https://i.ibb.co/L8KSdNQ/image-3.png" />
+                                    <div className="w-8 h-8">
+                                        <img className="w-full h-full" alt="logo" src="https://i.ibb.co/L8KSdNQ/image-3.png" />
                                     </div>
                                     <div className="flex flex-col justify-start items-center">
                                         <p className="text-lg text-start leading-6 font-semibold text-gray-800">

@@ -11,7 +11,7 @@ const AdvertiseProducts = () => {
     const { data: advertiseProducts, isLoading } = useQuery({
         queryKey: ["advertiseProducts"],
         queryFn: async () => {
-            const res = await fetch("https://bliss-server-y2j1.vercel.app/advertiseProducts?isAdvertised=1");
+            const res = await fetch("https://bliss-bd.vercel.app/advertiseProducts?isAdvertised=1");
             const data = await res.json();
             return data;
         },
@@ -19,8 +19,6 @@ const AdvertiseProducts = () => {
     if (isLoading) {
         return <LoaderCard></LoaderCard>;
     }
-
-
     return (
         <div className='border-none' >
             <div className=' px-6 mx-0 py-4 lg:px-8 lg:mx-14 lg:pt-12 lg:pb-0' >

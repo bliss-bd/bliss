@@ -31,10 +31,8 @@ const Navber = () => {
 
   const [currentUser, setCurrentUser] = useState([]);
 
-  // console.log( currentUser, currentUser?.role);
-
   useEffect(() => {
-    fetch(`https://bliss-server-y2j1.vercel.app/users/${user?.email}`)
+    fetch(`https://bliss-bd.vercel.app/users/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setCurrentUser(data)

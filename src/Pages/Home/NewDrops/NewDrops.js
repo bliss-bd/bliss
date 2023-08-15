@@ -8,7 +8,7 @@ const NewDrops = () => {
   const { data: products, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await fetch("https://bliss-server-y2j1.vercel.app/products");
+      const res = await fetch("https://bliss-bd.vercel.app/products");
       const data = await res.json();
       return data;
     },

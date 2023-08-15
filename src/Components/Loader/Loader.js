@@ -16,7 +16,6 @@ const Loader = () => {
                 <div className="bar bar8"></div>
             </div>
 
-
         </div>
     );
 };

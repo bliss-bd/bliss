@@ -10,7 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
-import app from "../../Firebase/Firebase.config";
+import app from '../../Firebase/firebase.config'
 
 export const userContext = createContext();
 const auth = getAuth(app);
