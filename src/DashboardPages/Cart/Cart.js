@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { TbCurrencyTaka } from "react-icons/tb";
 import Modal from "react-modal";
@@ -106,14 +106,16 @@ const Cart = () => {
                     className="h-10 w-10 rounded-full"
                     src={billingDetail?.userPhoto}
                     alt=""
+                    loading="lazy"
                   />
                 </div>
                 <div className="ml-3 flex-1">
                   <p className="text-sm font-medium text-gray-900">{name}</p>
-                  <p className="mt-1 text-md text-gray-500">
-                    Thank you for your order! We've received it successfully.
-                    Please check your email inbox or spam folder for order
-                    details.
+                  <p className="mt-1 text-md text-red-500">
+                  "Confirmed, ready!"
+                  </p>
+                  <p className="mt-1 text-md text-gray-900 font-semibold">
+                  "Order received! Check email for details. If not, no worries, we got your order."
                   </p>
                 </div>
               </div>
@@ -133,9 +135,16 @@ const Cart = () => {
     form.reset();
     setShowModal(false);
   };
-
+  function ScrollToTopOnMount() {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+  
+    return null;
+  }
   return (
     <div className="flex justify-center my-6">
+      <ScrollToTopOnMount/>
       <div className="flex flex-col w-full p-4 text-gray-800 bg-white  pin-r pin-y md:w-4/5 lg:w-4/5">
         <div className="flex-1">
           {cartItems?.map((cartItem) => (
@@ -145,6 +154,7 @@ const Cart = () => {
                   src={cartItem.picture}
                   alt="product-image"
                   className="h-[270px] w-32 object-cover transition rounded-md duration-300  md:h-[130px] lg:h-[125px] xl:h-[125px]"
+                  loading="lazy"
                 />
                 <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between  lg:p-3  p-0  ">
                   <div className="sm:mt-0">

@@ -16,7 +16,8 @@ const DashBoardHome = () => {
   }, [user.email])
 
   return (
-    <div className="my-2 lg:max-w-[1440px] relative inset-0 md:max-w-[744px] max-w-[465px] mx-auto  lg:px-20 md:px-6 px-4 lg:py-8 md:py-6 py-4">
+    <div className="from-[honeydew] bg-gradient-to-b bg-opacity-75">
+    <div className=" mb-2 lg:max-w-[1440px] relative inset-0 md:max-w-[744px] max-w-[465px] mx-auto  lg:px-20 md:px-6 px-4 lg:py-8 md:py-6 py-4">
       <div className="relative">
         <div className="w-full h-full md:flex flex-auto items-center justify-start p-10 bg-gray-900 text-white bg-no-repeat bg-cover relative">
           <div className="absolute bg-gradient-to-b to-black from-[#98EECC] opacity-75 inset-0 z-0"></div>
@@ -25,6 +26,7 @@ const DashBoardHome = () => {
               src={user?.photoURL}
               alt=""
               className="w-32 h-32 mx-auto rounded-full my-6 dark:bg-gray-500 aspect-square"
+              loading="lazy"
             />
             <p className="lg:text-4xl md:text-2xl text-lg font-semibold  text-white">
               {user?.displayName}
@@ -111,6 +113,8 @@ const DashBoardHome = () => {
           </div>
         </div>
       </div>
+    </div>
+
     </div>
   );
 };

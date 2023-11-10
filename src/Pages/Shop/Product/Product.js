@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
 import { userContext } from "../../../Contexts/UserContexts/UserContexts";
+import TopsellProducts from "../../Home/ShowProducts/TopsellProducts";
 
 const Product = () => {
   const data = useLoaderData();
@@ -46,10 +47,17 @@ const Product = () => {
       },
     });
   };
-
+  function ScrollToTopOnMount() {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+  
+    return null;
+  }
   return (
     <div>
-      <section className="text-black">
+      <ScrollToTopOnMount />
+      <section className="text-black mb-12">
         <div className="relative mx-auto max-w-screen-xl px-4 py-8">
           <div>
             <h1 className="text-2xl font-bold lg:text-3xl">{name}</h1>
@@ -72,6 +80,7 @@ const Product = () => {
                       alt="Tee"
                       src={data?.picture1}
                       className="h-96 w-full px-5 lg:px-56 bg-gray-100 rounded-xl object-cover lg:h-full cursor-pointer"
+                      loading="lazy"
                     />
 
                     <div className="absolute bottom-4 left-1/2 inline-flex -translate-x-1/2 items-center rounded-full bg-black/75 px-3 py-1.5 text-white">
@@ -111,6 +120,7 @@ const Product = () => {
                             : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
                         }
                         className="h-16 w-16 rounded-md object-cover cursor-pointer"
+                        loading="lazy"
                       />
                     </PhotoView>
                   </li>
@@ -131,6 +141,7 @@ const Product = () => {
                             : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
                         }
                         className="h-16 w-16 rounded-md object-cover cursor-pointer"
+                        loading="lazy"
                       />
                     </PhotoView>
                   </li>
@@ -151,6 +162,7 @@ const Product = () => {
                             : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
                         }
                         className="h-16 w-16 rounded-md object-cover cursor-pointer"
+                        loading="lazy"
                       />
                     </PhotoView>
                   </li>
@@ -171,6 +183,7 @@ const Product = () => {
                             : "https://i.ibb.co/k3ZMPy3/toon-showing-blank-placard-1160-189.jpg"
                         }
                         className="h-16 w-16 rounded-md object-cover cursor-pointer"
+                        loading="lazy"
                       />
                     </PhotoView>
                   </li>
@@ -329,6 +342,7 @@ const Product = () => {
           </div>
         </div>
       </section>
+      <TopsellProducts></TopsellProducts>
     </div>
   );
 };

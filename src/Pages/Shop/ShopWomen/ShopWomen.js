@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useEffect } from "react";
 import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
 import NewDrop from "../../Home/NewDrop/NewDrop";
 
@@ -12,14 +12,22 @@ const ShopWomen = () => {
       return data;
     },
   });
+  function ScrollToTopOnMount() {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+  
+    return null;
+  }
   if (isLoading) {
     return <LoaderCard></LoaderCard>;
   }
 
   return (
     <div className="mb-8">
+      <ScrollToTopOnMount/>
       <header className="text-center">
-        <h2 className="text-4xl lg:text-7xl font-bold lg:mb-4 my-0 text-gray-900 py-8 lg:py-16 from-[#98EECC] bg-gradient-to-b bg-opacity-75">
+        <h2 className="text-4xl font-bold my-0 text-gray-900 py-8 pt-12 from-[honeydew] bg-gradient-to-b bg-opacity-75 uppercase">
           Shop Women
         </h2>
       </header>

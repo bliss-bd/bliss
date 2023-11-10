@@ -17,24 +17,25 @@ const NewDrops = () => {
   if (isLoading) {
     return <LoaderCard></LoaderCard>;
   }
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <div className="mb-8 bg-[url('/src/assets/Bliss LOGO- Ontor[1].png')]">
+    <div className="mb-8">
       <section>
         <div className=" lg:mx-14 mx-6 pb-8 sm:px-6 sm:pb-12 lg:px-8">
           <header className="text-center">
-            <h2 className="text-xl lg:my-20 my-8  font-bold text-gray-900 sm:text-4xl">
-
-            </h2>
+            <h2 className="text-xl lg:my-20 my-8  font-bold text-gray-900 sm:text-4xl"></h2>
           </header>
-
           <div className="grid gap-4 lg:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-            {products?.slice(0, 10).map((products,index) => (
+            {products?.slice(0, 10).map((products, index) => (
               <NewDrop products={products} key={index}></NewDrop>
             ))}
           </div>
         </div>
       </section>
-      <Link to="/shopnew">
+      <Link onClick={scrollToTop} to="/shopnew">
         <Button>{"Shop More"}</Button>
       </Link>
     </div>

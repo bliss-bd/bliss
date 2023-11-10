@@ -177,7 +177,7 @@ const AddProduct = () => {
               <form onSubmit={handleAddproduct} className="space-y-4">
                 <div>
                   <p className="text-start mx-1 my-2 text-lg font-semibold">Details</p>
-                  <label className="sr-only" for="name">
+                  <label className="sr-only">
                     Product Name
                   </label>
                   <input
@@ -447,7 +447,7 @@ const AddProduct = () => {
                     />
                   </div>
                   <div>
-                    <label className="sr-only" for="phone">
+                    <label className="sr-only">
                       date
                     </label>
                     <input

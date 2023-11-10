@@ -48,6 +48,7 @@ const ReviewOrder = () => {
                                     <div>
                                         <div className="block overflow-hidden group">
                                             <img
+                                            loading="lazy"
                                                 src={cartItem.picture}
                                                 alt=""
                                                 className="h-[270px] w-full object-cover transition rounded-md duration-300  md:h-[130px] lg:h-[125px] xl:h-[125px]"
@@ -113,7 +114,7 @@ const ReviewOrder = () => {
                             <div className="md:flex justify-between items-start w-full">
                                 <div className="flex md:justify-center items-center space-x-4">
                                     <div className="w-8 h-8">
-                                        <img className="w-full h-full" alt="logo" src="https://i.ibb.co/L8KSdNQ/image-3.png" />
+                                        <img className="w-full h-full" alt="logo" loading="lazy" src="https://i.ibb.co/L8KSdNQ/image-3.png" />
                                     </div>
                                     <div className="flex flex-col justify-start items-center">
                                         <p className="text-lg text-start leading-6 font-semibold text-gray-800">
@@ -143,7 +144,7 @@ const ReviewOrder = () => {
                     <div className="flex  flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0 ">
                         <div className="flex flex-col justify-start items-start flex-shrink-0">
                             <div className="flex justify-center  w-full  md:justify-start items-center space-x-4 py-8 border-b border-gray-200">
-                                <img src={data?.userPhoto} alt='' />
+                                <img src={data?.userPhoto} loading="lazy" alt='' />
                                 <div className=" flex justify-start items-start flex-col space-y-2">
                                     <p className="text-base font-semibold leading-4 text-left text-gray-800">{name}</p>
                                 </div>

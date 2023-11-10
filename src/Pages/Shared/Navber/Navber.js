@@ -71,11 +71,11 @@ const Navber = () => {
   );
 
   return (
-    <div className="">
+    <div className="sticky top-0 z-50">
       <header className=" bg-white shadow-md h-20 md:flex">
         <div className=" h-20 lg:px-2 border-r flex w-full md:w-full lg:w-36 items-center justify-between">
           <Link to="/">
-            <img className="lg:w-36 w-32 lg:my-1 my-4 px-4 mx-0 lg:mx-0" src={logo1} alt="" />
+            <img className="lg:w-36 w-32 lg:my-1 my-4 px-4 mx-0 lg:mx-0" src={logo1} loading="lazy" alt="" />
           </Link>
           <nav className="mt-3 lg:hidden inline-block ">
             <ul className="flex items-center">
@@ -239,9 +239,9 @@ const Navber = () => {
           <ul id="menu-mobile-1" className="menu ml-0 lg:ml-2">
             <div className=" h-20 lg:px-2 shadow-md  flex items-center justify-between">
               <Link to="/" onClick={handleCloseMenu}>
-                <img className="w-32 my-4 px-4 mx-0 lg:mx-8" src={logo1} alt="" />
+                <img className="w-32 my-4 px-4 mx-0 lg:mx-8" src={logo1} alt="" loading="lazy"/>
               </Link>
-              <nav className="mt-2">
+              <nav className="mt-1.5">
                 <ul className="flex items-center">
                   <li className="">
                     <a

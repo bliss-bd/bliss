@@ -1,26 +1,29 @@
 import React from "react";
-import { FaPinterestP } from "react-icons/fa";
 import blissLogo from "../../../assets/Bliss LOGO- Ontor[2].png";
 import { TfiFacebook } from "react-icons/tfi";
 import { BsInstagram, BsTiktok } from "react-icons/bs";
-import { ImYoutube } from "react-icons/im";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+
+  const year = new Date().getFullYear()
+
   return (
     <div>
-      <div className="border-t border-solid border-black">
+      <div className="border-t border-solid ">
         <div className="flex flex-col mx-auto  h-auto">
           <div className="flex lg:items-center lg:justify-between flex-col lg:flex-row gap-y-[45px]  lg:py-0  w-full h-auto lg:h-[380px] bg-white">
             <div className="lg:w-4/12 bg-bl bg-black h-full lg:pt-24 md:pt-16 py-12">
-              <div className="">
+              <Link to="/">
                 <img
                   src={blissLogo}
                   alt="Bliss logo"
                   className="max-w-lg w-1/5 mx-auto object-contain"
+                  loading="lazy"
                 ></img>
-              </div>
+              </Link>
               <div className="text-center text-white py-3 hover:underline cursor-pointer">
-                info@bliss.com
+                <a href="mailto:blissclothingcsr@gmail.com">blissclothingcsr@gmail.com</a>
               </div>
             </div>
 
@@ -29,15 +32,15 @@ const Footer = () => {
                 <div className="mb-[18px] text-gray-500 text-sm font-bold select-none">SHOP</div>
 
                 <ul className="flex flex-col gap-[10px] text-gray-600">
-                  <a className="hover:underline" href="#">
+                  <Link to='/shopnew' className="hover:underline" href="#">
                     <li>New</li>
-                  </a>
-                  <a className="hover:underline" href="#">
+                  </Link>
+                  <Link to='/shopmen' className="hover:underline" href="#">
                     <li>Men</li>
-                  </a>
-                  <a className="hover:underline" href="#">
+                  </Link>
+                  <Link to='/shopwomen' className="hover:underline" href="#">
                     <li>Women</li>
-                  </a>
+                  </Link>
                 </ul>
               </div>
 
@@ -51,9 +54,9 @@ const Footer = () => {
                   <a className="hover:underline" href="#">
                     <li>Subscribe</li>
                   </a>
-                  <a className="hover:underline" href="#">
+                  <Link to="/faq" className="hover:underline" href="#">
                     <li>FAQ</li>
-                  </a>
+                  </Link>
                 </ul>
               </div>
 
@@ -75,7 +78,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-center flex-col sm:flex-row w-full h-[100px] bg-gray-200 gap-y-[25px]  lg:gap-y-[45px] lg:py-0 ">
+          <div className="flex items-center justify-center flex-col sm:flex-row w-full h-[100px] bg-[honeydew] gap-y-[25px]  lg:gap-y-[45px] lg:py-0 ">
             <ul className="flex justify-center gap-7 text-gray-black cursor-pointer w-full lg:w-2/4 bg-white py-5 md:py-9 lg:py-9">
               <a target="blink" href="https://www.facebook.com/blissclothingbangladesh">
                 <TfiFacebook className="w-6 h-8"></TfiFacebook>
@@ -83,19 +86,19 @@ const Footer = () => {
               <a target="blink" href="https://www.instagram.com/blissclothingbd/">
                 <BsInstagram className="w-6 h-8 text-center"></BsInstagram>
               </a>
-              <span>
+              {/* <span>
                 <ImYoutube className="w-6 h-8"></ImYoutube>
               </span>
               <span>
                 <FaPinterestP className="w-6 h-8"></FaPinterestP>
-              </span>
+              </span> */}
               <a href="https://www.tiktok.com/@blissbd" target="blink">
                 <BsTiktok className="w-6 h-8"></BsTiktok>
               </a>
             </ul>
-            <div className="text-gray-600 w-full bg-gray-200 pb-5 lg:pb-0">
+            <div className="text-gray-600 w-full bg-[honeydew] pb-5 lg:pb-0">
               {" "}
-              © Copyright 2023 Bliss. All rights reserved.
+              © Copyright {year} <a href="https://blissclothingbd.com" className="font-bold">Bliss</a>. All rights reserved.
             </div>
           </div>
         </div>

@@ -18,6 +18,7 @@ import AdminRoute from "./AdminRoute/AdminRoute";
 import Cart from "../DashboardPages/Cart/Cart";
 import Orders from "../DashboardPages/Orders/Orders";
 import ReviewOrder from "../DashboardPages/ReviewOrder/ReviewOrder";
+import Faq from "../Pages/FAQ/Faq"
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -57,6 +58,10 @@ const Routes = () => {
         {
           path: '/cart',
           element: <Cart></Cart>,
+        },
+        {
+          path: '/faq',
+          element: <Faq></Faq>,
         },
       ],
     },
