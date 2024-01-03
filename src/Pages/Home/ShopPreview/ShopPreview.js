@@ -28,7 +28,7 @@ const ShopPreview = () => {
           ></video>
         </div>
         <div className="hidden md:inline-block video-content space-y-2 w-24 lg:w-36 z-10">
-          <img src={bliss} loading="lazy" />
+          {/* <img src={bliss} loading="lazy" /> */}
         </div>
       </section>
     </div>

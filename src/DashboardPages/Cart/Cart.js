@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 import { TbCurrencyTaka } from "react-icons/tb";
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../../Contexts/UserContexts/UserContexts";
+import emailjs from "@emailjs/browser";
 
 const customStyles = {
   content: {
@@ -62,6 +63,11 @@ const Cart = () => {
     setShowModal(false);
   };
 
+
+
+
+
+
   const handleConfirmOrder = () => {
     const form = document.getElementById("billingForm");
     const name = form.name.value;
@@ -112,10 +118,11 @@ const Cart = () => {
                 <div className="ml-3 flex-1">
                   <p className="text-sm font-medium text-gray-900">{name}</p>
                   <p className="mt-1 text-md text-red-500">
-                  "Confirmed, ready!"
+                    "Confirmed, ready!"
                   </p>
                   <p className="mt-1 text-md text-gray-900 font-semibold">
-                  "Order received! Check email for details. If not, no worries, we got your order."
+                    "Order received! Check email for details. If not, no
+                    worries, we got your order."
                   </p>
                 </div>
               </div>
@@ -130,21 +137,39 @@ const Cart = () => {
             </div>
           </div>
         ));
-
+          const sendEmail = () => {
+          emailjs
+            .sendForm(
+              "service_ypcxs8d",
+              "template_3wqmy9s",
+              billingDetail,
+              "4rb5SlOTofWd3WXVS"
+            )
+            .then(
+              (result) => {
+                console.log(result.text);
+              },
+              (error) => {
+                console.log(error.text);
+              }
+            );
+        };
+        sendEmail();
       });
     form.reset();
     setShowModal(false);
   };
+
   function ScrollToTopOnMount() {
     useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
-  
+
     return null;
   }
   return (
     <div className="flex justify-center my-6">
-      <ScrollToTopOnMount/>
+      <ScrollToTopOnMount />
       <div className="flex flex-col w-full p-4 text-gray-800 bg-white  pin-r pin-y md:w-4/5 lg:w-4/5">
         <div className="flex-1">
           {cartItems?.map((cartItem) => (

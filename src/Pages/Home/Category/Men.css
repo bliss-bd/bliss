@@ -1,0 +1,11 @@
+.text-heading {
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+.button-discover{
+    background-color: rgba(25,17,11,.2);
+    border-color: #fff;
+}

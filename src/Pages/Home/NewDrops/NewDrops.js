@@ -17,10 +17,6 @@ const NewDrops = () => {
   if (isLoading) {
     return <LoaderCard></LoaderCard>;
   }
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
-
   return (
     <div className="mb-8">
       <section>
@@ -35,9 +31,6 @@ const NewDrops = () => {
           </div>
         </div>
       </section>
-      <Link onClick={scrollToTop} to="/shopnew">
-        <Button>{"Shop More"}</Button>
-      </Link>
     </div>
   );
 };

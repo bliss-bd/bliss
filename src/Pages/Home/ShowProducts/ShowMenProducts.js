@@ -5,6 +5,7 @@ import "./ShowProducts.css";
 import { useQuery } from "@tanstack/react-query";
 import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
 import NewDrop from "../NewDrop/NewDrop";
+import AdvertiseProduct from "../Advertiseproduct/AdvertiseProduct";
 
 const ShowMenProducts = () => {
   const { data: productMen, isLoading } = useQuery({
@@ -23,7 +24,7 @@ const ShowMenProducts = () => {
   return (
     <div className="border-none">
       <div className=" px-6 mx-0 py-4 lg:px-8 lg:mx-14 lg:pt-12 lg:pb-0">
-        <div className="xl:w-1/2 w-11/12 mx-auto">
+        {/* <div className="xl:w-1/2 w-11/12 mx-auto">
           <h1 className="text-center font-bold lg:text-4xl text-3xl text-[#98EECC] uppercase">
             men essentials
           </h1>
@@ -31,13 +32,13 @@ const ShowMenProducts = () => {
             Elevate Your Style and Routine with Essential Men's Products.
             Explore Our <br /> Exclusive Collection.
           </p>
-        </div>
+        </div> */}
         <Swiper
           slidesPerView={2}
           spaceBetween={10}
           loop={true}
           autoplay={{
-            delay: 500,
+            delay: 2500,
             disableOnInteraction: false,
           }}
           speed={1500}
@@ -51,11 +52,11 @@ const ShowMenProducts = () => {
               spaceBetween: 40,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 20,
             },
             1350: {
-              slidesPerView: 5,
+              slidesPerView: 3,
               spaceBetween: 20,
             },
           }}
@@ -69,7 +70,7 @@ const ShowMenProducts = () => {
                     ></div> */}
           {productMen?.map((productMen, i) => (
             <SwiperSlide>
-              <NewDrop products={productMen} key={i}></NewDrop>
+              <AdvertiseProduct products={productMen} key={i}></AdvertiseProduct>
             </SwiperSlide>
           ))}
         </Swiper>

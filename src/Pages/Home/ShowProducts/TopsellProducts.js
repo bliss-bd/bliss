@@ -5,6 +5,8 @@ import "./ShowProducts.css";
 import { useQuery } from "@tanstack/react-query";
 import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
 import NewDrop from "../NewDrop/NewDrop";
+import { Link } from "react-router-dom";
+import { Button } from "../../../Button/Button";
 
 const TopsellProducts = () => {
   const { data: topSell, isLoading } = useQuery({
@@ -20,6 +22,10 @@ const TopsellProducts = () => {
   if (isLoading) {
     return <LoaderCard></LoaderCard>;
   }
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
 
   return (
     <div className="border-none">
@@ -78,6 +84,9 @@ const TopsellProducts = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+        <Link onClick={scrollToTop} to="/shopnew">
+        <Button>{"Shop More"}</Button>
+      </Link>
       </div>
     </div>
   );

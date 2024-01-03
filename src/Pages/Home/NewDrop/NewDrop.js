@@ -7,7 +7,6 @@ const NewDrop = ({ products }) => {
 
   return (
     <div>
-      
       <Link to={`/product/${_id}`} className="block overflow-hidden group">
         <img
           src={picture1}

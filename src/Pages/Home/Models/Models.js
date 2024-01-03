@@ -135,12 +135,12 @@ const Models = () => {
               src="https://i.ibb.co/z4y1Bwf/model2.jpg"
               alt="young girl with red hair"
             />
-            <div className="md:inline flex items-center justify-center">
+            <div className="md:inline flex items-center justify-center mx-auto">
               <img
                 tabIndex={0}
                 src="https://i.ibb.co/hdV3fyh/model11.jpg"
                 alt="guy with glasses"
-                className="w-24 h-24  rounded-sm md:ml-6 ml-[.8rem] md:mt-0 mt-5 flex-shrink-0 object-cover object-fit"
+                className="w-24 h-24  rounded-sm md:ml-6 ml-0  md:mt-0 mt-5 flex-shrink-0 object-cover object-fit"
               />
               <img
                 tabIndex={0}

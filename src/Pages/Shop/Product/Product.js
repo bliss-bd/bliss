@@ -56,7 +56,7 @@ const Product = () => {
   }
   return (
     <div>
-      <ScrollToTopOnMount />
+
       <section className="text-black mb-12">
         <div className="relative mx-auto max-w-screen-xl px-4 py-8">
           <div>
@@ -343,6 +343,7 @@ const Product = () => {
         </div>
       </section>
       <TopsellProducts></TopsellProducts>
+      <ScrollToTopOnMount />
     </div>
   );
 };

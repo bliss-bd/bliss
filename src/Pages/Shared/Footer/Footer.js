@@ -75,10 +75,10 @@ const Footer = () => {
                   </a>
                 </ul>
               </div>
-            </div>
+            </div>  
           </div>
 
-          <div className="flex items-center justify-center flex-col sm:flex-row w-full h-[100px] bg-[honeydew] gap-y-[25px]  lg:gap-y-[45px] lg:py-0 ">
+          <div className="flex items-center justify-center flex-col sm:flex-row w-full h-[100px] bg-gray-100 gap-y-[25px]  lg:gap-y-[45px] lg:py-0 ">
             <ul className="flex justify-center gap-7 text-gray-black cursor-pointer w-full lg:w-2/4 bg-white py-5 md:py-9 lg:py-9">
               <a target="blink" href="https://www.facebook.com/blissclothingbangladesh">
                 <TfiFacebook className="w-6 h-8"></TfiFacebook>
@@ -96,7 +96,7 @@ const Footer = () => {
                 <BsTiktok className="w-6 h-8"></BsTiktok>
               </a>
             </ul>
-            <div className="text-gray-600 w-full bg-[honeydew] pb-5 lg:pb-0">
+            <div className="text-gray-600 w-full bg-gray-100 pb-5 lg:pb-0">
               {" "}
               © Copyright {year} <a href="https://blissclothingbd.com" className="font-bold">Bliss</a>. All rights reserved.
             </div>

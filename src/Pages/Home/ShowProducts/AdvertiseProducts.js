@@ -4,7 +4,7 @@ import { Autoplay } from "swiper";
 import "./ShowProducts.css";
 import { useQuery } from "@tanstack/react-query";
 import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
-import NewDrop from "../NewDrop/NewDrop";
+import AdvertiseProduct from "../Advertiseproduct/AdvertiseProduct";
 
 const AdvertiseProducts = () => {
   const { data: advertiseProducts, isLoading } = useQuery({
@@ -22,21 +22,13 @@ const AdvertiseProducts = () => {
   }
   return (
     <div className="border-none">
-      <div className=" px-6 mx-0 py-4 lg:px-8 lg:mx-14 lg:pt-12 lg:pb-0">
-        <div className="xl:w-1/2 w-11/12 mx-auto mt-4">
-          <h1 className="text-center font-bold lg:text-4xl text-3xl text-[#98EECC] uppercase">
-              JUST DROPPED
-          </h1>
-          <p className="text-center font-bold my-4 text-sm uppercase">
-          Celebrate new  arrivals with limited-time exclusive discounts, special bundles, and <br /> exciting offers!
-          </p>
-        </div>
+      <div className=" px-6 mx-0 py-4 lg:px-8 lg:mx-14">
         <Swiper
           slidesPerView={2}
           spaceBetween={10}
           loop={true}
           autoplay={{
-            delay: 500,
+            delay: 5000,
             disableOnInteraction: false,
           }}
           speed={1500}
@@ -50,11 +42,11 @@ const AdvertiseProducts = () => {
               spaceBetween: 40,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 20,
             },
             1350: {
-              slidesPerView: 5,
+              slidesPerView: 3,
               spaceBetween: 20,
             },
           }}
@@ -68,11 +60,11 @@ const AdvertiseProducts = () => {
                     ></div> */}
           {advertiseProducts?.map((advertiseItem, index) => (
             <SwiperSlide>
-              <NewDrop
+              <AdvertiseProduct
                 products={advertiseItem}
                 key={index}
-                className=" my-44"
-              ></NewDrop>
+                className="my-44"
+              ></AdvertiseProduct>
             </SwiperSlide>
           ))}
         </Swiper>

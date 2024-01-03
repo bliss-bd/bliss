@@ -10,7 +10,7 @@ class CitiesSlider extends Component {
     this.IMAGE_PARTS = 4;
 
     this.changeTO = null;
-    this.AUTOCHANGE_TIME = 4000;
+    this.AUTOCHANGE_TIME = 5000;
 
     this.state = { activeSlide: -1, prevSlide: -1, sliderReady: false };
   }
@@ -49,10 +49,10 @@ class CitiesSlider extends Component {
       <div className={classNames("slider", { "s--ready": sliderReady })}>
         <p className="slider__top-heading">
           <div className="xl:w-1/2 w-11/12 mx-auto">
-            <p className="txt bliss font-bold md:text-6xl text-4xl mx-0 py-1 cursor-default">
+            <p className="txt bliss font-bold md:text-6xl text-2xl mx-0 cursor-default">
               BE BOLD BE BLISS
             </p>
-            <p className="text-center font-bold my-4 text-sm uppercase">
+            <p className="text-center font-bold lg:my-4 my-0 lg:inline-block hidden md:mt-0 text-xs uppercase">
               Enjoy unique and vibrant moments, infused with style and unity,
               that make <br /> unforgettable memories.
             </p>
@@ -74,7 +74,7 @@ class CitiesSlider extends Component {
                     <span key={i}>{l}</span>
                   ))}
                 </h2>
-                <Link to={slide.to} className="slider__slide-readmore">
+                <Link to={slide.to} className="slider__slide-readmore text-white z-20">
                   Shop now
                 </Link>
               </div>
@@ -87,7 +87,7 @@ class CitiesSlider extends Component {
                     />
                     <div
                       className="lg:hidden block slider__slide-part-inner"
-                      style={{ backgroundImage: `url(${slide?.img2})` }}
+                      style={{ backgroundImage: `url(${slide?.img})` }}
                     />
                   </div>
                 ))}
