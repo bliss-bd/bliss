@@ -18,7 +18,7 @@ const ReviewOrder = () => {
     const handleUpdateOrder = (id) => {
         const confirm = window.confirm("Confirm As delivered order??");
         if (confirm) {
-            fetch(`https://bliss-bd.vercel.app/delivered/${id}`, {
+            fetch(`http://localhost:5000/delivered/${id}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json",

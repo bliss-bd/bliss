@@ -3,6 +3,7 @@ import "./Men.css"
 import { Link } from "react-router-dom";
 
 const Man = () => {
+  const year = new Date().getFullYear();
   return (
     <div>
       <section class="relative bg-[url(https://i.ibb.co/M5WK999/pc.jpg)] bg-cover bg-center bg-no-repeat">
@@ -17,7 +18,7 @@ const Man = () => {
               </strong>
             </h1>
             <p class="mt-4 max-w-lg sm:text-xl/relaxed text-3xl text-white font-bold">
-            Spring-Summer 2024 All-Collection
+            Spring-Summer {year} All-Collection
             </p>
 
             <div class="mt-8 flex flex-wrap justify-center text-center">

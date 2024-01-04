@@ -14,7 +14,7 @@ const AllProducts = () => {
   } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await fetch("https://bliss-bd.vercel.app/products");
+      const res = await fetch("http://localhost:5000/products");
       const data = await res.json();
       return data;
     },
@@ -27,7 +27,7 @@ const AllProducts = () => {
   const handleDeleteItem = (id) => {
     const confirm = window.confirm("Are you sure, you want to delete this Item??");
     if (confirm) {
-      fetch(`https://bliss-bd.vercel.app/allproduct/${id}`, {
+      fetch(`http://localhost:5000/allproduct/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -53,7 +53,7 @@ const AllProducts = () => {
   const handleAdvertiseProduct = (id) => {
     const confirm = window.confirm("Are you sure, you want add this item to advertise??");
     if (confirm) {
-      fetch(`https://bliss-bd.vercel.app/advertiseProduct/${id}`, {
+      fetch(`http://localhost:5000/advertiseProduct/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -72,7 +72,7 @@ const AllProducts = () => {
   const handleRemoveAdvertiseProduct = (id) => {
     const confirm = window.confirm("Are you sure, you want aemove this item from advertise??");
     if (confirm) {
-      fetch(`https://bliss-bd.vercel.app/removeAdvertiseProduct/${id}`, {
+      fetch(`http://localhost:5000/removeAdvertiseProduct/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -93,7 +93,7 @@ const AllProducts = () => {
   const handleAddToTopSell = (id) => {
     const confirm = window.confirm("Are you sure, you want add this item to top sell??");
     if (confirm) {
-      fetch(`https://bliss-bd.vercel.app/topSell/${id}`, {
+      fetch(`http://localhost:5000/topSell/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -113,7 +113,7 @@ const AllProducts = () => {
   const handleRemoveFromTopSell = (id) => {
     const confirm = window.confirm("Are you sure, you want aemove this item from top sell??");
     if (confirm) {
-      fetch(`https://bliss-bd.vercel.app/removeTopSell/${id}`, {
+      fetch(`http://localhost:5000/removeTopSell/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

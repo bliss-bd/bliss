@@ -116,7 +116,7 @@ const AddProduct = () => {
       size: availableSize,
       time: combinedValue,
     };
-    fetch("https://bliss-bd.vercel.app/allproducts", {
+    fetch("http://localhost:5000/allproducts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

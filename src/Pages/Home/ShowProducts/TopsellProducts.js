@@ -4,16 +4,16 @@ import { Autoplay } from "swiper";
 import "./ShowProducts.css";
 import { useQuery } from "@tanstack/react-query";
 import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
-import NewDrop from "../NewDrop/NewDrop";
 import { Link } from "react-router-dom";
 import { Button } from "../../../Button/Button";
+import AdvertiseProduct from "../Advertiseproduct/AdvertiseProduct";
 
 const TopsellProducts = () => {
   const { data: topSell, isLoading } = useQuery({
     queryKey: ["topSell"],
     queryFn: async () => {
       const res = await fetch(
-        "https://bliss-bd.vercel.app/topSell?isTopSell=1"
+        "http://localhost:5000/topSell?isTopSell=1"
       );
       const data = await res.json();
       return data;
@@ -76,11 +76,11 @@ const TopsellProducts = () => {
                             ></div> */}
           {topSell?.map((topsell, index) => (
             <SwiperSlide>
-              <NewDrop
+              <AdvertiseProduct
                 products={topsell}
                 key={index}
                 className=" my-44"
-              ></NewDrop>
+              ></AdvertiseProduct>
             </SwiperSlide>
           ))}
         </Swiper>

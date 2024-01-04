@@ -11,7 +11,7 @@ const AdvertiseProducts = () => {
     queryKey: ["advertiseProducts"],
     queryFn: async () => {
       const res = await fetch(
-        "https://bliss-bd.vercel.app/advertiseProducts?isAdvertised=1"
+        "http://localhost:5000/advertiseProducts?isAdvertised=1"
       );
       const data = await res.json();
       return data;

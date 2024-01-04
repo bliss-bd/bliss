@@ -12,7 +12,7 @@ const ShowWomenProducts = () => {
     queryKey: ["productWomen"],
     queryFn: async () => {
       const res = await fetch(
-        "https://bliss-bd.vercel.app/productWomen?category=women&category=both"
+        "http://localhost:5000/productWomen?category=women&category=both"
       );
       const data = await res.json();
       return data;

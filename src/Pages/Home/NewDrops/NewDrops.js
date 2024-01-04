@@ -1,21 +1,21 @@
 import { Button } from "../../../Button/Button";
 import { useQuery } from "@tanstack/react-query";
-import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
 import NewDrop from "../NewDrop/NewDrop";
 import { Link } from "react-router-dom";
+import LoaderCard2 from "../../../Components/LoaderCard/LoaderCard2";
 
 const NewDrops = () => {
   const { data: products, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await fetch("https://bliss-bd.vercel.app/products");
+      const res = await fetch("http://localhost:5000/products");
       const data = await res.json();
       return data;
     },
   });
 
   if (isLoading) {
-    return <LoaderCard></LoaderCard>;
+    return <LoaderCard2></LoaderCard2>;
   }
   return (
     <div className="mb-8">

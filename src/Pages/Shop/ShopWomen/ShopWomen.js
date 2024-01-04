@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
-import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
 import NewDrop from "../../Home/NewDrop/NewDrop";
+import LoaderCard2 from "../../../Components/LoaderCard/LoaderCard2";
 
 const ShopWomen = () => {
   const { data: productWomen, isLoading } = useQuery({
     queryKey: ["productWomen"],
     queryFn: async () => {
-      const res = await fetch("https://bliss-bd.vercel.app/productWomen?category=women&category=both");
+      const res = await fetch("http://localhost:5000/productWomen?category=women&category=both");
       const data = await res.json();
       return data;
     },
@@ -20,7 +20,7 @@ const ShopWomen = () => {
     return null;
   }
   if (isLoading) {
-    return <LoaderCard></LoaderCard>;
+    return <LoaderCard2></LoaderCard2>;
   }
 
   return (
