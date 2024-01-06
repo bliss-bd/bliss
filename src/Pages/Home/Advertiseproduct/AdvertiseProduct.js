@@ -5,12 +5,12 @@ const AdvertiseProduct = ({ products }) => {
 
 
   return (
-    <div className="p-8">
+    <div className="md:p-8 lg:p-8 p-0">
       <Link to={`/product/${_id}`} className="block overflow-hidden group">
         <img
           src={picture1}
           alt=""
-          className="h-[160px] w-full object-cover transition rounded-sm duration-500 group-hover:scale-125 md:h-[300px] lg:h-[440px] xl:h-[560px]"
+          className="h-[300px] w-full object-cover transition rounded-sm duration-500 group-hover:scale-125 md:h-[300px] lg:h-[440px] xl:h-[560px]"
           loading="lazy"
         />
 

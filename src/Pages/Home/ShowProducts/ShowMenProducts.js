@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
 import NewDrop from "../NewDrop/NewDrop";
 import AdvertiseProduct from "../Advertiseproduct/AdvertiseProduct";
+import LoaderCard2 from "../../../Components/LoaderCard/LoaderCard2";
 
 const ShowMenProducts = () => {
   const { data: productMen, isLoading } = useQuery({

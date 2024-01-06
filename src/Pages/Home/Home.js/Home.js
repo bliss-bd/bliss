@@ -6,6 +6,7 @@ import ShowWomenProducts from "../ShowProducts/ShowWomenProducts";
 import Men from "../Category/Men";
 import Women from "../Category/Women";
 import AllCategory from "../Category/AllCategory";
+import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
 
 const Home = () => {
   function ScrollToTopOnMount() {
@@ -23,7 +24,6 @@ const Home = () => {
       <ShopPreview></ShopPreview>
       <Women></Women>
       <ShowMenProducts></ShowMenProducts>
-
       <span class="relative flex justify-center">
         <div class="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div>
 
