@@ -20,13 +20,12 @@ const ShopMen = () => {
   
     return null;
   }
-  // if (isLoading) {
-  //   return <LoaderCard2></LoaderCard2>;
-  // }
+  if (isLoading) {
+    return <LoaderCard2></LoaderCard2>;
+  }
 
   return (
     <div className="mb-8">
-      <LoaderCard2></LoaderCard2>
       <ScrollToTopOnMount/>
       <header className="text-center">
         <h2 className="text-4xl font-bold my-0 text-gray-900 py-8 pt-12 from-[honeydew] bg-gradient-to-b bg-opacity-75 uppercase">

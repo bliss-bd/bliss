@@ -4,7 +4,6 @@ import { Autoplay } from "swiper";
 import "./ShowProducts.css";
 import { useQuery } from "@tanstack/react-query";
 import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
-import NewDrop from "../NewDrop/NewDrop";
 import AdvertiseProduct from "../Advertiseproduct/AdvertiseProduct";
 
 const ShowWomenProducts = () => {
