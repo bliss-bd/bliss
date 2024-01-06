@@ -9,3 +9,8 @@
     background-color: rgba(25,17,11,.2);
     border-color: #fff;
 }
+.button-discover:hover{
+  transition: 200ms ease-in-out;
+    background-color: transparent;
+    border-color: #fff;
+}
