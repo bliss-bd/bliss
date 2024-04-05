@@ -1,21 +1,26 @@
 import React from "react";
+import { TbCurrencyTaka } from "react-icons/tb";
 import { Link } from "react-router-dom";
 const AdvertiseProduct = ({ products }) => {
-  const { picture1,  _id } = products;
+  const { picture1,  _id,name,price } = products;
+  console.log(products)
 
 
   return (
-    <div className="md:p-8 lg:p-8 p-0">
+    <div className="p-0">
       <Link to={`/product/${_id}`} className="block overflow-hidden group">
+        <div class="absolute inset-0 flex justify-center items-center content-end z-10">
+            <div class="custom-font3 text-[#a6adbb] text-lg md:text-6xl">{name}</div>
+        </div>
+        <div class="absolute inset-0 flex justify-start items-end content-end z-10">
+            <div class="custom-font2 bg-[#1b1b1b] text-start p-2 md:p-4 rounded-tr text-white uppercase flex text-xs font-extrabold md:text-xl">Price : <TbCurrencyTaka></TbCurrencyTaka > {price} Taka</div>
+        </div>
         <img
           src={picture1}
           alt=""
-          className="h-[300px] w-full object-cover transition rounded-sm duration-500 group-hover:scale-125 md:h-[300px] lg:h-[440px] xl:h-[560px]"
+          className="h-[220px] w-full object-cover rounded-sm transition duration-500 group-hover:scale-125 md:h-[300px] lg:h-[480px] xl:h-[720px]"
           loading="lazy"
         />
-
-        <div className="relative pt-3 bg-white">
-        </div>
       </Link>
     </div>
   );

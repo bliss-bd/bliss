@@ -2,13 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import NewDrop from "../../Home/NewDrop/NewDrop";
 import LoaderCard2 from "../../../Components/LoaderCard/LoaderCard2";
+import "../../Shared/Navber/Navber.css"
 
 
 const ShopMen = () => {
   const { data: productMen, isLoading } = useQuery({
     queryKey: ["productMen"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/productMen?category=men&category=both");
+      const res = await fetch("https://bliss-bd.vercel.app/productMen?category=men&category=both");
       const data = await res.json();
       return data;
     },
@@ -25,10 +26,10 @@ const ShopMen = () => {
   }
 
   return (
-    <div className="mb-8">
-      <ScrollToTopOnMount/>
-      <header className="text-center">
-        <h2 className="text-4xl font-bold my-0 text-gray-900 py-8 pt-12 from-[honeydew] bg-gradient-to-b bg-opacity-75 uppercase">
+    <div className="pb-8 bg-[#1b1b1b]" >
+      <ScrollToTopOnMount />
+      <header className="custom-font text-center  text-white py-8 pt-12 from-[#a6adbb] bg-gradient-to-b bg-opacity-75">
+        <h2 className="text-4xl  md:mt-44 mt-20 font-bold my-0 uppercase">
           Shop Men
         </h2>
       </header>

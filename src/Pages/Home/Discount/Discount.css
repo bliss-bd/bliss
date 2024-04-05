@@ -1,0 +1,117 @@
+.shop-all-link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.shop-link {
+    font-size: 280px;
+}
+.shop-image-wrap2{
+    position: absolute;
+    width: auto;
+    left: 22%;
+    top: 11%;
+    z-index: 1;
+    transform: rotate(23deg);
+}
+.shop-image-wrap1{
+    position: absolute;
+    width: auto;
+    right: 22%;
+    top: 15%;
+    z-index: 1;
+    transform: rotate(23deg);
+}
+.shop-image-item {
+    margin: auto;
+    width: auto;
+    height: auto;
+}
+@font-face {
+    font-family: myFirstFont3;
+    src: url("../../../assets/Pervitina-Dex-FFP.ttf");
+  }
+  .custom-font3{
+    font-family: myFirstFont3;
+    /* line-height: 4.5rem; */
+  }
+@media screen and (max-width: 1310px){
+    .shop-link {
+        font-size: 210px;
+    }
+    .shop-image-item {
+        width: 90%;
+        height: auto;
+    }
+    .shop-image-wrap2{
+        width: auto;
+        left: 10%;
+        top: 11%;
+    }
+    .shop-image-wrap1{
+        width: auto;
+        right: 5%;
+        top: 20%;
+    }
+}
+@media screen and (max-width: 990px){
+    .shop-link {
+        font-size: 160px;
+    }
+    .shop-image-item {
+        width: 60%;
+        height: auto;
+    }
+    .shop-image-wrap2{
+        width: auto;
+        left: 18%;
+        top: 11%;
+    }
+    .shop-image-wrap1{
+        width: auto;
+        right: 0%;
+        top: 20%;
+    }
+}
+@media screen and (max-width: 800px){
+    .shop-link {
+        font-size: 120px;
+    }
+    .shop-image-item {
+        width: 40%;
+        height: auto;
+    }
+
+}
+@media screen and (max-width: 620px){
+    .shop-link {
+        font-size: 75px;
+    }
+    .shop-image-wrap2{
+        left: 18%;
+        top: 11%;
+    }
+    .shop-image-wrap1{
+        width: auto;
+        right: 0%;
+        top: 20%;
+    }
+    .shop-image-item {
+        width: auto;
+        width: 30%;
+        height: auto;
+    }
+}
+@media screen and (max-width: 520px){
+    .shop-link {
+        font-size: 75px;
+    }
+    .shop-image-wrap2{
+        
+        top: 11%;
+    }
+    .shop-image-wrap1{
+        right: 30%;
+        top: 20%;
+    }
+}

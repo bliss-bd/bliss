@@ -28,7 +28,7 @@ const Banner = () => {
   ];
 
   return (
-    <div>
+    <div className='bg-[#1b1b1b]'>
       <CitiesSlider slides={slides} />
     </div>
   );

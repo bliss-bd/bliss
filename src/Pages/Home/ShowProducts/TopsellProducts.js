@@ -7,14 +7,13 @@ import LoaderCard from "../../../Components/LoaderCard/LoaderCard";
 import { Link } from "react-router-dom";
 import { Button } from "../../../Button/Button";
 import AdvertiseProduct from "../Advertiseproduct/AdvertiseProduct";
+// import NewDrop from "../NewDrop/NewDrop";
 
 const TopsellProducts = () => {
   const { data: topSell, isLoading } = useQuery({
     queryKey: ["topSell"],
     queryFn: async () => {
-      const res = await fetch(
-        "http://localhost:5000/topSell?isTopSell=1"
-      );
+      const res = await fetch("https://bliss-bd.vercel.app/topSell?isTopSell=1");
       const data = await res.json();
       return data;
     },
@@ -26,25 +25,25 @@ const TopsellProducts = () => {
     window.scrollTo(0, 0);
   };
 
-
   return (
     <div className="border-none">
       <div className="px-6 mx-0 lg:px-8 lg:mx-14 lg:pb-0">
-        <div className="xl:w-1/2 w-11/12 mx-auto">
+        {/* <div className="xl:w-1/2 w-11/12 mx-auto">
           <h1 className="text-center font-bold lg:text-4xl text-3xl text-[#98EECC] uppercase">
             Top Sells
           </h1>
           <p className="text-center font-bold my-4 text-sm uppercase">
-            Empower our mission with eco-friendly, T-SHIRTS, HOODIES, ACCESSORIES AND MORE <br />apparel made
-            from organic cotton.
+            Empower our mission with eco-friendly, T-SHIRTS, HOODIES,
+            ACCESSORIES AND MORE <br />
+            apparel made from organic cotton.
           </p>
-        </div>
+        </div> */}
         <Swiper
           slidesPerView={2}
           spaceBetween={10}
           loop={true}
           autoplay={{
-            delay: 500,
+            delay: 2500,
             disableOnInteraction: false,
           }}
           speed={1500}
@@ -58,11 +57,11 @@ const TopsellProducts = () => {
               spaceBetween: 40,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 20,
             },
             1350: {
-              slidesPerView: 5,
+              slidesPerView: 3,
               spaceBetween: 20,
             },
           }}
@@ -85,8 +84,10 @@ const TopsellProducts = () => {
           ))}
         </Swiper>
         <Link onClick={scrollToTop} to="/shopnew">
-        <Button>{"Shop More"}</Button>
-      </Link>
+          <div className="mb-6">
+            <Button>{"Shop More"}</Button>
+          </div>
+        </Link>
       </div>
     </div>
   );

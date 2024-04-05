@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 import { TbCurrencyTaka } from "react-icons/tb";
 import Modal from "react-modal";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userContext } from "../../Contexts/UserContexts/UserContexts";
 import emailjs from "@emailjs/browser";
 
@@ -90,7 +90,7 @@ const Cart = () => {
       userPhoto: user?.photoURL,
       time: combinedValue,
     };
-    fetch("http://localhost:5000/order", {
+    fetch("https://bliss-bd.vercel.app/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -103,7 +103,7 @@ const Cart = () => {
           <div
             className={`${
               t.visible ? "animate-enter" : "animate-leave"
-            } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+            } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-[#1b1b1b] ring-opacity-5`}
           >
             <div className="flex-1 w-0 p-4">
               <div className="flex items-start">
@@ -168,10 +168,14 @@ const Cart = () => {
     return null;
   }
   return (
-    <div className="flex justify-center my-6">
-      <ScrollToTopOnMount />
-      <div className="flex flex-col w-full p-4 text-gray-800 bg-white  pin-r pin-y md:w-4/5 lg:w-4/5">
-        <div className="flex-1">
+    <div className="bg-[#1b1b1b]">
+       <header className="custom-font text-center  text-white py-8 pt-12 from-[#a6adbb] bg-gradient-to-b bg-opacity-75">
+        <h2 className="text-4xl mt-44 font-bold my-0 uppercase">
+          YOUR CART
+        </h2>
+      </header>
+<div className="flex flex-col  mx-auto w-full p-4 text-gray-800 bg-[#1b1b1b] pin-r pin-y md:w-4/5 lg:w-4/5">
+      <div className="flex-1">
           {cartItems?.map((cartItem) => (
             <div className="rounded md:w-2/3 mx-auto" key={cartItem._id}>
               <div className="justify-between items-center mb-6 rounded bg-white lg:p-2 p-3 shadow-md flex">
@@ -243,139 +247,154 @@ const Cart = () => {
             className="my-4 mt-6 -mx-2 lg:flex"
           >
             <div className="lg:px-2 lg:w-1/2">
-              <div className="p-4 bg-gray-100 rounded">
-                <h1 className="ml-2 font-bold uppercase">Billing Detail</h1>
+              <div className="p-4 bg-[#1a1a1a] border-white border text-white rounded">
+                <h1 className="ml-2 font-bold uppercase custom-font">Billing Detail</h1>
               </div>
-              <div className="px-4 mt-4 text-start">
-                <p className="my-2">Full Name*</p>
-                <input
-                  name="name"
-                  className="w-full h-12 bg-gray-100 rounded px-4"
-                  required
-                ></input>
-              </div>
-              <div className="px-4 text-start">
-                <p className="my-2">Email*</p>
-                <input
-                  name="email"
-                  className="w-full h-12 bg-gray-100 rounded px-4"
-                  required
-                  type="email"
-                ></input>
-              </div>
-              <div className="px-4 text-start">
-                <p className="my-2">Phone*</p>
-                <input
-                  name="phone"
-                  className="w-full h-12 bg-gray-100 rounded px-4"
-                  required
-                ></input>
-              </div>
-              <div className="px-4 text-start">
-                <p className="my-2">Choose District*</p>
-                <select
-                  value={district}
-                  onChange={handleDistrictChange}
-                  name="district"
-                  className="w-full h-12 bg-gray-100 rounded px-4"
-                  type="text"
-                  required
-                >
-                  <option value="">Select District</option>
-                  <option value="Dhaka">Dhaka</option>
-                  <option value="Barguna">Barguna</option>
-                  <option value="Chattogram">Chattogram</option>
-                  <option value="Barisal">Barisal</option>
-                  <option value="Gazipur">Gazipur</option>
-                  <option value="Bhola">Bhola</option>
-                  <option value="Jhalokati">Jhalokati</option>
-                  <option value="Patuakhali">Patuakhali</option>
-                  <option value="Pirojpur">Pirojpur</option>
-                  <option value="Bandarban">Bandarban</option>
-                  <option value="Brahmanbaria">Brahmanbaria</option>
-                  <option value="Chandpur">Chandpur</option>
-                  <option value="Cumilla">Cumilla</option>
-                  <option value="15">CoxsBazar</option>
-                  <option value="Feni">Feni</option>
-                  <option value="Khagrachhari">Khagrachhari</option>
-                  <option value="Lakshmipur">Lakshmipur</option>
-                  <option value="Noakhali">Noakhali</option>
-                  <option value="Rangamati">Rangamati</option>
-                  <option value="Faridpur">Faridpur</option>
-                  <option value="Gopalganj">Gopalganj</option>
-                  <option value="Kishoreganj">Kishoreganj</option>
-                  <option value="Madaripur">Madaripur</option>
-                  <option value="Manikganj">Manikganj</option>
-                  <option value="Munshiganj">Munshiganj</option>
-                  <option value="Narayanganj">Narayanganj</option>
-                  <option value="Narsingdi">Narsingdi</option>
-                  <option value="Rajbari">Rajbari</option>
-                  <option value="Shariatpur">Shariatpur</option>
-                  <option value="Tangail">Tangail</option>
-                  <option value="Bagerhat">Bagerhat</option>
-                  <option value="Chuadanga">Chuadanga</option>
-                  <option value="Jessore">Jessore</option>
-                  <option value="Jhenaidah">Jhenaidah</option>
-                  <option value="Khulna">Khulna</option>
-                  <option value="Kushtia">Kushtia</option>
-                  <option value="Magura">Magura</option>
-                  <option value="Meherpur">Meherpur</option>
-                  <option value="Narail">Narail</option>
-                  <option value="Satkhira">Satkhira</option>
-                  <option value="Jamalpur">Jamalpur</option>
-                  <option value="Mymensingh">Mymensingh</option>
-                  <option value="Netrokona">Netrokona</option>
-                  <option value="Sherpur">Sherpur</option>
-                  <option value="Bogura">Bogura</option>
-                  <option value="Joypurhat">Joypurhat</option>
-                  <option value="Naogaon">Naogaon</option>
-                  <option value="Natore">Natore</option>
-                  <option value="Chapainawabganj">Chapainawabganj</option>
-                  <option value="Pabna">Pabna</option>
-                  <option value="52">Rajshahi</option>
-                  <option value="Rajshahi">Faridpur</option>
-                  <option value="Moulvibazar">Moulvibazar</option>
-                  <option value="Rangpur">Rangpur</option>
-                  <option value="Jhenaidah">Jhenaidah</option>
-                  <option value="Sylhet">Sylhet</option>
-                  <option value="Sirajgan">Sirajgan</option>
-                  <option value="Habiganj">Habiganj</option>
-                  <option value="Gaibandha">Gaibandha</option>
-                  <option value="Kurigram">Kurigram</option>
-                  <option value="Lalmonirha">Lalmonirhat</option>
-                  <option value="Panchagarh">Panchagarh</option>
-                  <option value="Thakurgaon">Thakurgaon</option>
-                  <option value="Dinajpur">Dinajpur</option>
-                  <option value="Sunamganj">Sunamganj</option>
-                  <option value="Nilphamari">Nilphamari</option>
-                </select>
-              </div>
-              <div className="px-4 text-start">
-                <p className="my-2">Delivery Address*</p>
-                <input
-                  name="address"
-                  className="w-full h-12 bg-gray-100 rounded px-4"
-                  type="text"
-                  required
-                ></input>
-              </div>
-              <div className="px-4 mt-4 text-start">
-                <p>Addition information</p>
-                <p className="mb-4 italic">Order Notes : </p>
-                <textarea
-                  name="note"
-                  className="w-full h-24 bg-gray-100 rounded"
-                ></textarea>
+              
+              <div class="bg-white shadow-md rounded px-8 pt-6 pb-6 flex flex-col mt-2">
+                <div class="-mx-3 md:flex mb-6">
+                  <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                      Full Name*
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text"
+                      name="name"
+                      required placeholder="Jane" />
+                    <p class="text-red text-xs italic">Please fill out this field.</p>
+                  </div>
+                  <div class="md:w-1/2 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                      Phone*
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-last-name"
+                      name="phone"
+                      required type="number" placeholder="+8801010101010" />
+                    <p class="text-red text-xs italic">Please fill out this field.</p>
+                  </div>
+                </div>
+                <div class="-mx-3 md:flex mb-6">
+                  <div class="md:w-full px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
+                      Email*
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="email"
+                      required
+                      type="email" placeholder="faylaab@gmail.com" />
+                  </div>
+                </div>
+
+
+                <div class="-mx-3 md:flex mb-6">
+                  <div class="md:w-full px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
+                      Choose District*
+                    </label>
+                    <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state" value={district}
+                      onChange={handleDistrictChange}
+                      name="district"
+                      type="text"
+                      required>
+                      <option value="">Select District</option>
+                      <option value="Dhaka">Dhaka</option>
+                      <option value="Barguna">Barguna</option>
+                      <option value="Chattogram">Chattogram</option>
+                      <option value="Barisal">Barisal</option>
+                      <option value="Gazipur">Gazipur</option>
+                      <option value="Bhola">Bhola</option>
+                      <option value="Jhalokati">Jhalokati</option>
+                      <option value="Patuakhali">Patuakhali</option>
+                      <option value="Pirojpur">Pirojpur</option>
+                      <option value="Bandarban">Bandarban</option>
+                      <option value="Brahmanbaria">Brahmanbaria</option>
+                      <option value="Chandpur">Chandpur</option>
+                      <option value="Cumilla">Cumilla</option>
+                      <option value="15">CoxsBazar</option>
+                      <option value="Feni">Feni</option>
+                      <option value="Khagrachhari">Khagrachhari</option>
+                      <option value="Lakshmipur">Lakshmipur</option>
+                      <option value="Noakhali">Noakhali</option>
+                      <option value="Rangamati">Rangamati</option>
+                      <option value="Faridpur">Faridpur</option>
+                      <option value="Gopalganj">Gopalganj</option>
+                      <option value="Kishoreganj">Kishoreganj</option>
+                      <option value="Madaripur">Madaripur</option>
+                      <option value="Manikganj">Manikganj</option>
+                      <option value="Munshiganj">Munshiganj</option>
+                      <option value="Narayanganj">Narayanganj</option>
+                      <option value="Narsingdi">Narsingdi</option>
+                      <option value="Rajbari">Rajbari</option>
+                      <option value="Shariatpur">Shariatpur</option>
+                      <option value="Tangail">Tangail</option>
+                      <option value="Bagerhat">Bagerhat</option>
+                      <option value="Chuadanga">Chuadanga</option>
+                      <option value="Jessore">Jessore</option>
+                      <option value="Jhenaidah">Jhenaidah</option>
+                      <option value="Khulna">Khulna</option>
+                      <option value="Kushtia">Kushtia</option>
+                      <option value="Magura">Magura</option>
+                      <option value="Meherpur">Meherpur</option>
+                      <option value="Narail">Narail</option>
+                      <option value="Satkhira">Satkhira</option>
+                      <option value="Jamalpur">Jamalpur</option>
+                      <option value="Mymensingh">Mymensingh</option>
+                      <option value="Netrokona">Netrokona</option>
+                      <option value="Sherpur">Sherpur</option>
+                      <option value="Bogura">Bogura</option>
+                      <option value="Joypurhat">Joypurhat</option>
+                      <option value="Naogaon">Naogaon</option>
+                      <option value="Natore">Natore</option>
+                      <option value="Chapainawabganj">Chapainawabganj</option>
+                      <option value="Pabna">Pabna</option>
+                      <option value="52">Rajshahi</option>
+                      <option value="Rajshahi">Faridpur</option>
+                      <option value="Moulvibazar">Moulvibazar</option>
+                      <option value="Rangpur">Rangpur</option>
+                      <option value="Jhenaidah">Jhenaidah</option>
+                      <option value="Sylhet">Sylhet</option>
+                      <option value="Sirajgan">Sirajgan</option>
+                      <option value="Habiganj">Habiganj</option>
+                      <option value="Gaibandha">Gaibandha</option>
+                      <option value="Kurigram">Kurigram</option>
+                      <option value="Lalmonirha">Lalmonirhat</option>
+                      <option value="Panchagarh">Panchagarh</option>
+                      <option value="Thakurgaon">Thakurgaon</option>
+                      <option value="Dinajpur">Dinajpur</option>
+                      <option value="Sunamganj">Sunamganj</option>
+                      <option value="Nilphamari">Nilphamari</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="-mx-3 md:flex mb-6">
+                  <div class="md:w-full px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
+                      Delivery Address*
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="address"
+                      required placeholder="faylaab@gmail.com" />
+                  </div>
+                </div>
+                <div class="-mx-3 md:flex mb-6">
+                  <div class="md:w-full px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
+                    Order Notes :
+                    </label>
+                    <textarea class=" h-24 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="note"
+                      required placeholder="faylaab@gmail.com" />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="lg:px-2 lg:w-1/2">
-              <div className="p-4 bg-gray-100 rounded">
-                <h1 className="ml-2 font-bold uppercase">Order Details</h1>
+              <div className=" lg:sticky lg:top-40">
+
+              
+              <div className="p-4 mb-2 bg-[#1a1a1a] border-white border text-white rounded ">
+                <h1 className="ml-2 font-bold uppercase custom-font">Order Details</h1>
               </div>
-              <div className="p-4">
+              <div className="shadow-md bg-white rounded px-8 pt-6 pb-8 mb-4">
                 {/* <p className="mb-6 italic">Shipping and additionnal costs</p> */}
                 <div className="flex justify-between">
-                  <div className="lg:px-4  mx-2 text-lg lg:text-xl font-bold text-center text-gray-800">
+                  <div className="block uppercase tracking-wide text-grey-darker text-lg font-bold mb-2">
                     Subtotal
                   </div>
                   <div className="lg:px-4 flex items-center  mx-2 lg:text-lg font-bold text-center text-gray-900">
@@ -384,7 +403,7 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="flex justify-between pt-4 border-b">
-                  <div className="lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800">
+                  <div className="block uppercase tracking-wide text-grey-darker text-lg font-bold mb-2">
                     Delivery Charge
                   </div>
                   <div className="lg:px-4 flex items-center  lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">
@@ -392,7 +411,7 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="flex justify-between pt-4 border-b">
-                  <div className="lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800">
+                  <div className="block uppercase tracking-wide text-grey-darker text-lg font-bold mb-2">
                     Total
                   </div>
                   <div className="lg:px-4 flex items-center lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">
@@ -402,7 +421,7 @@ const Cart = () => {
                 </div>
                 <button
                   type="submit"
-                  className="flex justify-center w-full px-10 py-3 mt-6 font-medium  uppercase rounded-md shadow item-center  bg-[#98EECC] hover:bg-black hover:text-[#98EECC] border-black border-2 focus:shadow-outline focus:outline-none"
+                  className="w-full flex justify-center bg-[#1b1b1b] border-2 border-[#a6adbb] hover:border-black hover:bg-white text-white hover:text-black p-4  rounded-lg tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-300"
                 >
                   <svg
                     aria-hidden="true"
@@ -419,6 +438,8 @@ const Cart = () => {
                   </svg>
                   <span className="ml-2 mt-5px">Place Order</span>
                 </button>
+
+              </div>
               </div>
             </div>
           </form>
@@ -446,8 +467,8 @@ const Cart = () => {
               </button>
             </div>
           </Modal>
+          </div>
         </div>
-      </div>
     </div>
   );
 };

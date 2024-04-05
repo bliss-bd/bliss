@@ -1,43 +1,22 @@
 import React from "react";
-import RAF from "../../../assets/RAF.jpg";
-import { BsLightningChargeFill } from "react-icons/bs";
-import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import "./Discount.css"
+import { Link } from "react-router-dom";
 
 const Discount = () => {
   return (
-    <div>
-      <div className="bg-[honeydew] grid mx-auto lg:grid-cols-3 md:grid-cols-2">
-        <div className="lg:col-span-2 md:col-span-1 col-span-1 text-center sm:text-left py-14 lg:pt-64 h-full from-[#98EECC]  bg-gradient-to-t bg-opacity-75 ">
-          <BsLightningChargeFill className="text-center mx-auto w-20 h-16 text-black"></BsLightningChargeFill>
-          <p className="hidden text-gray-700 text-center text-2xl md:mt-4 md:block">
-            SALE IS ON!
-          </p>
-          <h2 className="text-2xl font-bold text-black text-center md:text-9xl">
-            25% OFF
-          </h2>
-          <p className="hidden text-gray-700 text-center text-xl md:mt-4 md:block">
-            25% off sitewide using TEES25 at checkout
-          </p>
-        </div>
-        <div className="lg:col-span-1 md:col-span-1">
-          <img
-            alt="Violin"
-            src={RAF}
-            className="md:rounded-tl-[60px] lg:rounded-tl-[60px] h-full"
-            loading="lazy"
-          />
-        </div>
-      </div>
-      <div className="py-12 bg-black border-b">
-        <h1 className="flex lg:gap-8 mx-1 items-center justify-center text-4xl font-bold text-white underline cursor-pointer">
-          <span>
-            <FaLongArrowAltRight className="w-16 h-16"></FaLongArrowAltRight>
-          </span>
-          GET 10% OFF YOUR FIRST ORDER!
-          <span>
-            <FaLongArrowAltLeft className="w-16 h-16"></FaLongArrowAltLeft>
-          </span>
-        </h1>
+    <div class="shop-all-section bg-[#1b1b1b] pb-36 pt-12">
+      <div class="mx-8">
+        <Link to="/shopnew" class="shop-all-link w-inline-block">
+          <h6 class="shop-link z-20 custom-font3 text-[#a6adbb]">Shop all</h6>
+          <div class=" shop-image-wrap1 one">
+            <img src="https://assets.website-files.com/6391586f7ac2b543ed183772/63a43b6ccbe18f4686da2353_shop-hover01.jpg" loading="eager" alt="" class="shop-image-item z-10" />
+
+          </div>
+          <div class="shop-image-wrap2 two ">
+            <img src="https://assets.website-files.com/6391586f7ac2b543ed183772/63a444346b5256044653bffd_shop-hover02.jpg" loading="eager" alt="" class="shop-image-item z-10 " />
+
+          </div>
+        </Link>
       </div>
     </div>
   );

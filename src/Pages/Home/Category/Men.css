@@ -1,9 +1,13 @@
-.text-heading {
+/* .text-heading {
     color: transparent;
     -webkit-text-stroke: 1px rgb(255, 255, 255);
     -webkit-background-clip: text;
     background-position: 0 0;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Cinzel Decorative';
+    font-style: italic;
+  }
+  .text-p{
+    font-family: 'Cinzel Decorative', serif;
   }
 .button-discover{
     background-color: rgba(25,17,11,.2);
@@ -13,4 +17,99 @@
   transition: 200ms ease-in-out;
     background-color: transparent;
     border-color: #fff;
+} */
+.heading-h2 {
+  margin-right: 25px;
+  margin-bottom: 10px;
+
+  color:#a6adbb;
+  font-size: 64px;
+  line-height: 1.3em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.about-description-wrap {
+  width: 40%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  align-items: baseline;
+  text-align: right;
+}
+.divider {
+  height: 2px;
+  margin-top: 30px;
+  background-color: #fff;
+}
+.grid-about {
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+  -ms-grid-columns: 1fr 0.5fr;
+  grid-template-columns: 1fr 0.5fr;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+}
+.about-content {
+  /* position: relative; */
+  grid-auto-columns: 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+  text-align: right;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.w-layout-grid2 {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: 1fr;
+  -ms-grid-columns: 1fr 0.5fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+}
+@media screen and (max-width: 991px){
+.grid-about {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+}
+.heading-h2 {
+  margin-right: 5px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 40px;
+  line-height: 1.3em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+}
+
+@font-face {
+  font-family: myFirstFont3;
+  src: url("../../../assets/Pervitina-Dex-FFP.ttf");
+}
+.custom-font3{
+  font-family: myFirstFont3;
+  /* line-height: 4.5rem; */
+}
+@font-face {
+  font-family: myFirstFont4;
+  src: url("../../../assets/Remine\ Fares.otf");
+}
+.custom-font4{
+  font-family: myFirstFont4;
+  /* line-height: 4.5rem; */
 }

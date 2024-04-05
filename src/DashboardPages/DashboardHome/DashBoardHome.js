@@ -8,7 +8,7 @@ const DashBoardHome = () => {
   const [currentUser, setCurrentUser] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://bliss-bd.vercel.app/users/${user.email}`)
       .then(res => res.json())
       .then(data => {
         setCurrentUser(data)
@@ -75,7 +75,7 @@ const DashBoardHome = () => {
                       to="/dashboard/addproducts"
                       className="dark:text-white text-base focus:outline-none focus:ring-2 hover:underline"
                     >
-                      Add Product
+                      Upload
                     </Link>
                   </li>
                   <li>

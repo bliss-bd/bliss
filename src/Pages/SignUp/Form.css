@@ -111,3 +111,12 @@
   border-top:60rem solid #fff;
   border-left:25rem solid transparent;
 }
+
+@font-face {
+    font-family: myFirstFont2;
+    src: url("../../assets/Remine Fares.otf");
+  }
+  .custom-font2{
+    font-family: myFirstFont2;
+    /* line-height: 4.5rem; */
+  }

@@ -11,7 +11,7 @@ const ShowWomenProducts = () => {
     queryKey: ["productWomen"],
     queryFn: async () => {
       const res = await fetch(
-        "http://localhost:5000/productWomen?category=women&category=both"
+        "https://bliss-bd.vercel.app/productWomen?category=women&category=both"
       );
       const data = await res.json();
       return data;
@@ -37,7 +37,7 @@ const ShowWomenProducts = () => {
           spaceBetween={10}
           loop={true}
           autoplay={{
-            delay: 3000,
+            delay: 2500,
             disableOnInteraction: false,
           }}
           speed={1500}

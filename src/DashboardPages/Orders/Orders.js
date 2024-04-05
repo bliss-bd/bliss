@@ -15,7 +15,7 @@ const Orders = () => {
     } = useQuery({
         queryKey: ["orders"],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/orders");
+            const res = await fetch("https://bliss-bd.vercel.app/orders");
             const data = await res.json();
             return data;
         },
@@ -24,7 +24,7 @@ const Orders = () => {
     const handleDeleteItem = (id) => {
         const confirm = window.confirm("Are you sure, you want to delete this Order??");
         if (confirm) {
-            fetch(`http://localhost:5000/allorders/${id}`, {
+            fetch(`https://bliss-bd.vercel.app/allorders/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

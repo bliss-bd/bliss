@@ -1,12 +1,19 @@
-.menuItems {
+/* .menuItems {
     --line: #646B8C;
     --color: #2B3044;
     text-decoration: none;
     color: var(--color);
     position: relative;
-    /* padding-bottom: 18px; */
-}
-
+    padding-bottom: 18px;
+} */
+@font-face {
+    font-family: myFirstFont2;
+    src: url("../../../assets/Remine\ Fares.otf");
+  }
+  .custom-font2{
+    font-family: myFirstFont2;
+    /* line-height: 4.5rem; */
+  }
 span {
     background-image: linear-gradient(0deg, var(--line) 0%, var(--line) 100%);
     background-position: 100% 100%;

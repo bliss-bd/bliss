@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navber.css";
 import { FaTiktok, FaFacebookF, FaInstagram } from "react-icons/fa";
-import { CiShoppingCart } from "react-icons/ci";
 import { RxCrossCircled } from "react-icons/rx";
 import { userContext } from "../../../Contexts/UserContexts/UserContexts";
 import { toast } from "react-hot-toast";
 import { GoSignOut } from "react-icons/go";
 import { CgProfile } from "react-icons/cg";
-import logo1 from "../../../assets/Bliss LOGO- Ontor[1].png";
+import { IoBagCheck } from "react-icons/io5";
+
+import logo1 from "../../../assets/Bliss LOGO- Ontor[2].png";
 const Navber = () => {
   const { user, logout } = useContext(userContext);
   const [hasStyle, setHasStyle] = useState(false);
@@ -29,185 +30,102 @@ const Navber = () => {
   };
 
 
+
+
   const [currentUser, setCurrentUser] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://bliss-bd.vercel.app/users/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setCurrentUser(data)
       })
   }, [user?.email])
 
+  const [scrolled, setScrolled] = useState(false);
 
-  const menu = (
-    <>
-      <li className="menuItems p-3 xl:p-6">
-        <Link to="/shopnew" title="new" onClick={handleCloseMenu}>
-          <span>New</span>
-          <svg viewBox="0 0 13 20">
-            <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-          </svg>
-        </Link>
-      </li>
-      <li className="menuItems p-3 xl:p-6">
-        <Link to="/shopmen" title="men" onClick={handleCloseMenu}>
-          <span>Men</span>
-          <svg viewBox="0 0 13 20">
-            <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-          </svg>
-        </Link>
-      </li>
-      <li className="menuItems p-3 xl:p-6">
-        <Link to="/shopwomen" title="women" onClick={handleCloseMenu}>
-          <span>Women</span>
-          <svg viewBox="0 0 13 20">
-            <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-          </svg>
-        </Link>
-      </li>
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
 
-    </>
-  );
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <div className="sticky top-0 z-50">
-      <header className=" bg-white shadow-md h-20 md:flex">
-        <div className=" h-20 lg:px-2 border-r flex w-full md:w-full lg:w-36 items-center justify-between">
-          <Link to="/">
-            <img className="lg:w-36 w-32 lg:my-1 my-4 px-4 mx-0 lg:mx-0" src={logo1} loading="lazy" alt="" />
-          </Link>
-          <nav className="mt-3 lg:hidden inline-block ">
-            <ul className="flex items-center">
-              <li className="">
-                <a
-                  target="blink"
-                  href="https://www.facebook.com/blissclothingbangladesh"
-                  className="inline-block rounded-full border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
-                >
-                  <FaFacebookF></FaFacebookF>
-                </a>
-              </li>
-              <li className="p-1">
-                <a
-                  target="blink"
-                  href="https://www.instagram.com/blissclothingbd/"
-                  className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
-                >
-                  <FaInstagram></FaInstagram>
-                </a>
-              </li>
-              <li className="">
-                <a
-                  target="blink"
-                  href="https://www.tiktok.com/@blissbd"
-                  className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
-                >
-                  <FaTiktok></FaTiktok>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div className="lg:hidden mx-8 pt-2">
-            <button
-              aria-label="Open Menu"
-              title="Open Menu"
-              className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
-              onClick={handleOpenMenu}
-            >
-              <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
-                />
-                <path
-                  fill="currentColor"
-                  d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
-                />
-                <path
-                  fill="currentColor"
-                  d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <nav className="header-links hidden lg:contents font-semibold text-base lg:text-lg">
-          <ul className="flex items-center ml-4 xl:ml-8 mr-auto">
-            <li className="menuItems p-3 xl:p-6">
-              <Link to="/" title="men" onClick={handleCloseMenu}>
-                <span>Home</span>
-                <svg viewBox="0 0 13 20">
-                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-                </svg>
-              </Link>
-            </li>
-            {menu}
-          </ul>
-        </nav>
-        <nav className="hidden lg:contents">
-          <ul className="flex items-center mr-4 lg:mr-6 xl:mr-8">
-            <li className="p-1 logo">
+    <div className={` custom-font2 fixed w-full top-0 z-50 transition duration-500 ease-in-out ${scrolled ? 'bg-[#1b1b1b] py-0 transition duration-500 ease-in-out' : 'bg-gradient-to-t from-[#00000000] to-[#1a1a1ad0] py-5 transition duration-500 ease-in-out'}`}>
+      <div className="flex justify-between items-center w-full" >
+
+        <nav className="mx-5 hidden lg:flex">
+          <ul className="flex items-center">
+            <li className="text-white">
               <a
                 target="blink"
                 href="https://www.facebook.com/blissclothingbangladesh"
-                className="inline-block rounded-full bg-black  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                className="inline-block  p-2 hover:shadow-lg duration-200 hover:-translate-y-0.5 "
               >
                 <FaFacebookF></FaFacebookF>
               </a>
             </li>
-            <li className="p-1 logo">
+            <li className="p-1 text-white">
               <a
                 target="blink"
                 href="https://www.instagram.com/blissclothingbd/"
-                className="inline-block rounded-full bg-black  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                className="inline-block p-2 hover:shadow-lg  duration-200 hover:-translate-y-0.5 "
               >
                 <FaInstagram></FaInstagram>
               </a>
             </li>
-            <li className="p-1 logo">
+            <li className="text-white">
               <a
                 target="blink"
                 href="https://www.tiktok.com/@blissbd"
-                className="inline-block rounded-full bg-black  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                className="inline-block  p-2 hover:shadow-lg duration-200 hover:-translate-y-0.5 "
               >
                 <FaTiktok></FaTiktok>
               </a>
             </li>
           </ul>
         </nav>
-        <div className="border-l hidden lg:flex items-center px-4 lg:px-6 xl:px-8">
+        <div className={`w-12 font-bold transition duration-1000 ease-in-out items-center ${scrolled ? 'w-8 mt-4 transition duration-500 ease-in-out' : 'w-12 transition duration-500 ease-in-out'}`}>
+          <Link to="/">
+            <img className="w-12 lg:pb-0 pb-5 ml-7 lg:ml-0" src={logo1} loading="lazy" alt="" />
+          </Link>
+        </div>
+        <div className=" flex items-center px-4 lg:px-6 xl:px-8">
           {user?.uid ? (
             <>
               <ul className="flex items-center mr-4 lg:mr-6 xl:mr-8">
                 {currentUser?.role === "Admin"
                   ?
                   <li className="p-1 mx-4 ">
-                    <Link
-                      to="/dashboard"
-                      className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
-                    >
-                      <CgProfile></CgProfile>
+                    <Link to="/dashboard" className="lg:inline-block hidden rounded-full  duration-200 hover:-translate-y-0.5 ">
+                      <CgProfile className="text-white text-2xl"></CgProfile>
                     </Link>
-                    <p className="text-xs">Dashboard Profile</p>
                   </li>
                   :
-                  <li className="p-1 mx-4 ">
+                  <li className="p-1 mt-2 mx-4 list-none">
                     <Link
                       to="/cart"
-                      className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                      className="text-white inline-block hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
                     >
-                      <CiShoppingCart></CiShoppingCart>
+                      <IoBagCheck className="text-2xl" />
                     </Link>
-                    <p className="text-xs">Cart</p>
                   </li>
                 }
 
-                <li onClick={handleSignOut} className="p-1 ">
-                  <Link className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 ">
-                    <GoSignOut className="text-center"></GoSignOut>
+                <li onClick={handleSignOut} className="p-1 mt-[6px]">
+                  <Link className="lg:inline-block hidden rounded-full  duration-200 hover:-translate-y-0.5 ">
+                    <GoSignOut className="text-center text-white text-2xl"></GoSignOut>
                   </Link>
-                  <p className="text-xs">Sign Out</p>
                 </li>
               </ul>
             </>
@@ -216,76 +134,198 @@ const Navber = () => {
               <li className="p-1 mt-2 mx-4 list-none">
                 <Link
                   to="/cart"
-                  className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
+                  className="text-white inline-block hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
                 >
-                  <CiShoppingCart></CiShoppingCart>
+                  <IoBagCheck className="text-2xl" />
                 </Link>
-                {/* <p className="text-xs">Cart</p> */}
               </li>
-              <Link to="/signin">
-                <button className="bg-black hover:text-[#98EECC] text-white font-bold px-4 xl:px-6 py-2 xl:py-3 rounded">
+              <Link to="/signin" className="lg:inline-block hidden">
+                <button className=" hover:text-[#98EECC] text-white font-bold  rounded">
                   Sign in
                 </button>
               </Link>
             </>
           )}
         </div>
+      </div>
+
+      <header className=" flex justify-center items-center">
+
+        <div className="flex w-full md:w-full items-center justify-end lg:hidden ">
+          <button
+            aria-label="Open Menu"
+            title="Open Menu"
+            className={`transition duration-200 rounded focus:outline-none focus:shadow-outline ${scrolled ? ' p-2 -mt-[4.5rem] transition duration-500 ease-in-out' : ' -mt-20 p-2 '}`}
+            onClick={handleOpenMenu}
+
+
+          >
+            <svg className="w-5 text-white" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+              />
+              <path
+                fill="currentColor"
+                d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+              />
+              <path
+                fill="currentColor"
+                d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+              />
+            </svg>
+          </button>
+        </div>
+        <nav className="header-links hidden lg:contents font-semibold text-base lg:text-lg">
+          <ul className="flex items-center">
+            <li className="menuItems px-4 pb-4  pt-2  ">
+              <Link to="/" title="men" onClick={handleCloseMenu}>
+                <span className={`text-white uppercase transition duration-1000 ease-in-out ${scrolled ? ' text-sm transition duration-500 ease-in-out' : ' text-lg transition duration-500 ease-in-out'}`}>Home</span>
+
+              </Link>
+            </li>
+            <li className="menuItems px-4 pb-4  pt-2 ">
+              <Link to="/shopnew" title="new" onClick={handleCloseMenu}>
+                <span className={`text-white uppercase transition duration-1000 ease-in-out ${scrolled ? ' text-sm transition duration-500 ease-in-out' : ' text-lg transition duration-500 ease-in-out'}`}>New</span>
+
+              </Link>
+            </li>
+            <li className="menuItems px-4 pb-4   pt-2 ">
+              <Link to="/shopmen" title="men" onClick={handleCloseMenu}>
+                <span className={`text-white uppercase transition duration-1000 ease-in-out ${scrolled ? ' text-sm transition duration-500 ease-in-out' : ' text-lg transition duration-500 ease-in-out'}`}>Men</span>
+
+              </Link>
+            </li>
+            <li className="menuItems px-4 pb-4  pt-2 ">
+              <Link to="/shopwomen" title="women" onClick={handleCloseMenu}>
+                <span className={`text-white uppercase transition duration-1000 ease-in-out ${scrolled ? ' text-sm transition duration-500 ease-in-out' : ' text-lg transition duration-500 ease-in-out'}`}>Women</span>
+
+              </Link>
+            </li>
+            <li className="menuItems px-4 pb-4  pt-2 ">
+              <Link to="/shopkids" title="kids" onClick={handleCloseMenu}>
+                <span className={`text-white uppercase transition duration-1000 ease-in-out ${scrolled ? ' text-sm transition duration-500 ease-in-out' : ' text-lg transition duration-500 ease-in-out'}`}>kids</span>
+
+              </Link>
+            </li>
+            <li className="menuItems px-4 pb-4 pt-2 ">
+              <Link to="/shopspecialitems" title="SPECIAL ITEMS" onClick={handleCloseMenu}>
+                <span className={`text-white uppercase transition duration-1000 ease-in-out ${scrolled ? ' text-sm transition duration-500 ease-in-out' : ' text-lg transition duration-500 ease-in-out'}`}>SPECIAL</span>
+
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </header>
+      {/* <nav  className="bg-gray-100 fixed w-full top-0 z-50 transition duration-400">
+      <div className="text-4xl font-bold transition duration-400">
+        Logo
+      </div>
+      <div  className="hidden md:block">
+        <a href="#" className="text-black hover:bg-gray-300 py-3 px-4 rounded-lg">Home</a>
+        <a href="#" className="text-black hover:bg-gray-300 py-3 px-4 rounded-lg">About</a>
+        <a href="#" className="text-black hover:bg-gray-300 py-3 px-4 rounded-lg">Services</a>
+        <a href="#" className="text-black hover:bg-gray-300 py-3 px-4 rounded-lg">Contact</a>
+      </div>
+    </nav> */}
       {/* <!-- mobile nav menu start --> */}
       <div
-        className={hasStyle ? " inline fixed z-50 bg-white top-0 left-0 w-full h-screen" : "hidden"}
+        className={hasStyle ? " bg-[#1b1b1b] inline fixed z-50  top-0 left-0 w-full h-screen" : "hidden"}
       >
         <div>
           <ul id="menu-mobile-1" className="menu ml-0 lg:ml-2">
             <div className=" h-20 lg:px-2 shadow-md  flex items-center justify-between">
-              <Link to="/" onClick={handleCloseMenu}>
-                <img className="w-32 my-4 px-4 mx-0 lg:mx-8" src={logo1} alt="" loading="lazy"/>
-              </Link>
-              <nav className="mt-1.5">
-                <ul className="flex items-center">
-                  <li className="">
-                    <a
-                      target="blink"
-                      href="https://www.facebook.com/blissclothingbangladesh"
-                      className="inline-block rounded-full border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
-                    >
-                      <FaFacebookF></FaFacebookF>
-                    </a>
-                  </li>
-                  <li className="p-1">
-                    <a
-                      target="blink"
-                      href="https://www.instagram.com/blissclothingbd/"
-                      className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
-                    >
-                      <FaInstagram></FaInstagram>
-                    </a>
-                  </li>
-                  <li className="">
-                    <a
-                      target="blink"
-                      href="https://www.tiktok.com/@blissbd"
-                      className="inline-block rounded-full  border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 "
-                    >
-                      <FaTiktok></FaTiktok>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-              <div className="lg:hidden mx-8 pt-2">
+              <div className="w-8 mt-4 font-bold transition duration-1000 ease-in-out items-center">
+                <Link to="/">
+                  <img className="w-12 lg:pb-0 pb-5 ml-7 lg:ml-0" src={logo1} loading="lazy" alt="" />
+                </Link>
+              </div>
+
+              <div className="lg:hidden mx-2 pt-2 flex items-center">
+                <nav className="mr-4">
+                  <ul className="flex items-center">
+                    <li className="text-white">
+                      <a
+                        target="blink"
+                        href="https://www.facebook.com/blissclothingbangladesh"
+                        className="inline-block  p-2 hover:shadow-lg duration-200 hover:-translate-y-0.5 "
+                      >
+                        <FaFacebookF></FaFacebookF>
+                      </a>
+                    </li>
+                    <li className="p-1 text-white">
+                      <a
+                        target="blink"
+                        href="https://www.instagram.com/blissclothingbd/"
+                        className="inline-block p-2 hover:shadow-lg  duration-200 hover:-translate-y-0.5 "
+                      >
+                        <FaInstagram></FaInstagram>
+                      </a>
+                    </li>
+                    <li className="text-white">
+                      <a
+                        target="blink"
+                        href="https://www.tiktok.com/@blissbd"
+                        className="inline-block  p-2 hover:shadow-lg duration-200 hover:-translate-y-0.5 "
+                      >
+                        <FaTiktok></FaTiktok>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
                 <button className="text-2xl mx-1 mt-1" onClick={handleCloseMenu}>
                   <RxCrossCircled></RxCrossCircled>
                 </button>
               </div>
             </div>
-            {menu}
+            <li className="menuItems p-3 xl:p-6">
+              <Link to="/shopnew" title="new" onClick={handleCloseMenu}>
+                <span className=" text-white tracking-wider  font-bold" >New</span>
+                <svg viewBox="0 0 13 20">
+                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                </svg>
+              </Link>
+            </li>
+            <li className="menuItems p-3 xl:p-6  ">
+              <Link to="/shopmen" title="men" onClick={handleCloseMenu}>
+                <span className=" text-white tracking-wider font-bold">Men</span>
+                <svg viewBox="0 0 13 20">
+                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                </svg>
+              </Link>
+            </li>
+            <li className="menuItems p-3 xl:p-6 s">
+              <Link to="/shopwomen" title="women" onClick={handleCloseMenu}>
+                <span className=" text-white tracking-wider font-bold">Women</span>
+                <svg viewBox="0 0 13 20">
+                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                </svg>
+              </Link>
+            </li>
+            <li className="menuItems p-3 xl:p-6 s">
+              <Link to="/special" title="kids" onClick={handleCloseMenu}>
+                <span className=" text-white tracking-wider font-bold">Kids</span>
+                <svg viewBox="0 0 13 20">
+                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                </svg>
+              </Link>
+            </li>
+            <li className="menuItems p-3 xl:p-6 s">
+              <Link to="/special" title="special" onClick={handleCloseMenu}>
+                <span className=" text-white tracking-wider font-bold">Special Items</span>
+                <svg viewBox="0 0 13 20">
+                  <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                </svg>
+              </Link>
+            </li>
+
             {user?.uid ? (
               <>
                 {currentUser?.role === "Admin"
                   ?
                   <li className="menuItems p-3 xl:p-6">
                     <Link to="/dashboard" onClick={handleCloseMenu}>
-                      <span>Dashboard Profile</span>
+                      <span className="text-white tracking-wider font-bold">Dashboard</span>
                       <svg viewBox="0 0 13 20">
                         <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                       </svg>
@@ -294,7 +334,7 @@ const Navber = () => {
                   :
                   <li className="menuItems p-3 xl:p-6">
                     <Link to="/cart" onClick={handleCloseMenu}>
-                      <span>Cart</span>
+                      <span className="text-white tracking-wider font-bold">Cart</span>
                       <svg viewBox="0 0 13 20">
                         <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                       </svg>
@@ -302,7 +342,7 @@ const Navber = () => {
                   </li>}
                 <li onClick={handleSignOut} className="menuItems p-3 xl:p-6">
                   <Link onClick={handleCloseMenu}>
-                    <span> Sign Out </span>
+                    <span className="text-white tracking-wider font-bold"> Sign Out </span>
                     <svg viewBox="0 0 13 20">
                       <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                     </svg>
@@ -313,7 +353,7 @@ const Navber = () => {
               <>
                 <li className="menuItems p-3 xl:p-6">
                   <Link to="/cart" onClick={handleCloseMenu}>
-                    <span>Cart</span>
+                    <span className="text-white tracking-wider font-bold">Cart</span>
                     <svg viewBox="0 0 13 20">
                       <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                     </svg>
@@ -321,7 +361,7 @@ const Navber = () => {
                 </li>
                 <li className="menuItems p-3 xl:p-6" onClick={handleCloseMenu}>
                   <Link to="/signin">
-                    <span> Sign In </span>
+                    <span className="text-white tracking-wider font-bold"> Sign In </span>
                     <svg viewBox="0 0 13 20">
                       <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                     </svg>

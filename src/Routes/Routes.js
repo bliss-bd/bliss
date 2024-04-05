@@ -33,7 +33,7 @@ const Routes = () => {
         {
           path: "/product/:id",
           element: <Product></Product>,
-          loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
+          loader: ({ params }) => fetch(`https://bliss-bd.vercel.app/product/${params.id}`),
         },
         {
           path: "/shopnew",
@@ -89,7 +89,7 @@ const Routes = () => {
             <AdminRoute>
               <ReviewOrder></ReviewOrder>
             </AdminRoute>,
-          loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`)
+          loader: ({ params }) => fetch(`https://bliss-bd.vercel.app/orders/${params.id}`)
         },
         {
           path: "/dashboard/addproducts",

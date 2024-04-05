@@ -43,7 +43,34 @@ const AddProduct = () => {
   };
 
 
+  //imgbb
+  const imageHostKey = process.env.REACT_APP_imgbb_key;
+  console.log(imageHostKey)
 
+  const [image, setImage] = useState('');
+  const [image2, setImage2] = useState('');
+  const [image3, setImage3] = useState('');
+  const [image4, setImage4] = useState('');
+  const [image5, setImage5] = useState('');
+
+  const handleImageUpload = (e) => {
+    setImage(e.target.files[0])
+  }
+  const handleImage2Upload = (e) => {
+    setImage2(e.target.files[0])
+  }
+  const handleImage3Upload = (e) => {
+    setImage3(e.target.files[0])
+  }
+  const handleImage4Upload = (e) => {
+    setImage4(e.target.files[0])
+  }
+  const handleImage5Upload = (e) => {
+    setImage5(e.target.files[0])
+  }
+
+const images={image,image2,image3,image4,image5}
+console.log(images)
 
   // Men Sub Category funtionality
   const handleMenSubCategory = (event) => {
@@ -116,29 +143,30 @@ const AddProduct = () => {
       size: availableSize,
       time: combinedValue,
     };
-    fetch("http://localhost:5000/allproducts", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(product),
-    })
-      .then((data) => {
-        toast.success("Your Post Added", {
-          style: {
-            border: "1px solid #98EECC",
-            padding: "16px",
-            color: "#98EECC",
-          },
-          iconTheme: {
-            primary: "#98EECC",
-            secondary: "#FFFAEE",
-          },
-        });
-        navigate("/dashboard/allproducts");
-        form.reset();
-      })
-      .catch((error) => console.error(error));
+    console.log(product)
+    // fetch("https://bliss-bd.vercel.app/allproducts", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(product),
+    // })
+    //   .then((data) => {
+    //     toast.success("Your Post Added", {
+    //       style: {
+    //         border: "1px solid #98EECC",
+    //         padding: "16px",
+    //         color: "#98EECC",
+    //       },
+    //       iconTheme: {
+    //         primary: "#98EECC",
+    //         secondary: "#FFFAEE",
+    //       },
+    //     });
+    //     navigate("/dashboard/allproducts");
+    //     form.reset();
+    //   })
+    //   .catch((error) => console.error(error));
   };
 
 
@@ -337,7 +365,7 @@ const AddProduct = () => {
                     <input
                       className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Price"
-                      type="tel"
+                      type="number"
                       required
                       name="price"
                     />
@@ -348,18 +376,21 @@ const AddProduct = () => {
                     <input
                       className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 1"
-                      type="tel"
+                      type="file" id="img1" accept="image/*"
+                      onChange={handleImageUpload}
                       required
                       name="picture1"
-                    />
+                      />
                   </div>
                   <div>
                     <input
                       className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 2"
-                      type="tel"
+                      type="file" id="img2" accept="image/*"
+                      onChange={handleImage2Upload}
+                      required
                       name="picture2"
-                    />
+                      />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
@@ -367,7 +398,8 @@ const AddProduct = () => {
                     <input
                       className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 3"
-                      type="tel"
+                      type="file" id="img3" accept="image/*"
+                      onChange={handleImage3Upload}
                       name="picture3"
                     />
                   </div>
@@ -375,7 +407,8 @@ const AddProduct = () => {
                     <input
                       className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 4"
-                      type="tel"
+                      type="file" id="img4" accept="image/*"
+                      onChange={handleImage4Upload}
                       name="picture4"
                     />
                   </div>
@@ -383,8 +416,9 @@ const AddProduct = () => {
                     <input
                       className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Picture 5"
-                      type="tel"
+                      type="file" id="img5" accept="image/*"
                       name="picture5"
+                      onChange={handleImage5Upload}
                     />
                   </div>
                 </div>

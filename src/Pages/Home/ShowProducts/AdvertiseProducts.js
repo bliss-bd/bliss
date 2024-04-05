@@ -11,7 +11,7 @@ const AdvertiseProducts = () => {
     queryKey: ["advertiseProducts"],
     queryFn: async () => {
       const res = await fetch(
-        "http://localhost:5000/advertiseProducts?isAdvertised=1"
+        "https://bliss-bd.vercel.app/advertiseProducts?isAdvertised=1"
       );
       const data = await res.json();
       return data;
@@ -21,14 +21,14 @@ const AdvertiseProducts = () => {
     return <LoaderCard></LoaderCard>;
   }
   return (
-    <div className="border-none">
-      <div className=" px-6 mx-0 py-4 lg:px-8 lg:mx-14">
+    <div className="border-none bg-[#1b1b1b]">
+      <div className="px-6 mx-0 pt-2 lg:px-8">
         <Swiper
           slidesPerView={2}
           spaceBetween={10}
           loop={true}
           autoplay={{
-            delay: 5000,
+            delay: 2000,
             disableOnInteraction: false,
           }}
           speed={1500}

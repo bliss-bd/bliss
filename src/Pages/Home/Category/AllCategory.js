@@ -1,39 +1,36 @@
 import React from "react";
 import "./Men.css"
+import model1 from "../../../assets/categoryimg/model12.jpg"
+import model2 from "../../../assets/categoryimg/model2.jpg"
 import { Link } from "react-router-dom";
 
-const Man = () => {
-  const year = new Date().getFullYear();
+const AllCategory = () => {
   return (
-    <div>
-      <section class="relative bg-[url(https://i.ibb.co/M5WK999/pc.jpg)] bg-cover bg-center bg-no-repeat">
-        <div class="absolute inset-0 bg-white/75 sm:bg-transparent from-black/50 to-transparent bg-gradient-to-t"></div>
-
-        <div class="relative mx-auto max-w-screen-xl px-4 pt-72 sm:px-6 lg:flex lg:flex-col lg:justify-between lg:h-screen lg:items-center lg:px-8">
-          <div className="w-full"></div>
-          <div class="max-w-xl text-center mx-auto ltr:sm:text-left rtl:sm:text-right lg:my-24 my-0">
-            <h1 class="text-xl font-extrabold sm:text-3xl">
-              <strong class="block font-extrabold text-heading">
-                For You
-              </strong>
-            </h1>
-            <p class="lg:mt-4 md:mt-4 mt-2 max-w-lg sm:text-xl/relaxed md:text-3xl text-xl text-white font-bold">
-            Spring-Summer {year} All-Collection
-            </p>
-
-            <div class="md:mt-8 lg:mt-8 mt-2 flex flex-wrap justify-center text-center">
-              <Link to='/shopwomen'
-                href="#"
-                class="block lg:w-auto md:w-full w-40 mb-4 rounded-full lg:px-8 md:px-8 px-4 text-center button-discover lg:py-3 md:py-3 py-2 md:text-sm text-xs text-white border font-medium sm:w-auto"
-              >
-              Discover the Collection
-              </Link>
-            </div>
-          </div>
+    <div className="md:h-screen h-full bg-[#1b1b1b]">
+      <div className="flex items-center justify-center gap-4 md:p-0 p-4 md:gap-10 h-full">
+        <Link to="/shopmen" className="group relative block overflow-hidden w-full h-[90%] md:ml-8 ml-0" >
+          <div  class="absolute inset-0 flex justify-center items-center content-end z-10">
+            <div class="custom-font3  text-[#a6adbb] text-3xl md:text-6xl">MEN</div>
         </div>
-      </section>
+        <img
+          src={model2}
+          alt=""
+          className="h-96 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-full"
+        />
+      </Link>
+      <Link to="/shopwomen" className="group relative block overflow-hidden w-full h-[90%] md:mr-8 mr-0">
+        <div class="absolute inset-0 flex justify-center items-center content-end z-10">
+          <div class="custom-font3 text-[#a6adbb]  text-3xl md:text-6xl">WOMEN</div>
+        </div>
+        <img
+          src={model1}
+          alt=""
+          className="h-96 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-full"
+        />
+      </Link>
     </div>
+    </div >
   );
 };
 
-export default Man;
+export default AllCategory;

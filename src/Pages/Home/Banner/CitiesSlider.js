@@ -49,10 +49,10 @@ class CitiesSlider extends Component {
       <div className={classNames("slider", { "s--ready": sliderReady })}>
         <p className="slider__top-heading">
           <div className="xl:w-1/2 w-11/12 mx-auto">
-            <p className="txt bliss font-bold md:text-6xl text-2xl mx-0 cursor-default">
+            <p className=" txt bliss font-bold md:text-6xl text-2xl mx-0 cursor-default custom-font">
               BE BOLD BE BLISS
             </p>
-            <p className="text-center font-bold lg:my-4 my-0 lg:inline-block hidden md:mt-0 text-xs uppercase">
+            <p className="text-center font-bold lg:my-4 my-0 lg:inline-block hidden md:mt-0 text-xs uppercase custom-font1">
               Enjoy unique and vibrant moments, infused with style and unity,
               that make <br /> unforgettable memories.
             </p>
@@ -95,14 +95,14 @@ class CitiesSlider extends Component {
             </div>
           ))}
         </div>
-        <div
+        {/* <div
           className="slider__control"
           onClick={() => this.changeSlides(-1)}
         />
         <div
           className="slider__control slider__control--right"
           onClick={() => this.changeSlides(1)}
-        />
+        /> */}
       </div>
     );
   }
