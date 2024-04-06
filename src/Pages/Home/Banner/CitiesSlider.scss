@@ -8,10 +8,10 @@
 
 .txt {
   color: transparent;
-  -webkit-text-stroke: 0px #cfd5df;
-  background: url(../../../assets/Ontor1.png);
+  -webkit-text-stroke: .1px #cfd5df;
+  background: url(../../../assets/image.png);
   -webkit-background-clip: text;
-  background-position: 0 -5px;
+  background-position: 0 -8px;
   animation: back 50s linear infinite;
   // font-family:Verdana, Geneva, Tahoma, sans-serif;
   // font-family: 'Lato', sans-serif;
@@ -37,7 +37,7 @@ font-style: italic;
 }
 :hover.txt {
   color: transparent;
-  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  -webkit-text-stroke: .1px rgb(255, 255, 255);
   background: none;
 }
 

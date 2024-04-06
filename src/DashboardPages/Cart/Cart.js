@@ -169,6 +169,7 @@ const Cart = () => {
   }
   return (
     <div className="bg-[#1b1b1b]">
+            <ScrollToTopOnMount />
        <header className="custom-font text-center  text-white py-8 pt-12 from-[#a6adbb] bg-gradient-to-b bg-opacity-75">
         <h2 className="text-4xl mt-44 font-bold my-0 uppercase">
           YOUR CART
@@ -279,7 +280,7 @@ const Cart = () => {
                     </label>
                     <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="email"
                       required
-                      type="email" placeholder="faylaab@gmail.com" />
+                      type="email" placeholder="bliss@gmail.com" />
                   </div>
                 </div>
 
@@ -370,7 +371,7 @@ const Cart = () => {
                       Delivery Address*
                     </label>
                     <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="address"
-                      required placeholder="faylaab@gmail.com" />
+                      required placeholder="bliss@gmail.com" />
                   </div>
                 </div>
                 <div class="-mx-3 md:flex mb-6">
@@ -379,7 +380,7 @@ const Cart = () => {
                     Order Notes :
                     </label>
                     <textarea class=" h-24 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="note"
-                      required placeholder="faylaab@gmail.com" />
+                      required placeholder="bliss@gmail.com" />
                   </div>
                 </div>
               </div>
