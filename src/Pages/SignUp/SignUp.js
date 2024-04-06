@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Form.css";
 import { FaFacebookSquare, FaGooglePlus } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -93,9 +93,16 @@ const SignUp = () => {
       })
       .catch((error) => console.log(error));
   };
+  function ScrollToTopOnMount() {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
+    return null;
+  }
   return (
     <div>
+                  <ScrollToTopOnMount />
       <div className="relative flex ">
         <div className="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto w-full bg-[#1b1b1b]">
           <div className="md:flex md:items-center md:justify-center  md:h-full w-full lg:w-4/12 p-8  sm:rounded-lg md:rounded-none bg-white pt-48">

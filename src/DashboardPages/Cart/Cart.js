@@ -171,7 +171,7 @@ const Cart = () => {
     <div className="bg-[#1b1b1b]">
             <ScrollToTopOnMount />
        <header className="custom-font text-center  text-white py-8 pt-12 from-[#a6adbb] bg-gradient-to-b bg-opacity-75">
-        <h2 className="text-4xl mt-44 font-bold my-0 uppercase">
+        <h2 className="text-4xl mt-32 font-bold my-0 uppercase">
           YOUR CART
         </h2>
       </header>
@@ -180,17 +180,19 @@ const Cart = () => {
           {cartItems?.map((cartItem) => (
             <div className="rounded md:w-2/3 mx-auto" key={cartItem._id}>
               <div className="justify-between items-center mb-6 rounded bg-white lg:p-2 p-3 shadow-md flex">
+                <Link to={`/product/${cartItem._id}`} >
                 <img
                   src={cartItem.picture}
                   alt="product-image"
                   className="h-[270px] w-32 object-cover transition rounded-md duration-300  md:h-[130px] lg:h-[125px] xl:h-[125px]"
                   loading="lazy"
                 />
+                </Link>
                 <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between  lg:p-3  p-0  ">
                   <div className="sm:mt-0">
-                    <h2 className="text-lg text-start font-bold text-gray-900">
+                  <Link to={`/product/${cartItem._id}`} className="text-lg text-start font-bold text-gray-900">
                       {cartItem.name}
-                    </h2>
+                    </Link>
                     <p className="mt-1 text-start text-sm text-gray-700">
                       Size : {cartItem.size}
                     </p>
@@ -258,19 +260,19 @@ const Cart = () => {
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
                       Full Name*
                     </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text"
+                    <input class="appearance-none block w-full bg-gray-600 text-white border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text"
                       name="name"
                       required placeholder="Jane" />
-                    <p class="text-red text-xs italic">Please fill out this field.</p>
+                    <p class="text-red-500 text-xs italic">Please fill out this field.</p>
                   </div>
                   <div class="md:w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
                       Phone*
                     </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-last-name"
+                    <input class="appearance-none block w-full bg-gray-600 text-white border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-last-name"
                       name="phone"
                       required type="number" placeholder="+8801010101010" />
-                    <p class="text-red text-xs italic">Please fill out this field.</p>
+                    <p class="text-red-500 text-xs italic">Please fill out this field.</p>
                   </div>
                 </div>
                 <div class="-mx-3 md:flex mb-6">
@@ -278,19 +280,21 @@ const Cart = () => {
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
                       Email*
                     </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="email"
+                    <input class="appearance-none block w-full bg-gray-600 text-white border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="email"
                       required
                       type="email" placeholder="bliss@gmail.com" />
+                    <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+
                   </div>
                 </div>
 
 
                 <div class="-mx-3 md:flex mb-6">
                   <div class="md:w-full px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
+                    <label class="block uppercase tracking-wide  text-xs font-bold mb-2" for="grid-password">
                       Choose District*
                     </label>
-                    <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state" value={district}
+                    <select class="block appearance-none w-full border border-grey-lighter bg-gray-600 text-white py-3 px-4 pr-8 rounded" id="grid-state" value={district}
                       onChange={handleDistrictChange}
                       name="district"
                       type="text"
@@ -370,8 +374,8 @@ const Cart = () => {
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
                       Delivery Address*
                     </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="address"
-                      required placeholder="bliss@gmail.com" />
+                    <input class="appearance-none block w-full bg-gray-600 text-white border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="address"
+                      required placeholder="Street Address" />
                   </div>
                 </div>
                 <div class="-mx-3 md:flex mb-6">
@@ -379,8 +383,8 @@ const Cart = () => {
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
                     Order Notes :
                     </label>
-                    <textarea class=" h-24 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="note"
-                      required placeholder="bliss@gmail.com" />
+                    <textarea class=" h-24 appearance-none block w-full bg-gray-600 text-white border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" name="note"
+                      required placeholder="Your Message" />
                   </div>
                 </div>
               </div>

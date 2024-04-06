@@ -28,7 +28,7 @@ const ShopWomen = () => {
     <div className="pb-8 bg-[#1b1b1b]" >
       <ScrollToTopOnMount />
       <header className="custom-font text-center  text-white py-8 pt-12 from-[#a6adbb] bg-gradient-to-b bg-opacity-75">
-        <h2 className="text-4xl md:mt-44 mt-20 font-bold my-0 uppercase">
+        <h2 className="text-4xl md:mt-32 mt-20 font-bold my-0 uppercase">
           Shop Women
         </h2>
       </header>
