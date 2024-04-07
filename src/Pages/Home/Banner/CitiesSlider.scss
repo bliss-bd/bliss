@@ -8,7 +8,7 @@
 
 .txt {
   color: transparent;
-  -webkit-text-stroke: .1px #cfd5df;
+  -webkit-text-stroke: 1px #cfd5df;
   background: url(../../../assets/image.png);
   -webkit-background-clip: text;
   background-position: 0 -8px;
@@ -37,7 +37,7 @@ font-style: italic;
 }
 :hover.txt {
   color: transparent;
-  -webkit-text-stroke: .1px rgb(255, 255, 255);
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
   background: none;
 }
 
