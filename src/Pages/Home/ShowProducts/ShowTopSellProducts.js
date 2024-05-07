@@ -27,7 +27,7 @@ const ShowTopsellProducts = () => {
 
   return (
     <div className="border-none  bg-[#1b1b1b] ">
-      <div className="px-6 mx-0 pb-10 lg:px-8">
+      <div className="px-2 mx-0 pt-2 lg:px-8">
         {/* <div className="xl:w-1/2 w-11/12 mx-auto">
           <h1 className="text-center font-bold lg:text-4xl text-3xl text-[#98EECC] uppercase">
             Top Sells

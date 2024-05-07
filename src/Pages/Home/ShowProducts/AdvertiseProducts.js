@@ -22,7 +22,7 @@ const AdvertiseProducts = () => {
   }
   return (
     <div className="border-none bg-[#1b1b1b]">
-      <div className="px-6 mx-0 pt-2 lg:px-8">
+      <div className="px-2 mx-0 pt-2 lg:px-8">
         <Swiper
           slidesPerView={2}
           spaceBetween={10}

@@ -7,12 +7,12 @@ const NewDrop = ({ products }) => {
 
 
   return (
-    <div className="custom-font2 font-bold">
+    <div className="custom-font2 font-bold py-2" >
       <Link to={`/product/${_id}`} className="block overflow-hidden group">
         <img
           src={picture1}
           alt=""
-          className="h-[160px] w-full object-cover transition rounded-sm duration-300 group-hover:scale-125 md:h-[300px] lg:h-[340px] xl:h-[340px]"
+          className="h-[300px] w-full object-cover transition duration-300 group-hover:scale-125 md:h-[300px] lg:h-[340px] xl:h-[550px]"
           loading="lazy"
         />
 

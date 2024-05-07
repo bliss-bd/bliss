@@ -6,8 +6,17 @@
 .swiper-slide {
     font-size: 18px;
     color: #fff;
-    margin-top: 30px;
+    margin-top: 20px;
     /* margin-bottom: 40px; */
+}
+
+@media screen and (max-width: 768px) {
+    .swiper-slide {
+        font-size: 18px;
+        color: #fff;
+        margin-top: 0px;
+        /* margin-bottom: 40px; */
+    }
 }
 
 .parallax-bg {
