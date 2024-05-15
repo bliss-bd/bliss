@@ -31,19 +31,19 @@ const SignIn = () => {
       .then(error => console.error(error))
   }
 
-  // const saveUser = (name, email, photoURL) => {
-  //   const user = { name, email, photoURL };
-  //   fetch("https://bliss-bd.vercel.app/users ", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(user),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //     });
-  // };
+  const saveUser = (name, email, photoURL) => {
+    const user = { name, email, photoURL };
+    fetch("https://bliss-bd.vercel.app/users ", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+      });
+  };
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
@@ -52,7 +52,7 @@ const SignIn = () => {
           toast.success("Login Successful");
           navigate(from, { replace: true });
         }
-        // saveUser(user.displayName, user.email, user?.photoURL);
+        saveUser(user.displayName, user.email, user?.photoURL);
       })
       .catch((error) => console.log(error));
   };

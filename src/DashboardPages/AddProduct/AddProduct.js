@@ -144,29 +144,29 @@ console.log(images)
       time: combinedValue,
     };
     console.log(product)
-    // fetch("https://bliss-bd.vercel.app/allproducts", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(product),
-    // })
-    //   .then((data) => {
-    //     toast.success("Your Post Added", {
-    //       style: {
-    //         border: "1px solid #98EECC",
-    //         padding: "16px",
-    //         color: "#98EECC",
-    //       },
-    //       iconTheme: {
-    //         primary: "#98EECC",
-    //         secondary: "#FFFAEE",
-    //       },
-    //     });
-    //     navigate("/dashboard/allproducts");
-    //     form.reset();
-    //   })
-    //   .catch((error) => console.error(error));
+    fetch("https://bliss-bd.vercel.app/allproducts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((data) => {
+        toast.success("Your Post Added", {
+          style: {
+            border: "1px solid #98EECC",
+            padding: "16px",
+            color: "#98EECC",
+          },
+          iconTheme: {
+            primary: "#98EECC",
+            secondary: "#FFFAEE",
+          },
+        });
+        navigate("/dashboard/allproducts");
+        form.reset();
+      })
+      .catch((error) => console.error(error));
   };
 
 
