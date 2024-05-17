@@ -58,7 +58,7 @@ const Product = () => {
   }
   return (
     <div className="pb-8 bg-[#1b1b1b] ">
-      <ScrollToTopOnMount />
+
       <section className="text-white bg-[#1b1b1b] mb-12 lg:pt-44 pt-0">
         <div className="relative mx-auto max-w-screen md:px-8 px-4 py-8">
           <div className="my-4">

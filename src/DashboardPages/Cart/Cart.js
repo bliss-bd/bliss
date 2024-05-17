@@ -169,7 +169,6 @@ const Cart = () => {
   }
   return (
     <div className="bg-[#1b1b1b]">
-            <ScrollToTopOnMount />
        <header className="custom-font text-center  text-white py-8 pt-12 from-[#a6adbb] bg-gradient-to-b bg-opacity-75">
         <h2 className="text-4xl mt-32 font-bold my-0 uppercase">
           YOUR CART
